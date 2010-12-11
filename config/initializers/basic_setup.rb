@@ -19,7 +19,7 @@
 
 # Secret Token
 
-RecruitmentPlatform::Application.config.secret_token = Settings.session_key
+RecruitmentPlatform::Application.config.secret_token = Settings.secret_token
 
 # Session Store
 

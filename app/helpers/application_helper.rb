@@ -1,6 +1,7 @@
 module ApplicationHelper
   
-  def ie_tag(name=:body, attrs={}, &block)
+  def ie_html(attrs={}, &block)
+    name = :html
     attrs.symbolize_keys!
     haml_concat("<!--[if lt IE 7 ]> #{ tag(name, css_class('ie6', attrs), true) } <![endif]-->".html_safe)
     haml_concat("<!--[if IE 7 ]>    #{ tag(name, css_class('ie7', attrs), true) } <![endif]-->".html_safe)
