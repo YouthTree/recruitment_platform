@@ -1,0 +1,1 @@
+rvm use ree@recruitment_platform --create --install >/dev/null 2>&1
