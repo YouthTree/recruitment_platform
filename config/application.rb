@@ -10,7 +10,8 @@ module RecruitmentPlatform
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
     # config.time_zone = 'Central Time (US & Canada)'
     # config.i18n.default_locale = :de
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+    
+    config.action_view.javascript_expansions[:defaults] = %w(vendor/jquery vendor/rails)
     
     config.encoding           = "utf-8"
     config.time_zone          = Settings.time_zone
