@@ -12,7 +12,8 @@ module RecruitmentPlatform
     # config.i18n.default_locale = :de
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
     
-    config.encoding = "utf-8"
+    config.encoding           = "utf-8"
+    config.time_zone          = Settings.time_zone
     config.filter_parameters += [:password]
   end
 end

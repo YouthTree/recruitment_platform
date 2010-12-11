@@ -68,14 +68,12 @@ GEM
     bhm-google-maps (0.3.0)
     builder (2.1.2)
     cgi_multipart_eof_fix (2.5.0)
-    chunky_png (0.10.5)
     closure-compiler (0.3.3)
     coffee-script (2.1.1)
       coffee-script-source
     coffee-script-source (0.9.5)
-    compass (0.11.alpha.4)
-      chunky_png (~> 0.10.3)
-      sass (>= 3.1.0.alpha.50)
+    compass (0.10.5)
+      haml (>= 3.0.4)
     compass-960-plugin (0.10.0)
       compass (>= 0.10.0)
     compass-colors (0.3.1)
@@ -84,8 +82,9 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    fancy-buttons (1.0.4)
-      compass (>= 0.10.6)
+    fancy-buttons (1.0.1)
+      compass (>= 0.10.0)
+      haml (>= 3.0.2)
     fastthread (1.0.7)
     forgery (0.3.6)
     formtastic (1.2.2)
@@ -173,7 +172,6 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.2.0)
-    sass (3.1.0.alpha.200)
     show_for (0.2.3)
     shuriken (0.2.1)
     slugged (0.3.2)
@@ -215,7 +213,7 @@ DEPENDENCIES
   barista (>= 0.7.0.pre2)
   bhm-admin
   bhm-google-maps (~> 0.3)
-  compass
+  compass (= 0.10.5)
   compass-colors
   fancy-buttons
   forgery

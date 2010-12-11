@@ -12,7 +12,7 @@ gem 'json'
 
 gem 'haml-rails'
 gem 'haml'
-gem 'compass'
+gem 'compass', '0.10.5'
 gem 'compass-colors'
 gem 'fancy-buttons'
 
