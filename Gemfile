@@ -38,7 +38,7 @@ gem 'barista',           '>= 0.7.0.pre2'
 gem 'shuriken',          '~> 0.2'
 gem 'bhm-google-maps',   '~> 0.3'
 gem 'youthtree-js',      '~> 0.2'
-gem 'youthtree-helpers', '~> 0.1'
+gem 'youthtree-helpers', '~> 0.2'
 
 group :development do
   gem 'rails3-generators'

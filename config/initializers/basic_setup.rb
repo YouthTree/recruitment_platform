@@ -26,3 +26,10 @@ RecruitmentPlatform::Application.config.secret_token = Settings.secret_token
 RecruitmentPlatform::Application.config.session_store :cookie_store, :key => Settings.fetch(:session_key, '_recruitment_platform_session')
 
 
+BHM::Admin.site_name = "Recruitment Platform"
+
+Haml::Template.options[:format] = :html5
+
+Slugged::Slug.class_eval do
+  attr_accessible :slug, :scope, :record_id
+end

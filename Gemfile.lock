@@ -55,7 +55,7 @@ GEM
     autotest-growl (0.2.9)
     barista (0.7.0.pre3)
       coffee-script (~> 2.1.1)
-    bhm-admin (0.2.2)
+    bhm-admin (0.2.3)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
       compass-colors
@@ -191,9 +191,10 @@ GEM
     validation_reflection (1.0.0)
     youthtree-controller-ext (0.1.2)
       activesupport (>= 3.0.0.beta4)
-    youthtree-helpers (0.1.4)
+    youthtree-helpers (0.2.0)
       actionpack (~> 3.0.0.rc)
       activesupport (~> 3.0.0.rc)
+      formtastic (~> 1.2)
       youthtree-js
       youthtree-settings
     youthtree-js (0.4.1)
@@ -243,6 +244,6 @@ DEPENDENCIES
   validation_reflection
   will_paginate (~> 3.0.pre2)!
   youthtree-controller-ext
-  youthtree-helpers (~> 0.1)
+  youthtree-helpers (~> 0.2)
   youthtree-js (~> 0.2)
   youthtree-settings
