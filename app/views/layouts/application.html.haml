@@ -8,8 +8,15 @@
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
     = javascript_include_tag 'vendor/modernizr'
     = stylesheet_link_tag :all
+    -#= include_stylesheets(:base, :media => 'screen, projection')
     = csrf_meta_tag
+    = extra_head_content
 
   %body
-    = yield
-    = javascript_include_tag :defaults
+    %header= partial 'shared/header'
+    = flash_messages :alert, :notice
+    %section#content= yield
+    %header= partial 'shared/footer'
+    / JS at the bottom for speedy load times
+    = include_javascripts :base
+    = extra_footer_content

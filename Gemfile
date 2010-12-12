@@ -36,9 +36,10 @@ gem 'will_paginate', '~> 3.0.pre2', :git => gh('mislav', 'will_paginate'), :bran
 gem 'therubyracer'
 gem 'barista',           '>= 0.7.0.pre2'
 gem 'shuriken',          '~> 0.2'
-gem 'bhm-google-maps',   '~> 0.3'
 gem 'youthtree-js',      '~> 0.2'
 gem 'youthtree-helpers', '~> 0.2'
+
+gem 'jammit'
 
 group :development do
   gem 'rails3-generators'
