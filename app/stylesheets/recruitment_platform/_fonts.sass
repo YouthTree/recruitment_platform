@@ -1,0 +1,5 @@
+@import "compass/css3/font-face"
+
+=standard-font-face($name, $key, $webfont-key)
+  $webfont-path: "/fonts/#{$key}-webfont"
+  +font-face($name, font-files("#{$webfont-path}.woff", woff, "#{$webfont-path}.ttf", truetype, "#{$webfont-path}.svg##{$webfont-key}", svg), "#{$webfont-path}.eot")

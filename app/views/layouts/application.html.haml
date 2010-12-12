@@ -13,10 +13,11 @@
     = extra_head_content
 
   %body
-    %header= partial 'shared/header'
-    = flash_messages :alert, :notice
-    %section#content= yield
-    %header= partial 'shared/footer'
-    / JS at the bottom for speedy load times
-    = include_javascripts :base
-    = extra_footer_content
+    #container
+      %header#page-header= partial 'shared/header'
+      = flash_messages :alert, :notice
+      %section#content= yield
+      %header#page-footer= partial 'shared/footer'
+      / JS at the bottom for speedy load times
+      = include_javascripts :base
+      = extra_footer_content

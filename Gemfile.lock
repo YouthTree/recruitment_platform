@@ -214,7 +214,6 @@ DEPENDENCIES
   bhm-admin
   compass (= 0.10.5)
   compass-colors
-  fancy-buttons
   forgery
   formtastic (~> 1.2)
   haml

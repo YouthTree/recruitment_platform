@@ -14,7 +14,6 @@ gem 'haml-rails'
 gem 'haml'
 gem 'compass', '0.10.5'
 gem 'compass-colors'
-gem 'fancy-buttons'
 
 gem 'formtastic', '~> 1.2'
 gem 'validation_reflection'
