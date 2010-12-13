@@ -40,6 +40,10 @@ gem 'youthtree-helpers', '~> 0.2'
 
 gem 'jammit'
 
+gem 'carrierwave'
+
+gem 'validates_url_format_of'
+
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'
@@ -51,18 +55,21 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.1'
   gem 'machinist',   '>= 2.0.0.beta2', :require => nil
   gem 'forgery',                       :require => nil
+  # Guard basics
+  gem 'guard', :require => nil
+  gem 'guard-rspec', :require => nil
+  gem 'guard-passenger', :require => nil
 end
 
 group :test do
-  gem 'ZenTest'
   gem 'remarkable',              '>= 4.0.0.alpah4', :require => 'remarkable/core'
   gem 'remarkable_activerecord', '>= 4.0.0.alpah4', :require => 'remarkable/active_record'
   gem 'rr'
 end
 
 group :test_mac do
-  gem 'autotest-growl'
-  gem 'autotest-fsevent'
+  gem 'rb-fsevent', :require => false
+  gem 'growl', :require => false
 end
 
 group :staging, :production do
