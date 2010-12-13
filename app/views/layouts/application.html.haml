@@ -7,8 +7,7 @@
     %title= page_title
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
     = javascript_include_tag 'vendor/modernizr'
-    = stylesheet_link_tag :all
-    -#= include_stylesheets(:base, :media => 'screen, projection')
+    = include_stylesheets(:base, :media => 'screen, projection')
     = csrf_meta_tag
     = extra_head_content
 

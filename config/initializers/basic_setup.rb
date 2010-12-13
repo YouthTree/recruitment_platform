@@ -26,7 +26,7 @@ RecruitmentPlatform::Application.config.secret_token = Settings.secret_token
 RecruitmentPlatform::Application.config.session_store :cookie_store, :key => Settings.fetch(:session_key, '_recruitment_platform_session')
 
 
-BHM::Admin.site_name = "Recruitment Platform"
+BHM::Admin.site_name = "YouthTree RP"
 
 Haml::Template.options[:format] = :html5
 

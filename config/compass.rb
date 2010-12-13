@@ -1,5 +1,6 @@
 require 'ninesixty'
 require 'compass-colors'
+require 'fancy-buttons'
 require 'bhm/admin/compass_framework'
 
 # This configuration file works with both the Compass command line tool and within Rails.
