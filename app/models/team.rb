@@ -1,4 +1,17 @@
 class Team < ActiveRecord::Base
+  
+  attr_accessible :name, :website_url, :description
+  
+  validates_presence_of :name, :website_url, :description
+  
+  is_convertable :description
+  
+  # Use markdown as a standard markup format for content since it
+  # fufills the primary requirements in terms of copy paste etc.
+  def format
+    'markdown'
+  end
+  
 end
 
 # == Schema Information

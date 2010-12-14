@@ -3,14 +3,22 @@ require 'spec_helper'
 describe Team do
   
   context 'validations' do
-    
     it { should validate_presence_of :name, :website_url, :description }
-    
     it { should allow_values_for :website_url, 'http://google.com/', 'http://youthtree.org.au/something', 'http://some-random.web/test?page=index' }
-    
+  end
+  
+  context 'accessible attributes' do
+    it { should allow_mass_assignment_of :name, :website_url, :description }
+    it { should_not allow_mass_assignment_of :rendered_description, :cached_slug }
   end
   
   context 'content conversions' do
+    
+    it 'should have a format field that is always markdown' do
+      subject.should_not respond_to(:format=)
+      subject.format.should == 'markdown'
+    end
+    
   end
   
 end
