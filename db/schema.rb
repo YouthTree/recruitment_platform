@@ -10,7 +10,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212130819) do
+ActiveRecord::Schema.define(:version => 20101214143423) do
+
+  create_table "positions", :force => true do |t|
+    t.string   "title"
+    t.text     "short_description"
+    t.integer  "team_id"
+    t.boolean  "paid",                             :default => false
+    t.string   "duration"
+    t.decimal  "time_commitment"
+    t.text     "rendered_paid_description"
+    t.text     "rendered_general_description"
+    t.text     "rendered_position_description"
+    t.text     "rendered_application_description"
+    t.text     "general_description"
+    t.text     "position_description"
+    t.text     "application_description"
+    t.text     "paid_description"
+    t.datetime "published_at"
+    t.datetime "expires_at"
+    t.string   "cached_slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "positions", ["cached_slug"], :name => "index_positions_on_cached_slug"
 
   create_table "slugs", :force => true do |t|
     t.string   "scope"
