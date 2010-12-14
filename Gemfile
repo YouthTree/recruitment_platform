@@ -28,7 +28,7 @@ gem 'almost-happy'
 
 gem 'youthtree-settings'
 gem 'youthtree-controller-ext'
-gem 'bhm-admin', '~> 0.3.0'
+gem 'bhm-admin', '~> 0.3.1'
 
 gem 'will_paginate', '~> 3.0.pre2', :git => gh('mislav', 'will_paginate'), :branch => 'rails3'
 

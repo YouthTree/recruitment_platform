@@ -51,7 +51,7 @@ GEM
     arel (2.0.6)
     barista (0.7.0.pre3)
       coffee-script (~> 2.1.1)
-    bhm-admin (0.3.0)
+    bhm-admin (0.3.1)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
       compass-colors
@@ -222,7 +222,7 @@ DEPENDENCIES
   almost-happy
   annotate!
   barista (>= 0.7.0.pre2)
-  bhm-admin (~> 0.3.0)
+  bhm-admin (~> 0.3.1)
   carrierwave
   compass (= 0.10.5)
   compass-colors

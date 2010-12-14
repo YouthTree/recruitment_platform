@@ -1,0 +1,6 @@
+= form.inputs :name => 'Basic Details' do
+  = form.input :name
+  = form.input :website_url
+    
+= form.inputs :name => 'About this Team' do
+  ~ form.input :description, :as => :text, :input_html => {:rows => 8}

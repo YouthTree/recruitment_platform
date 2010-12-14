@@ -165,11 +165,11 @@ fieldset {
   margin-bottom: 20px;
 }
 
-/* line 7, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_flash.sass */
+/* line 7, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_flash.sass */
 #flash-messages {
   margin: 0;
 }
-/* line 9, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_flash.sass */
+/* line 9, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_flash.sass */
 #flash-messages p.flash {
   margin: 0 0 1em;
   padding: 0.5em;
@@ -183,7 +183,7 @@ fieldset {
   background-image: -moz-linear-gradient(top, #dcdcdc 0%, #aaaaaa 100%);
   background-image: linear-gradient(top, #dcdcdc 0%, #aaaaaa 100%);
 }
-/* line 16, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_flash.sass */
+/* line 16, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_flash.sass */
 #flash-messages p.flash.alert {
   border-color: #d54e55;
   background-color: #f2cacc;
@@ -192,7 +192,7 @@ fieldset {
   background-image: -moz-linear-gradient(top, #fcf3f3 0%, #e8a1a5 100%);
   background-image: linear-gradient(top, #fcf3f3 0%, #e8a1a5 100%);
 }
-/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_flash.sass */
+/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_flash.sass */
 #flash-messages p.flash.notice {
   border-color: #35ae41;
   background-color: #9be1a2;
@@ -202,234 +202,225 @@ fieldset {
   background-image: linear-gradient(top, #c2edc6 0%, #74d57e 100%);
 }
 
-/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic {
   margin: 0;
   padding: 0;
 }
-/* line 4, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 4, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic ul, form.formtastic ol, form.formtastic li, form.formtastic fieldset, form.formtastic legend, form.formtastic input, form.formtastic textarea, form.formtastic select, form.formtastic p {
   margin: 0;
   padding: 0;
 }
-/* line 7, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 7, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic fieldset {
   border: 0;
 }
-/* line 9, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 9, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic em, form.formtastic strong {
   font-style: normal;
   font-weight: normal;
 }
-/* line 12, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 12, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic ol, form.formtastic ul {
   list-style: none;
 }
-/* line 14, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 14, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic abbr, form.formtastic acronym {
   border: 0;
   font-variant: normal;
 }
-/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic input, form.formtastic textarea, form.formtastic select {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
 }
-/* line 21, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 21, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic input, form.formtastic textarea, form.formtastic select {
   font-size: 100%;
 }
-/* line 23, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 23, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic legend {
+  white-space: normal;
   color: black;
 }
-/* line 25, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic legend.label label {
-  width: 100%;
-}
-/* line 27, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset {
-  display: inline-block;
-}
-/* line 29, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset.buttons {
-  padding-left: 28%;
-}
-/* line 31, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset.buttons li {
-  float: left;
-  padding-right: 0.5em;
-}
-/* line 34, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-/* line 41, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-html form.formtastic fieldset {
-  display: block;
-}
-
-/* line 44, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-* html form.formtastic fieldset {
-  height: 1%;
-}
-
-/* line 47, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li {
-  margin-bottom: 1.5em;
-}
-/* line 49, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-/* line 56, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-html[xmlns] form.formtastic fieldset ol li {
-  display: block;
-}
-
-/* line 59, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-* html form.formtastic fieldset ol li {
-  height: 1%;
-}
-
-/* line 63, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li label {
-  display: block;
-  width: 25%;
-  margin-right: 3%;
-  float: left;
-  padding-top: 0.2em;
-}
-/* line 69, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li li label {
-  line-height: 100%;
-  padding-top: 0;
-  width: auto;
-  margin-right: 0;
-}
-/* line 74, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li li label input {
-  line-height: 100%;
-  vertical-align: middle;
-  margin-top: -0.1em;
-}
-/* line 78, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li fieldset {
-  position: relative;
-}
-/* line 80, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li fieldset legend {
-  position: absolute;
-  width: 28%;
-  padding-top: 0.1em;
-}
-/* line 84, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li fieldset legend span, form.formtastic fieldset ol li fieldset legend.label label {
-  position: absolute;
-}
-/* line 86, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li fieldset ol {
-  float: left;
-  width: 71%;
-  margin: 0;
-  padding: 0 0 0 28%;
-}
-/* line 91, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li fieldset ol li {
-  padding: 0;
-  border: 0;
-}
-/* line 95, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li p.inline-hints {
-  color: #666666;
-  margin: 0.5em 0 0 28%;
-}
-/* line 98, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li p.inline-errors {
+/* line 26, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic ul.errors {
   color: #cc0000;
-  margin: 0.5em 0 0 28%;
-}
-/* line 101, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li ul.errors {
-  color: #cc0000;
-  margin: 0.5em 0 0 28%;
+  margin: 0.5em 0 1.5em 25%;
   list-style: square;
 }
-/* line 105, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li ul.errors li {
+/* line 30, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic ul.errors li {
   padding: 0;
   border: none;
   display: list-item;
 }
-/* line 109, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.string input, form.formtastic fieldset ol li.password input, form.formtastic fieldset ol li.numeric input, form.formtastic fieldset ol li.text textarea {
-  width: 71%;
+/* line 34, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset {
+  overflow: auto;
 }
-/* line 111, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
+/* line 37, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset.buttons {
+  padding-left: 25%;
+}
+/* line 40, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset.buttons li {
+  float: left;
+  padding-right: 0.5em;
+}
+/* line 43, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li {
+  padding: 0.5em 0;
+  margin-top: -0.5em;
+  margin-bottom: 1em;
+  overflow: auto;
+}
+/* line 49, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li label {
+  display: block;
+  width: 25%;
+  float: left;
+  padding-top: 0.2em;
+}
+/* line 54, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li > li label {
+  line-height: 100%;
+  padding-top: 0;
+}
+/* line 57, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li > li label input {
+  line-height: 100%;
+  vertical-align: middle;
+  margin-top: -0.1em;
+}
+/* line 61, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li fieldset {
+  position: relative;
+}
+/* line 63, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li fieldset legend {
+  position: absolute;
+  width: 95%;
+  padding-top: 0.1em;
+  left: 0px;
+}
+/* line 68, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li fieldset legend span, form.formtastic fieldset > ol > li fieldset legend.label label {
+  position: absolute;
+}
+/* line 70, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li fieldset ol {
+  float: left;
+  width: 74%;
+  margin: 0;
+  padding: 0 0 0 25%;
+}
+/* line 75, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li fieldset ol li {
+  padding: 0;
+  border: 0;
+}
+/* line 79, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li p.inline-hints {
+  color: #666666;
+  margin: 0.5em 0 0 25%;
+}
+/* line 82, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li p.inline-errors {
+  color: #cc0000;
+  margin: 0.5em 0 0 25%;
+}
+/* line 85, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li ul.errors {
+  color: #cc0000;
+  margin: 0.5em 0 0 25%;
+  list-style: square;
+}
+/* line 89, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li ul.errors li {
+  padding: 0;
+  border: none;
+  display: list-item;
+}
+/* line 93, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.string input, form.formtastic fieldset > ol > li.password input, form.formtastic fieldset > ol > li.numeric input, form.formtastic fieldset > ol > li.email input, form.formtastic fieldset > ol > li.url input, form.formtastic fieldset > ol > li.phone input, form.formtastic fieldset > ol > li.search input {
+  width: 72%;
+}
+/* line 95, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.string input[size], form.formtastic fieldset > ol > li.password input[size], form.formtastic fieldset > ol > li.numeric input[size], form.formtastic fieldset > ol > li.email input[size], form.formtastic fieldset > ol > li.url input[size], form.formtastic fieldset > ol > li.phone input[size], form.formtastic fieldset > ol > li.search input[size], form.formtastic fieldset > ol > li.datetime_picker input[size], form.formtastic fieldset > ol > li.date_picker input[size] {
+  width: auto;
+  max-width: 72%;
+}
+/* line 98, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.text textarea {
+  width: 72%;
+}
+/* line 100, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.text textarea[cols] {
+  width: auto;
+  max-width: 72%;
+}
+/* line 103, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
 form.formtastic fieldset ol li.hidden {
   display: none;
 }
-/* line 113, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.boolean label {
-  padding-left: 28%;
+/* line 106, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.boolean label {
+  padding-left: 25%;
   width: auto;
 }
-/* line 116, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.boolean label input {
+/* line 109, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.boolean label input {
   margin: 0 0.5em 0 0.2em;
 }
-/* line 118, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.radio fieldset ol, form.formtastic fieldset ol li.check_boxes fieldset ol {
-  margin-bottom: -0.6em;
+/* line 111, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset, form.formtastic fieldset > ol > li.check_boxes fieldset {
+  overflow: visible;
 }
-/* line 120, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.radio fieldset ol li, form.formtastic fieldset ol li.check_boxes fieldset ol li {
+/* line 113, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol, form.formtastic fieldset > ol > li.check_boxes fieldset ol {
+  margin-bottom: -0.5em;
+}
+/* line 115, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol li, form.formtastic fieldset > ol > li.check_boxes fieldset ol li {
   margin: 0.1em 0 0.5em 0;
+  overflow: visible;
 }
-/* line 122, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.radio fieldset ol li label, form.formtastic fieldset ol li.check_boxes fieldset ol li label {
+/* line 118, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol li label, form.formtastic fieldset > ol > li.check_boxes fieldset ol li label {
   float: none;
   width: 100%;
 }
-/* line 125, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.radio fieldset ol li label input, form.formtastic fieldset ol li.check_boxes fieldset ol li label input {
+/* line 121, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol li label input, form.formtastic fieldset > ol > li.check_boxes fieldset ol li label input {
   margin-right: 0.2em;
 }
-/* line 127, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.date fieldset ol li, form.formtastic fieldset ol li.time fieldset ol li, form.formtastic fieldset ol li.datetime fieldset ol li, form.formtastic fieldset ol li.dob fieldset ol li {
+/* line 123, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.date fieldset ol li, form.formtastic fieldset > ol > li.time fieldset ol li, form.formtastic fieldset > ol > li.datetime fieldset ol li {
   float: left;
   width: auto;
   margin: 0 0.3em 0 0;
 }
-/* line 131, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.date fieldset ol li label, form.formtastic fieldset ol li.time fieldset ol li label, form.formtastic fieldset ol li.datetime fieldset ol li label, form.formtastic fieldset ol li.dob fieldset ol li label {
+/* line 127, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.date fieldset ol li label, form.formtastic fieldset > ol > li.time fieldset ol li label, form.formtastic fieldset > ol > li.datetime fieldset ol li label {
   display: none;
 }
-/* line 133, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_formtastic.sass */
-form.formtastic fieldset ol li.date fieldset ol li label input, form.formtastic fieldset ol li.time fieldset ol li label input, form.formtastic fieldset ol li.datetime fieldset ol li label input, form.formtastic fieldset ol li.dob fieldset ol li label input {
+/* line 129, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_formtastic.sass */
+form.formtastic fieldset > ol > li.date fieldset ol li label input, form.formtastic fieldset > ol > li.time fieldset ol li label input, form.formtastic fieldset > ol > li.datetime fieldset ol li label input {
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-/* line 3, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_grid.sass */
+/* line 3, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_grid.sass */
 #container {
   margin-left: auto;
   margin-right: auto;
   width: 960px;
 }
-/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_grid.sass */
+/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_grid.sass */
 #container #header-logo, #container #header-menu, #container footer, #container #content, #container #sidebar, #container #flash-messages {
   display: inline;
   float: left;
@@ -437,43 +428,43 @@ form.formtastic fieldset ol li.date fieldset ol li label input, form.formtastic 
   margin-right: 10px;
 }
 
-/* line 8, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_grid.sass */
+/* line 8, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_grid.sass */
 #header-logo {
   width: 180px;
 }
 
-/* line 11, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_grid.sass */
+/* line 11, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_grid.sass */
 #header-menu {
   width: 740px;
 }
 
-/* line 14, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_grid.sass */
+/* line 14, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_grid.sass */
 #content {
   width: 740px;
 }
 
-/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_grid.sass */
+/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_grid.sass */
 #sidebar {
   width: 180px;
 }
 
-/* line 20, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_grid.sass */
+/* line 20, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_grid.sass */
 footer, #flash-messages {
   width: 940px;
 }
 
-/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
 
-/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 h2 {
   margin: 0 0 0.5em;
 }
 
-/* line 8, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 8, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 .statistic {
   border: 0.1em solid #dddddd;
   background: #f9f9f9;
@@ -485,38 +476,38 @@ h2 {
   -khtml-border-radius: 1em;
   border-radius: 1em;
 }
-/* line 13, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 13, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 .statistic h3 {
   margin: 0.5em 0 0;
 }
-/* line 15, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 15, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 .statistic img {
   margin: 0.5em auto 1em;
 }
 
-/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 .pagination {
   text-align: center;
   margin: 1em 0;
   color: #333333;
 }
-/* line 23, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 23, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 .pagination span, .pagination a, .pagination em {
   font-weight: bold;
   background: #eeeeee;
   padding: 0.3em 0.5em;
   margin: 0 0.5em;
 }
-/* line 29, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 29, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 .pagination em {
   color: black;
 }
-/* line 31, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_general.sass */
+/* line 31, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_general.sass */
 .pagination span {
   color: #aaaaaa;
 }
 
-/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_header.sass */
+/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_header.sass */
 header {
   background: #333333;
   margin: 0 0 1.5em 0;
@@ -543,7 +534,7 @@ header {
   *zoom: 1;
 }
 
-/* line 10, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_header.sass */
+/* line 10, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_header.sass */
 #header-logo h1 {
   font-weight: bold;
   color: white;
@@ -552,23 +543,23 @@ header {
   text-shadow: 0 0 2px black;
 }
 
-/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_header.sass */
+/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_header.sass */
 #header-menu {
   text-align: right;
 }
 
-/* line 20, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_header.sass */
+/* line 20, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_header.sass */
 #header-menu ul {
   padding: 0;
   margin: 0.8em 1.5em 0 0;
 }
-/* line 23, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_header.sass */
+/* line 23, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_header.sass */
 #header-menu ul li {
   padding: 0px;
   display: inline;
   margin: 0 0 0 1em !important;
 }
-/* line 27, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_header.sass */
+/* line 27, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_header.sass */
 #header-menu ul li a {
   vertical-align: middle;
   font-size: 1.25em;
@@ -584,13 +575,13 @@ header {
 #header-menu ul li a:hover {
   text-decoration: underline;
 }
-/* line 33, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_header.sass */
+/* line 33, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_header.sass */
 #header-menu ul li a#view-site-link {
   font-size: 1em;
   color: #cccccc;
 }
 
-/* line 2, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_sidebar.sass */
+/* line 2, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_sidebar.sass */
 section#sidebar ul.sidebar-menu {
   list-style: none;
 }
@@ -600,7 +591,7 @@ section#sidebar ul.sidebar-menu li {
   list-style-type: none;
   margin-left: 0px;
 }
-/* line 4, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_sidebar.sass */
+/* line 4, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_sidebar.sass */
 section#sidebar ul.sidebar-menu li a {
   color: inherit;
   text-decoration: inherit;
@@ -628,7 +619,7 @@ section#sidebar ul.sidebar-menu li a {
 section#sidebar ul.sidebar-menu li a:active, section#sidebar ul.sidebar-menu li a:focus {
   outline: none;
 }
-/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_sidebar.sass */
+/* line 17, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_sidebar.sass */
 section#sidebar ul.sidebar-menu li a:hover, section#sidebar ul.sidebar-menu li a:active {
   background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0%, #333333), color-stop(100%, #555555));
   background-image: -moz-linear-gradient(bottom, #333333 0%, #555555 100%);
@@ -636,18 +627,18 @@ section#sidebar ul.sidebar-menu li a:hover, section#sidebar ul.sidebar-menu li a
   color: white;
   border-color: #111111;
 }
-/* line 21, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_sidebar.sass */
+/* line 21, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_sidebar.sass */
 section#sidebar h2 {
   text-align: center;
 }
 
-/* line 2, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 2, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table {
   width: 100%;
   border-left: 0.1em solid #999999;
   border-right: 0.1em solid #999999;
 }
-/* line 7, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 7, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table thead tr th {
   border-top: 0.1em solid #999999;
   border-bottom: 0.1em solid #999999;
@@ -661,34 +652,34 @@ section#sidebar h2 {
   background-image: linear-gradient(bottom, #555555 0%, #777777 100%);
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody tr.empty {
   background: #eeeeee;
   color: #333333;
 }
-/* line 21, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 21, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody tr.empty td {
   padding: 1em;
   text-align: center;
 }
-/* line 24, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 24, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody tr.odd {
   background: #f9f9f9;
 }
-/* line 26, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 26, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody tr.even {
   background: #f0f0f0;
 }
-/* line 28, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 28, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody td {
   border-bottom: 0.1em solid #999999;
   padding: 0.4em;
 }
-/* line 31, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 31, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody td.actions {
   text-align: right;
 }
-/* line 33, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 33, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody td.actions ul {
   list-style-type: none;
 }
@@ -698,11 +689,11 @@ section#sidebar h2 {
   padding: 0px;
   display: inline;
 }
-/* line 35, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 35, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody td.actions ul li {
   margin: 0 0.5em;
 }
-/* line 37, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 37, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody td.actions ul a {
   text-decoration: none;
   color: #2e5499;
@@ -716,11 +707,11 @@ section#sidebar h2 {
 #content table tbody td.actions ul a:hover {
   color: #993a3f;
 }
-/* line 41, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 41, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content table tbody span.default-value {
   color: #666666;
 }
-/* line 43, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 43, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl {
   font-size: 1.2em;
   width: 100%;
@@ -728,7 +719,7 @@ section#sidebar h2 {
   *zoom: 1;
   border-bottom: 0.1em solid #999999;
 }
-/* line 48, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 48, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dt {
   font-weight: bold;
   margin: 0;
@@ -739,7 +730,7 @@ section#sidebar h2 {
   width: 150px;
   text-align: right;
 }
-/* line 57, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 57, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dd {
   border-top: 0.1em solid #999999;
   width: 550px;
@@ -747,38 +738,38 @@ section#sidebar h2 {
   padding: 5px 10px;
   float: left;
 }
-/* line 63, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 63, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dd ol, #content dl dd ul {
   margin: 0;
 }
-/* line 65, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 65, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dd ol li, #content dl dd ul li {
   list-style-position: inside;
   margin: 0;
   padding: 0;
 }
-/* line 69, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 69, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dd ol li.empty, #content dl dd ul li.empty {
   list-style: none;
   margin: 0;
   color: #666666;
 }
-/* line 73, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 73, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dd ol li {
   list-style-type: upper-alpha;
 }
-/* line 75, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 75, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dt.question {
   width: 300px;
   font-size: 0.9em;
 }
-/* line 78, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_listing.sass */
+/* line 78, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_listing.sass */
 #content dl dd.answer {
   width: 400px;
   font-size: 0.9em;
 }
 
-/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_footer.sass */
+/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_footer.sass */
 footer {
   text-align: center;
   color: #888888;
@@ -786,31 +777,31 @@ footer {
   padding: 2.5em 0 0.5em;
 }
 
-/* line 2, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 2, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic > fieldset.inputs {
   margin: 0 0 1em;
   padding: 1em 0 0;
 }
-/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic > fieldset.inputs > legend {
   font-size: 1.2em;
   font-weight: bold;
 }
-/* line 8, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 8, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic > fieldset.inputs label {
   font-weight: bold;
   color: #444444;
 }
-/* line 11, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 11, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic > fieldset.inputs label abbr.required {
   color: #992025;
 }
-/* line 13, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 13, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic > fieldset.inputs ol li ol li label {
   font-weight: normal;
   color: #111111;
 }
-/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 18, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic fieldset.buttons ol li button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -859,11 +850,11 @@ form.formtastic fieldset.buttons ol li button:active {
 form.formtastic fieldset.buttons ol li button:active, form.formtastic fieldset.buttons ol li button:active:visited {
   color: white;
 }
-/* line 20, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 20, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic span.cke_skin_kama {
   margin-left: 28%;
 }
-/* line 22, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 22, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 form.formtastic p.actions {
   background: #eeeeee;
   border: 0.1em solid #cccccc;
@@ -871,32 +862,32 @@ form.formtastic p.actions {
   margin: -1em 0 1em;
 }
 
-/* line 28, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 28, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 .resource-base-errors {
   font-size: 1.1em;
   margin: 0.5em 0 1em;
 }
-/* line 31, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 31, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 .resource-base-errors p {
   color: #712b22;
   font-weight: bold;
   margin-bottom: 0;
 }
-/* line 35, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 35, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 .resource-base-errors ul {
   color: #993c39;
   line-height: 1.5em;
   margin: 0;
   padding: 0;
 }
-/* line 40, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_forms.sass */
+/* line 40, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_forms.sass */
 .resource-base-errors ul li {
   margin: 0;
   padding: 0;
   list-style: inside;
 }
 
-/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_content.sass */
+/* line 1, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_content.sass */
 a {
   text-decoration: none;
   color: #3a5799;
@@ -910,14 +901,14 @@ a:hover {
   color: #992227;
 }
 
-/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_content.sass */
+/* line 5, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_content.sass */
 .content-preview {
   padding: 1em;
   border: 0.2em solid #cccccc;
   background: #eeeeee;
   font-size: 0.75em;
 }
-/* line 10, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.2.3/compass/stylesheets/bhm/admin/_content.sass */
+/* line 10, ../../../../../.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/bhm-admin-0.3.1/compass/stylesheets/bhm/admin/_content.sass */
 .content-preview p {
   margin: 0.5em 0;
 }

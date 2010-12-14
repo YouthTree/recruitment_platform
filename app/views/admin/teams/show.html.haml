@@ -1,0 +1,10 @@
+%h2.title Viewing #{current_resource_name}
+
+= show_for resource do |r|
+  
+  = r.attribute :name
+  
+  = r.attribute :website_url
+  
+  = r.attribute :description do
+    .content-preview= resource.description_as_html
