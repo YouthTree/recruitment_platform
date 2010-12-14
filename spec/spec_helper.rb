@@ -9,4 +9,6 @@ RSpec.configure do |config|
   config.mock_with :rr
   config.use_transactional_fixtures = true
   config.include MassAssignmentMatcher, :type => :model
+  
+  config.before(:each) { Machinist.reset_before_test }
 end

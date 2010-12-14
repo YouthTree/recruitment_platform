@@ -24,6 +24,10 @@ module MassAssignmentMatcher
       "expected #{@model.inspect} to not allow mass assignment of #{@assigned.join(", ")} but it did."
     end
     
+    def description
+      "allow mass assignment of #{@attributes.to_sentence}"
+    end
+    
   end
   
   def allow_mass_assignment_of(*args)

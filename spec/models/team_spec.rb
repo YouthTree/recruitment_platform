@@ -21,6 +21,19 @@ describe Team do
     
   end
   
+  context 'slug generation' do
+    
+    it 'should automatically generate the slug' do
+      Team.make!(:name => 'Big Help Mob').to_param.should == 'big-help-mob'
+    end
+    
+    it 'should generate sequential slugs' do
+      Team.make!(:name => 'something').to_param.should == 'something'
+      Team.make!(:name => 'something').to_param.should == 'something--1'
+    end
+    
+  end
+  
 end
 
 # == Schema Information

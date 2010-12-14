@@ -9,6 +9,7 @@ class CreateTeams < ActiveRecord::Migration
       t.string :logo
       t.timestamps
     end
+    add_index :teams, :cached_slug
   end
 
   def self.down
