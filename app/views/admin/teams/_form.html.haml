@@ -3,4 +3,4 @@
   = form.input :website_url
     
 = form.inputs :name => 'About this Team' do
-  ~ form.input :description, :as => :text, :input_html => {:rows => 8}
+  ~ form.input :description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference')

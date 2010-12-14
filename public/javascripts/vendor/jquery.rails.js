@@ -98,6 +98,19 @@ jQuery(function ($) {
         $(this).callRemote();
         e.preventDefault();
     });
+    
+    /**
+     * Pop up
+     *
+     */
+     
+    $('a[data-popup]').live('click.rails', function(e) {
+      e.preventDefault();
+      var input = $(this);
+      var parts = input.data('popup').split(' ', 2);
+      window.open(this.href, '/' + parts[0], parts[1]);
+      
+    });
 
     /**
      * <%= link_to "Delete", user_path(@user), :method => :delete, :confirm => "Are you sure?" %>
