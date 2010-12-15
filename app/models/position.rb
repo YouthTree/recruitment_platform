@@ -13,6 +13,10 @@ class Position < ActiveRecord::Base
   attr_accessible :title, :short_description, :paid, :duration, :time_commitment, :paid_description, :team_id,
                   :general_description, :position_description, :applicant_description, :published_at, :expires_at
   
+  def self.expired
+    where 'expires_at <= ?', Time.now
+  end
+  
   def expired?
     expires_at.present? && expires_at < Time.now
   end
