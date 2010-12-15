@@ -11,7 +11,8 @@ guard 'rspec', :version => 2 do
   # watch('^lib/(.*)\.rb')                              { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('^config/routes.rb')                          { "spec/routing" }
   watch('^app/controllers/application_controller.rb') { "spec/controllers" }
-  watch('^spec/factories.rb')                         { "spec/models" }
+  watch('^spec/support/blueprints.rb')                { "spec/models" }
+  watch('^spec/support/mass_assignment_matcher.rb')   { "spec/models" }
 end
 
 guard 'passenger', :standalone => false do

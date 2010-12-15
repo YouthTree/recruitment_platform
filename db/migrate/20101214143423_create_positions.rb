@@ -11,10 +11,10 @@ class CreatePositions < ActiveRecord::Migration
       t.text :rendered_paid_description
       t.text :rendered_general_description
       t.text :rendered_position_description
-      t.text :rendered_application_description
+      t.text :rendered_applicant_description
       t.text :general_description
       t.text :position_description
-      t.text :application_description
+      t.text :applicant_description
       t.text :paid_description
       # Track when it goes live / expires
       t.datetime :published_at

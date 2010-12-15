@@ -53,8 +53,8 @@ end
 group :test, :development do
   gem 'rspec',       '~> 2.1'
   gem 'rspec-rails', '~> 2.1'
-  gem 'machinist',   '>= 2.0.0.beta2', :require => nil
-  gem 'forgery',                       :require => nil
+  gem 'machinist',   '>= 2.0.0.beta2', :require => 'machinist/active_record'
+  gem 'forgery',                       :require => 'forgery'
   # Guard basics
   gem 'guard', :require => nil
   gem 'guard-rspec', :require => nil
