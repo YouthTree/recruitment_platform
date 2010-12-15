@@ -15,7 +15,7 @@ RecruitmentPlatform.withNS 'Flash', (ns) ->
     
   ns.attachClickEvents = ->
     $("#{ns.parentSelector} #{ns.insideSelector}").click ->
-      ns.hideFlash(@)
+      ns.hideFlash @
       false
     
   ns.setup = ->
