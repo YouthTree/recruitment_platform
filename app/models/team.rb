@@ -7,6 +7,8 @@ class Team < ActiveRecord::Base
   
   validates_presence_of :name, :website_url, :description
   
+  has_many :positions
+  
   # Use markdown as a standard markup format for content since it
   # fufills the primary requirements in terms of copy paste etc.
   def format

@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Team do
   
+  context 'associations' do
+    it { should have_many :positions }
+  end
+  
   context 'validations' do
     it { should validate_presence_of :name, :website_url, :description }
     it { should allow_values_for :website_url, 'http://google.com/', 'http://youthtree.org.au/something', 'http://some-random.web/test?page=index' }
