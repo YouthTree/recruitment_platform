@@ -1,0 +1,31 @@
+---
+default:
+  secret_token: 'some-secret-token-here'
+  time_zone: 'Australia/Perth'
+  session_key: 'rp-session'
+production:
+  mailer:
+    contact_email: "hello@youthtree.org.au"
+    from: "noreply@youthtree.org.au"
+    host: "positions.youthtree.org.au"
+    delivery_method: smtp
+    smtp_settings:
+      address: smtp.gmail.com
+      port: 587
+      authentication: plain
+      enable_starttls_auto: true
+      domain: youthtree.org.au
+      user_name: user@youthtree.org.au
+      password: yourpassword
+development:
+  mailer:
+    contact_email: "your-email@your-email.com"
+    from: "test@rp.local"
+    host: "rp.local"
+    delivery_method: sendmail
+test:
+  mailer:
+    contact_email: "example@example.com"
+    from: "example@example.com"
+    host: "example.com"
+    delivery_method: test

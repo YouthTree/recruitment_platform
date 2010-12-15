@@ -1,0 +1,31 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: recruitment_platform_development
+  user: recruitment_platform
+  password:
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: recruitment_platform_test
+  user: recruitment_platform
+  password:
+
+staging:
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: recruitment_platform_staging
+  user: recruitment_platform
+  password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: recruitment_platform_production
+  user: recruitment_platform
+  password:
+
+cucumber:
+  <<: *TEST

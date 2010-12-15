@@ -1,0 +1,22 @@
+javascript_compressor: yui
+javascripts:
+  base:
+    - public/javascripts/vendor/jquery.js
+    - public/javascripts/vendor/jquery.rails.js
+    - public/javascripts/vendor/shuriken/**/*.js
+    - public/javascripts/vendor/youthtree/youth_tree.js
+    - public/javascripts/recruitment_platform.js
+    - public/javascripts/recruitment_platform/flash.js
+  admin:
+    - public/javascripts/vendor/jquery.js
+    - public/javascripts/vendor/jquery.rails.js
+    - public/javascripts/vendor/shuriken/**/*.js
+    - public/javascripts/vendor/youthtree/youth_tree.js
+    - public/javascripts/recruitment_platform.js
+    - public/javascripts/recruitment_platform/flash.js
+    - public/javascripts/recruitment_platform/admin.js
+stylesheets:
+  base:
+    - public/stylesheets/recruitment_platform.css
+  admin:
+    - public/stylesheets/recruitment_platform-admin.css
