@@ -190,6 +190,8 @@ GEM
       activerecord (~> 3.0.0)
       activesupport (~> 3.0.0)
       uuid
+    slurper (0.4.3)
+      activeresource (>= 2.3.5)
     stringex (1.2.0)
     therubyracer (0.8.0)
     thor (0.14.6)
@@ -252,6 +254,7 @@ DEPENDENCIES
   show_for
   shuriken (~> 0.2)
   slugged
+  slurper
   stringex
   therubyracer
   title_estuary

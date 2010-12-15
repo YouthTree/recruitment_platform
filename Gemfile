@@ -48,6 +48,7 @@ group :development do
   gem 'rails3-generators'
   gem 'mongrel'
   gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil
+  gem 'slurper', :require => nil
 end
 
 group :test, :development do
