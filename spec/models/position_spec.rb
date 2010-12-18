@@ -118,7 +118,27 @@ describe Position do
 
   end
 
+  context 'getting the status of a position' do
 
+    it 'should be published when published and unexpired' do
+      stub(subject).published? { true }
+      stub(subject).expired?   { false }
+      subject.status.should == :published
+    end
+
+    it 'should be expired when when published and expired' do
+      stub(subject).published? { true }
+      stub(subject).expired?   { true }
+      subject.status.should == :expired
+    end
+
+    it 'should be draft when not published' do
+      stub(subject).published? { false }
+      stub(subject).expired?   { false }
+      subject.status.should == :draft
+    end
+
+  end
 
 end
 

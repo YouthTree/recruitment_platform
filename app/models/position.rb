@@ -29,6 +29,16 @@ class Position < ActiveRecord::Base
     expires_at.present? && expires_at <= Time.now
   end
   
+  def status
+    if !published?
+      :draft
+    elsif expired?
+      :expired
+    else
+      :published
+    end
+  end
+
   def format
     'markdown'
   end
