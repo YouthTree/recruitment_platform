@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   
-  VALID_TYPES = %w(date_time short_text text multiple_choice check_boxes select scale)
+  VALID_TYPES      = %w(date_time short_text text multiple_choice check_boxes select scale)
+  COLLECTION_TYPES = %w(multiple_choice check_boxes select)
   
   FIELD_TYPE_MAPPING = {
     'date_time'       => :datetime_picker,
@@ -52,13 +53,15 @@ class Question < ActiveRecord::Base
   def to_formtastic_options(answer)
     options = {:label => question, :as => FIELD_TYPE_MAPPING[question_type]}
     options[:hint] = hint if hint.present?
-    if %w(multiple_choice check_boxes select).include?(question_type)
-      options[:collection] = Array(metadata).flatten
-    end
+    options[:collection] = Array(metadata).flatten if has_collection?
     if answer.respond_to?(:required)
       options[:required] = (answer.required.nil? ? required_by_default : answer.required)
     end
     options
+  end
+
+  def has_collection?
+    COLLECTION_TYPES.include?(question_type)
   end
 
   VALID_TYPES.each do |type|

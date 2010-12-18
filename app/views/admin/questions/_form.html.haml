@@ -1,0 +1,17 @@
+= form.inputs "Basic Details" do
+
+  = form.input :question, :hint => 'How the user is asked for the data'
+
+  = form.input :short_name, :hint => 'The name of the actual piece of data you need to collect'
+
+  = form.input :hint, :hint => 'Shown below the question in forms', :input_html => {:rows => 2}
+
+  = form.input :required_by_default, :as => :boolean, :label => 'This question is required by default.'
+
+  = form.input :default_value, :as => :string, :label => "What is the default answer?"
+
+= form.inputs "Question Details" do
+
+  = form.input :question_type, :collection => Question.types_for_select, :as => :select, :label => 'Type of question'
+
+  = form.input :editable_metadata, :as => :text, :input_html => {:rows => 5}, :label => 'Options', :hint => 'Format as one option per line.'

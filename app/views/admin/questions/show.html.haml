@@ -1,0 +1,22 @@
+%h2.title Viewing Question: #{h resource.question}
+
+= show_for resource do |r|
+
+  = r.attribute :question
+
+  = r.attribute :short_name
+
+  = r.attribute :question_type, :label => 'Type of question'
+
+  = r.attribute :hint, :if_blank => "No hint used for this question."
+
+  = r.attribute :default_value
+
+  = r.attribute :required_by_default
+
+  - if resource.has_collection?
+
+    = r.attribute :metadata, :label => 'Options' do
+      %ul#question-options
+        - Array(resource.metadata).flatten.each do |i|
+          %li= i

@@ -29,6 +29,28 @@ describe Question do
       should_not allow_values_for :question_type, 1, :a_symbol, 'something-else', Object.new, nil, "", 'another'
     end
     
+    context 'with collections' do
+
+      Question::COLLECTION_TYPES.each do |type|
+
+        it "should have a collection #{type}" do
+          subject.question_type = type
+          subject.has_collection?.should be_true
+        end
+
+      end
+
+      (Question::VALID_TYPES - Question::COLLECTION_TYPES).each do |type|
+
+        it "should not have a collection for #{type}" do
+          subject.question_type = type
+          subject.has_collection?.should be_false
+        end
+
+      end
+
+    end
+
     Question::VALID_TYPES.each do |type|
       
       it "should consider #{type} a valid type" do
@@ -42,13 +64,13 @@ describe Question do
       it "should correctly detect the question type for #{type}?" do
         m = "be_#{type}".to_sym
         subject.question_type = nil
-        subject.should_not send(m)
+        should_not send(m)
         (Question::VALID_TYPES - [type]).each do |t|
           subject.question_type = t
-          subject.should_not send(m)
+          should_not send(m)
         end
         subject.question_type = type
-        subject.should send(m)
+        should send(m)
       end
 
     end

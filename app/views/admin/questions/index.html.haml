@@ -1,0 +1,21 @@
+%h2.title Viewing all #{current_resource_name.pluralize}
+
+= will_paginate collection
+
+%table
+  %thead
+    %tr
+      %th Question
+      %th Short Name
+      %th Question Type
+      %th &nbsp;
+  %tbody
+    - collection.each do |r|
+      %tr{:class => cycle('odd', 'even')}
+        %td= link_to r.question, [:admin, r]
+        %td= r.short_name
+        %td= r.human_question_type
+        %td.actions= individual_resource_links r
+    = empty_row_for_collection 3
+
+= will_paginate collection
