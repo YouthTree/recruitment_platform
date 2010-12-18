@@ -1,4 +1,6 @@
 class Position < ActiveRecord::Base
+  include MarkdownFormattedModel
+
   belongs_to :team
   
   is_sluggable   :title
@@ -45,10 +47,6 @@ class Position < ActiveRecord::Base
 
   def humanised_status
     I18n.t status, :scope => 'ui.position_status', :default => status.to_s.humanize
-  end
-
-  def format
-    'markdown'
   end
   
   protected

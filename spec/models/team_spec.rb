@@ -16,14 +16,7 @@ describe Team do
     it { should_not allow_mass_assignment_of :rendered_description, :cached_slug }
   end
   
-  context 'content conversions' do
-    
-    it 'should have a format field that is always markdown' do
-      subject.should_not respond_to(:format=)
-      subject.format.should == 'markdown'
-    end
-    
-  end
+  it_should_behave_like 'a markdown formatted model'
   
   context 'slug generation' do
     

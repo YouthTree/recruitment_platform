@@ -5,7 +5,6 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module RecruitmentPlatform
   class Application < Rails::Application
-    # config.autoload_paths += %W(#{config.root}/extras)
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
     # config.time_zone = 'Central Time (US & Canada)'
@@ -16,5 +15,6 @@ module RecruitmentPlatform
     config.encoding           = "utf-8"
     config.time_zone          = Settings.time_zone
     config.filter_parameters += [:password]
+    config.autoload_paths    += %W(#{config.root}/lib)
   end
 end
