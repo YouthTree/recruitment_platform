@@ -3,10 +3,19 @@ require 'spec_helper'
 describe Position do
   
   context 'associations' do
+
     it { should belong_to :team }
+
+    it { should have_many :position_questions }
+
+    it { should have_many :questions, :through => :position_questions }
+
+    it { should accept_nested_attributes_for :position_questions }
+
   end
   
   context 'validations' do
+
     it { should validate_presence_of :title, :short_description, :duration, :time_commitment, :team, :general_description, :position_description, :applicant_description }
 
     it 'should not require the paid description when unpaid' do
@@ -28,7 +37,7 @@ describe Position do
   end
   
   context 'accessible attributes' do
-    it { should allow_mass_assignment_of :title, :short_description, :duration, :time_commitment, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid }
+    it { should allow_mass_assignment_of :title, :short_description, :duration, :time_commitment, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid, :position_questions_attributes }
     it { should_not allow_mass_assignment_of :rendered_paid_description, :rendered_general_description, :rendered_position_description, :rendered_applicant_description }
   end
   

@@ -19,6 +19,9 @@ class Question < ActiveRecord::Base
 
   attr_accessible :editable_metadata, :question, :short_name, :question_type, :hint, :default_value, :required_by_default
 
+  has_many :position_questions, :dependent => :destroy
+  has_many :positions, :through => :position_questions
+
   def self.human_question_type_name(type)
     I18n.t type, :scope => 'ui.question_types', :default => type.to_s.humanize
   end

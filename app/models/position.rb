@@ -1,13 +1,16 @@
 class Position < ActiveRecord::Base
   include MarkdownFormattedModel
 
+  has_many :position_questions, :autosave => true
+  has_many :questions, :through => :position_questions
+
   belongs_to :team
   
+  accepts_nested_attributes_for :position_questions
+
   is_sluggable   :title
   is_convertable :paid_description, :general_description, :position_description, :applicant_description
   is_publishable
-  
-  belongs_to :team
   
   validates_presence_of :title, :short_description, :duration, :time_commitment, :team,
                         :general_description, :position_description, :applicant_description
@@ -17,7 +20,8 @@ class Position < ActiveRecord::Base
   validate :ensure_published_at_is_valid
   
   attr_accessible :title, :short_description, :paid, :duration, :time_commitment, :paid_description, :team_id,
-                  :general_description, :position_description, :applicant_description, :published_at, :expires_at
+                  :general_description, :position_description, :applicant_description, :published_at, :expires_at,
+                  :position_questions_attributes
   
   def self.expired
     where 'expires_at <= ?', Time.now

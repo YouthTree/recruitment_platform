@@ -4,7 +4,9 @@ describe Question do
 
   context 'associations' do
     
-    it { should have_many :mission_positions }
+    it { should have_many :position_questions }
+
+    it { should have_many :positions, :through => :position_questions }
     
   end
   
