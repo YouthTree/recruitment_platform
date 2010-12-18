@@ -1,7 +1,29 @@
 class Position < ActiveRecord::Base
   include MarkdownFormattedModel
 
-  has_many :position_questions, :autosave => true
+  scope :with_questions, includes(:position_questions => :question)
+
+  has_many :position_questions, :autosave => true do
+
+    def ordered
+      if loaded?
+        sort_by(&:order_position)
+      else
+        order('order_position ASC')
+      end
+    end
+
+    def next_order_position
+      if loaded?
+        base = max { |r| r.order_position || 0 }
+      else
+        base = maximum(:order_position) || 0
+      end
+      base + 1
+    end
+
+  end
+
   has_many :questions, :through => :position_questions
 
   belongs_to :team

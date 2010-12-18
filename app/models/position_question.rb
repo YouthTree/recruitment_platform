@@ -7,4 +7,14 @@ class PositionQuestion < ActiveRecord::Base
   
   validates_presence_of :position, :question
   
+  before_save :automatically_order
+
+  protected
+
+  def automatically_order
+    if order_position.blank?
+      self.order_position = position.present? ? position.position_questions.next_order_position : 1
+    end
+  end
+
 end
