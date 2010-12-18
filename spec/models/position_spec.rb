@@ -37,6 +37,89 @@ describe Position do
     
   end
   
+  context 'the status of the position' do
+
+    it 'should not be expired when expires_at is in the future' do
+      subject.expires_at = 1.week.from_now
+      should_not be_expired
+    end
+
+    it 'be expired when expires_at is now' do
+      t = Time.now
+      stub(Time).now { t }
+      subject.expires_at = t
+      should be_expired
+    end
+
+    it 'be expired when expires_at is in the past' do
+      subject.expires_at = 1.week.ago
+      should be_expired
+    end
+
+    it 'should be published when published at is now' do
+      t = Time.now
+      stub(Time).now { t }
+      subject.published_at = t
+      should be_published
+    end
+
+    it 'should be published when published at is in the past' do
+      subject.published_at = 1.week.ago
+      should be_published
+    end
+
+    it 'should not be published when published at is in the future' do
+      subject.published_at = 1.from_now
+      should_not be_published
+    end
+
+  end
+
+  context 'content conversions' do
+
+    [:paid_description, :general_description, :position_description, :applicant_description].each do |field|
+
+      it "should automatically convert the #{field} on validation" do
+        position = Position.make(field => '# Sample Text')
+        position.save
+        position.send(:"rendered_#{field}").should have_tag(:h1, 'Sample Text')
+      end
+
+    end
+
+  end
+
+  context 'position named scopes' do
+
+    before :each do
+      @visible_a     = Position.make!(:published_at => 1.week.ago, :expires_at => 1.week.from_now)
+      @visible_b     = Position.make!(:published_at => 2.months.ago, :expires_at => 2.hours.from_now)
+      @expired_a     = Position.make!(:published_at => 2.months.ago, :expires_at => 2.hours.ago)
+      @expired_b     = Position.make!(:published_at => nil, :expires_at => 2.weeks.ago)
+      @unpublished_a = Position.make!(:published_at => 2.months.from_now, :expires_at => 3.months.from_now)
+      @unpublished_b = Position.make!(:published_at => 1.week.from_now, :expires_at => nil)
+    end
+
+    it 'should return the correct positions for unpublished' do
+      Position.unpublished.all.should =~ [@unpublished_a, @unpublished_b, @expired_b]
+    end
+
+    it 'should return the correct positions for published' do
+      Position.published.all.should =~ [@visible_a, @visible_b, @expired_a]
+    end
+
+    it 'should return the correct positions for expired' do
+      Position.expired.all.should =~ [@expired_a, @expired_b]
+    end
+
+    it 'should return the correct positions for unexpired' do
+      Position.unexpired.all.should =~ [@visible_a, @visible_b, @unpublished_a]
+    end
+
+  end
+
+
+
 end
 
 # == Schema Information
