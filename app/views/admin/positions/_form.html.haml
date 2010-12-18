@@ -5,7 +5,7 @@
 
 = form.inputs 'Position Commitment' do
   = form.input :duration, :label => 'Position Duration', :hint => 'e.g. 6 months, 1 year, indefinite'
-  = form.input :time_commitment, :label => 'Hours per week', :as => :select, :collection => Array(1..40).map(&:to_s)
+  = form.input :time_commitment, :label => 'Hours per week', :as => :select, :collection => Array(1..40)
 
 = form.inputs 'Paid Positions' do
   = form.input :paid, :label => 'This is a paid position'
@@ -18,4 +18,4 @@
 = form.inputs 'About this Position' do
   ~ form.input :general_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Position Background'
   ~ form.input :position_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'What does this position involve?'
-  ~ form.input :applicant_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Who should they be'
+  ~ form.input :applicant_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Who are you looking for?'

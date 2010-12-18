@@ -45,7 +45,7 @@ class Position < ActiveRecord::Base
     end
   end
 
-  def humanised_status
+  def human_status
     I18n.t status, :scope => 'ui.position_status', :default => status.to_s.humanize
   end
   

@@ -1,10 +1,16 @@
 %h2.title Viewing #{current_resource_name}
 
 = show_for resource do |r|
-  
-  = r.attribute :name
-  
-  = r.attribute :website_url
-  
-  = r.attribute :description do
+
+  = r.attribute :name, :label => 'Team Name'
+
+  = r.attribute :website_url, :label => 'Website URL' do
+    = link_to resource.website_url, resource.website_url
+
+  = r.attribute :description, :label => 'About this Team' do
     .content-preview= resource.description_as_html
+
+  = r.association :positions do
+    %ul#team-positions
+      - resource.positions.each do |position|
+        %li #{link_to position.title, [:admin, position]} (#{position.human_status})

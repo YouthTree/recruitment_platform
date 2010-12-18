@@ -151,7 +151,7 @@ describe Position do
     it 'should let you get the humanised status' do
       with_translations :ui => {:position_status => {:test_status => 'My Test Status'}} do
         mock(subject).status.times(any_times) { :test_status }
-        subject.humanised_status.should == 'My Test Status'
+        subject.human_status.should == 'My Test Status'
       end
     end
 

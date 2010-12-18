@@ -1,5 +1,46 @@
 %h2.title Viewing #{current_resource_name}
 
 = show_for resource do |r|
-  - (resource_class.column_names - [:created_at, :updated_at]).each do |column|
-    = r.attribute column.to_sym
+
+  = r.attribute :title
+
+  = r.attribute :status
+
+  = r.attribute :short_description, :label => 'Brief Description' do
+    .content-preview= resource.short_description
+
+  = r.association :team do
+    = link_to resource.team.name, [:admin, resource.team]
+
+
+%h3 Position Commitment
+
+= show_for resource do |r|
+
+  = r.attribute :duration, :label => 'How long will this position go on for?'
+
+  = r.attribute :time_commitment, :label => 'How many hours per week does this position require?'
+
+%h3 Paid Position Details
+
+= show_for resource do |r|
+
+  = r.attribute :paid, :label => 'Is this a paid description?'
+
+  - if resource.paid?
+
+    = r.attribute :paid_description, :label => 'What is the pay like?' do
+      .content-preview= resource.short_description
+
+%h3 Position Descriptions
+
+= show_for resource do |r|
+
+  = r.attribute :general_description, :label => 'General Details' do
+    .content-preview= resource.general_description_as_html
+
+  = r.attribute :position_description, :label => 'What does the position involve?' do
+    .content-preview= resource.position_description_as_html
+
+  = r.attribute :applicant_description, :label => 'Who are they looking for?' do
+    .content-preview= resource.applicant_description_as_html
