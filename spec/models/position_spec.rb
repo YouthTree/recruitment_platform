@@ -8,6 +8,13 @@ describe Position do
   
   context 'validations' do
     it { should validate_presence_of :title, :short_description, :duration, :time_commitment, :team, :paid_description, :general_description, :position_description, :applicant_description }
+    
+    it 'should ensure the expired at date is before published at' do
+      subject.published_at = 2.weeks.ago
+      should_not allow_values_for :expires_at, 4.weeks.ago, 2.months.ago, 1.year.ago, subject.published_at
+      should allow_values_for :expires_at, (subject.published_at + 1.day), 2.weeks.from_now, nil
+    end
+    
   end
   
   context 'accessible attributes' do

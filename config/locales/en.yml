@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        must_be_ordered_correctly: 'can not expire before it is published'

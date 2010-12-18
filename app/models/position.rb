@@ -9,6 +9,8 @@ class Position < ActiveRecord::Base
   
   validates_presence_of :title, :short_description, :duration, :time_commitment, :team,
                         :paid_description, :general_description, :position_description, :applicant_description
+
+  validate :ensure_published_at_is_valid
   
   attr_accessible :title, :short_description, :paid, :duration, :time_commitment, :paid_description, :team_id,
                   :general_description, :position_description, :applicant_description, :published_at, :expires_at
@@ -45,6 +47,14 @@ class Position < ActiveRecord::Base
 
   def format
     'markdown'
+  end
+  
+  protected
+  
+  def ensure_published_at_is_valid
+    if expires_at.present? && published_at.present? && expires_at <= published_at
+      errors.add :expires_at, :must_be_ordered_correctly
+    end
   end
   
 end
