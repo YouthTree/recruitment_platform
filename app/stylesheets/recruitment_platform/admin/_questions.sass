@@ -1,0 +1,24 @@
+#position-questions
+  list-style: none
+
+  li
+    padding: 1em
+    margin: 0 0 1em
+    border: 0.1em solid #DDD
+    background: #F3F3F3
+    +border-radius(0.75em)
+    +clearfix
+    a
+      font-weight: bold
+      font-size: 1.2em
+      +link-colors(#333, #666)
+    span.required-state
+      float: right
+      font-weight: bold
+      &.required
+        color: red
+      &.not-required
+        color: #419941
+      &.default-required
+        color: #344B99
+        padding-top: 0.15em
