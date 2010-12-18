@@ -160,6 +160,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     rb-fsevent (0.3.9)
+    rcov (0.9.9)
     rdiscount (1.6.5)
     remarkable (4.0.0.alpha4)
       rspec (>= 2.0.0.alpha11)
@@ -185,6 +186,9 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.3.0)
+    rspec_tag_matchers (1.0.0)
+      nokogiri (>= 1.4.0)
+      rspec-rails (>= 1.2.6)
     show_for (0.2.3)
     shuriken (0.2.1)
     slugged (0.3.2)
@@ -247,11 +251,13 @@ DEPENDENCIES
   rails (= 3.0.3)
   rails3-generators
   rb-fsevent
+  rcov
   remarkable (>= 4.0.0.alpah4)
   remarkable_activerecord (>= 4.0.0.alpah4)
   rr
   rspec (~> 2.1)
   rspec-rails (~> 2.1)
+  rspec_tag_matchers
   show_for
   shuriken (~> 0.2)
   slugged

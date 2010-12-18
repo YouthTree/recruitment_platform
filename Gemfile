@@ -66,6 +66,8 @@ group :test do
   gem 'remarkable',              '>= 4.0.0.alpah4', :require => 'remarkable/core'
   gem 'remarkable_activerecord', '>= 4.0.0.alpah4', :require => 'remarkable/active_record'
   gem 'rr'
+  gem 'rcov', :require => nil
+  gem 'rspec_tag_matchers'
 end
 
 group :test_mac do
