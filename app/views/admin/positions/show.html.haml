@@ -44,3 +44,19 @@
 
   = r.attribute :applicant_description, :label => 'Who are they looking for?' do
     .content-preview= resource.applicant_description_as_html
+
+%h3 Position Questions
+
+%ul#position-questions
+  - if resource.position_questions.empty?
+    %li.empty This position currently has no associated questions.
+  - resource.position_questions.each do |position_question|
+    %li
+      = link_to position_question.question.question, [:admin, position_question.question]
+      - if !position_question.required.nil?
+        - if position_question.required
+          %span.required.required-state Required.
+        - else
+          %span.not-required.required-state Not required.
+      - else
+        %span.default-required.required-state Using default required.
