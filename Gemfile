@@ -28,7 +28,7 @@ gem 'almost-happy'
 
 gem 'youthtree-settings'
 gem 'youthtree-controller-ext'
-gem 'bhm-admin', '~> 0.3.1'
+gem 'bhm-admin', '~> 0.3.4'
 
 gem 'will_paginate', '~> 3.0.pre2', :git => gh('mislav', 'will_paginate'), :branch => 'rails3'
 
@@ -60,6 +60,7 @@ group :test, :development do
   gem 'guard', :require => nil
   gem 'guard-rspec', :require => nil
   gem 'guard-passenger', :require => nil
+  gem 'ruby-debug'
 end
 
 group :test do

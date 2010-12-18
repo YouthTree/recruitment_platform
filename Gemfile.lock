@@ -51,7 +51,7 @@ GEM
     arel (2.0.6)
     barista (0.7.0.pre3)
       coffee-script (~> 2.1.1)
-    bhm-admin (0.3.1)
+    bhm-admin (0.3.4)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
       compass-colors
@@ -69,6 +69,7 @@ GEM
     coffee-script (2.1.1)
       coffee-script-source
     coffee-script-source (0.9.5)
+    columnize (0.3.2)
     compass (0.10.5)
       haml (>= 3.0.4)
     compass-960-plugin (0.10.0)
@@ -119,6 +120,7 @@ GEM
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
+    linecache (0.43)
     macaddr (1.0.0)
     machinist (2.0.0.beta2)
     mail (2.2.12)
@@ -189,6 +191,11 @@ GEM
     rspec_tag_matchers (1.0.0)
       nokogiri (>= 1.4.0)
       rspec-rails (>= 1.2.6)
+    ruby-debug (0.10.4)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.4.0)
+    ruby-debug-base (0.10.4)
+      linecache (>= 0.3)
     show_for (0.2.3)
     shuriken (0.2.1)
     slugged (0.3.2)
@@ -229,7 +236,7 @@ DEPENDENCIES
   almost-happy
   annotate!
   barista (>= 0.7.0.pre2)
-  bhm-admin (~> 0.3.1)
+  bhm-admin (~> 0.3.4)
   carrierwave
   compass (= 0.10.5)
   compass-colors
@@ -258,6 +265,7 @@ DEPENDENCIES
   rspec (~> 2.1)
   rspec-rails (~> 2.1)
   rspec_tag_matchers
+  ruby-debug
   show_for
   shuriken (~> 0.2)
   slugged
