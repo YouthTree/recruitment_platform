@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101214143423) do
+ActiveRecord::Schema.define(:version => 20101218165338) do
 
   create_table "positions", :force => true do |t|
     t.string   "title"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(:version => 20101214143423) do
   end
 
   add_index "positions", ["cached_slug"], :name => "index_positions_on_cached_slug"
+
+  create_table "questions", :force => true do |t|
+    t.string   "question"
+    t.string   "short_name"
+    t.text     "hint"
+    t.text     "metadata"
+    t.string   "question_type"
+    t.string   "default_value"
+    t.boolean  "required_by_default"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "scope"
