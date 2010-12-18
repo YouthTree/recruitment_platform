@@ -39,6 +39,18 @@ describe Question do
         subject.should respond_to(:"#{type}?")
       end
       
+      it "should correctly detect the question type for #{type}?" do
+        m = "be_#{type}".to_sym
+        subject.question_type = nil
+        subject.should_not send(m)
+        (Question::VALID_TYPES - [type]).each do |t|
+          subject.question_type = t
+          subject.should_not send(m)
+        end
+        subject.question_type = type
+        subject.should send(m)
+      end
+
     end
     
     it 'should let you get the human type name' do

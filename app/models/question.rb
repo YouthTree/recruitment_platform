@@ -62,11 +62,13 @@ class Question < ActiveRecord::Base
   end
 
   VALID_TYPES.each do |type|
+    class_eval(<<-EOF, __FILE__, __LINE__)
 
-    define_method "#{type}?" do
-      question_type == type
-    end
+      def #{type}?
+        question_type == #{type.inspect}
+      end
 
+    EOF
   end
 
 end
