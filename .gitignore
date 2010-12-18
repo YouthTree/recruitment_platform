@@ -16,3 +16,4 @@ rerun.txt
 /config/settings.yml
 /config/database.yml
 /slurper_config.yml
+/public/stylesheets/*.css
