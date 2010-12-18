@@ -10,7 +10,7 @@ describe Question do
   
   context 'attribute accessibility' do
     
-    it { should allow_mass_assignment_of :question, :short_name, :question_type, :raw_metadata, :hint, :default_value, :required_by_default }
+    it { should allow_mass_assignment_of :question, :short_name, :question_type, :editable_metadata, :hint, :default_value, :required_by_default }
     
     it { should_not allow_mass_assignment_of :metadata }
     
@@ -70,7 +70,6 @@ describe Question do
     it 'should set metadata to nil with a blank value' do
       subject.metadata = 'something'
       subject.editable_metadata = ''
-      subject.editable_metadata.should == nil
       subject.metadata.should == nil
     end
     
@@ -98,19 +97,85 @@ describe Question do
   
   context 'getting form options' do
     
-    it 'should return the correct form options for multiple choice question'
+    before :each do
+      @answer = stub!
+    end
     
-    it 'should return the correct form options for a date time question'
+    it 'should return the correct type' do
+      subject.to_formtastic_options(@answer).should be_kind_of(Hash)
+    end
     
-    it 'should return the correct form options for a select question'
+    it 'should return the correct hint' do
+      subject.to_formtastic_options(@answer).should_not have_key(:hint)
+      subject.hint = 'Some hint goes here.'
+      subject.to_formtastic_options(@answer)[:hint].should == 'Some hint goes here.'
+    end
     
-    it 'should return the correct form options for a multiple choice question'
+    it 'should return the correct label' do
+      subject.question = 'Are you a ninja?'
+      subject.to_formtastic_options(@answer)[:label].should == 'Are you a ninja?'
+    end
     
-    it 'should return the correct form options for a check box question'
+    it 'should return the correct required value when the answer is required' do
+      stub(@answer).required { true }
+      subject.to_formtastic_options(@answer)[:required].should == true
+    end
     
-    it 'should return the correct form options for a text question'
+    it 'should return the correct required value when the answer is not required' do
+      stub(@answer).required { false }
+      subject.to_formtastic_options(@answer)[:required].should == false
+    end
     
-    it 'should return the correct form options for a short question'
+    it 'should return the correct required value when the answer has no required value and the question is by default required' do
+      stub(@answer).required { nil }
+      subject.required_by_default = true
+      subject.to_formtastic_options(@answer)[:required].should == true
+    end
+
+    it 'should return the correct required value when the answer has no required value and the question is not by default required' do
+      stub(@answer).required { nil }
+      subject.required_by_default = false
+      subject.to_formtastic_options(@answer)[:required].should == false
+    end
+
+    it 'should return the correct form options for multiple choice question' do
+      subject.question_type = 'multiple_choice'
+      subject.metadata = %w(a b c)
+      options = subject.to_formtastic_options(@answer)
+      options[:as].should == :radio_buttons
+      options[:collection].should == %w(a b c)
+    end
+
+    it 'should return the correct form options for a date time question' do
+      subject.question_type = 'date_time'
+      subject.to_formtastic_options(@answer)[:as].should == :datetime_picker
+    end
+
+    it 'should return the correct form options for a select question' do
+      subject.question_type = 'select'
+      subject.metadata = %w(a b c)
+      options = subject.to_formtastic_options(@answer)
+      options[:as].should == :select
+      options[:collection].should == %w(a b c)
+    end
+
+    it 'should return the correct form options for a check box question' do
+      subject.question_type = 'check_boxes'
+      subject.metadata = %w(a b c)
+      options = subject.to_formtastic_options(@answer)
+      options[:as].should == :check_boxes
+      options[:collection].should == %w(a b c)
+    end
+
+    it 'should return the correct form options for a text question' do
+      subject.question_type = 'text'
+      subject.to_formtastic_options(@answer)[:as].should == :text
+    end
+
+    it 'should return the correct form options for a short text question' do
+      subject.question_type = 'short_text'
+      subject.to_formtastic_options(@answer)[:as].should == :string
+    end
     
   end
 

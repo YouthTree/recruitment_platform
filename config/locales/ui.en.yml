@@ -15,3 +15,11 @@ en:
       expired: 'Expired'
       published: 'Published'
       draft: 'Draft'
+    question_types:
+      date_time: 'Date / Time Combination'
+      short_text: 'One line of Text'
+      text: 'Longer Text'
+      multiple_choice: 'Multiple Choice'
+      check_boxes: 'Check Boxes'
+      select: 'Choose from a List'
+      scale: 'Scale'
