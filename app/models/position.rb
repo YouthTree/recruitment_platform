@@ -17,12 +17,16 @@ class Position < ActiveRecord::Base
     where 'expires_at <= ?', Time.now
   end
   
-  def expired?
-    expires_at.present? && expires_at < Time.now
+  def self.unexpired
+    where 'expires_at > ?', Time.now
+  end
+
+  def self.visible
+    unexpired.published
   end
   
-  def published?
-    published_at.present? && published_at >= Time.now
+  def expired?
+    expires_at.present? && expires_at <= Time.now
   end
   
   def format
