@@ -138,6 +138,12 @@ describe Position do
       subject.status.should == :draft
     end
 
+    it 'should let you get the humanised status' do
+      mock(I18n).t(:awesome, :scope => 'ui.position_status') { 'Awesome' }
+      mock(subject).status { :awesome }
+      subject.humanised_status.should == 'Awesome'
+    end
+
   end
 
 end

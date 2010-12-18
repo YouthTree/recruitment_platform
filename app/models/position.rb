@@ -39,6 +39,10 @@ class Position < ActiveRecord::Base
     end
   end
 
+  def humanised_status
+    I18n.t status, :scope => 'ui.position_status'
+  end
+
   def format
     'markdown'
   end

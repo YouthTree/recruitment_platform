@@ -11,3 +11,7 @@ en:
     empty_row: "There are currently no %{plural_object_name}."
     search:
       placeholder: "Enter your search here"
+    position_status:
+      expired: 'Expired'
+      published: 'Published'
+      draft: 'Draft'
