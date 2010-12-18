@@ -92,8 +92,8 @@ describe Position do
   context 'position named scopes' do
 
     before :each do
-      @visible_a     = Position.make!(:published_at => 1.week.ago, :expires_at => 1.week.from_now)
-      @visible_b     = Position.make!(:published_at => 2.months.ago, :expires_at => 2.hours.from_now)
+      @viewable_a     = Position.make!(:published_at => 1.week.ago, :expires_at => 1.week.from_now)
+      @viewable_b     = Position.make!(:published_at => 2.months.ago, :expires_at => 2.hours.from_now)
       @expired_a     = Position.make!(:published_at => 2.months.ago, :expires_at => 2.hours.ago)
       @expired_b     = Position.make!(:published_at => nil, :expires_at => 2.weeks.ago)
       @unpublished_a = Position.make!(:published_at => 2.months.from_now, :expires_at => 3.months.from_now)
@@ -105,7 +105,7 @@ describe Position do
     end
 
     it 'should return the correct positions for published' do
-      Position.published.all.should =~ [@visible_a, @visible_b, @expired_a]
+      Position.published.all.should =~ [@viewable_a, @viewable_b, @expired_a]
     end
 
     it 'should return the correct positions for expired' do
@@ -113,7 +113,7 @@ describe Position do
     end
 
     it 'should return the correct positions for unexpired' do
-      Position.unexpired.all.should =~ [@visible_a, @visible_b, @unpublished_a]
+      Position.unexpired.all.should =~ [@viewable_a, @viewable_b, @unpublished_a]
     end
 
   end

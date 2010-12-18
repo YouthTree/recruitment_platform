@@ -21,7 +21,7 @@ class Position < ActiveRecord::Base
     where 'expires_at > ?', Time.now
   end
 
-  def self.visible
+  def self.viewable
     unexpired.published
   end
   
