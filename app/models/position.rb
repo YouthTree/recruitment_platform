@@ -8,7 +8,9 @@ class Position < ActiveRecord::Base
   belongs_to :team
   
   validates_presence_of :title, :short_description, :duration, :time_commitment, :team,
-                        :paid_description, :general_description, :position_description, :applicant_description
+                        :general_description, :position_description, :applicant_description
+
+  validates_presence_of :paid_description, :if => :paid?
 
   validate :ensure_published_at_is_valid
   
@@ -42,7 +44,7 @@ class Position < ActiveRecord::Base
   end
 
   def humanised_status
-    I18n.t status, :scope => 'ui.position_status'
+    I18n.t status, :scope => 'ui.position_status', :default => status.to_s.humanize
   end
 
   def format

@@ -10,5 +10,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.include MassAssignmentMatcher, :type => :model
   config.include RspecTagMatchers
+  config.include I18nSpecHelper
   config.before(:each) { Machinist.reset_before_test }
 end

@@ -7,7 +7,17 @@ describe Position do
   end
   
   context 'validations' do
-    it { should validate_presence_of :title, :short_description, :duration, :time_commitment, :team, :paid_description, :general_description, :position_description, :applicant_description }
+    it { should validate_presence_of :title, :short_description, :duration, :time_commitment, :team, :general_description, :position_description, :applicant_description }
+
+    it 'should not require the paid description when unpaid' do
+      mock(subject).paid? { false }
+      should_not validate_presence_of :paid_description
+    end
+
+    it 'should require the paid description when paid' do
+      mock(subject).paid? { true }
+      should validate_presence_of :paid_description
+    end
     
     it 'should ensure the expired at date is before published at' do
       subject.published_at = 2.weeks.ago
@@ -146,9 +156,10 @@ describe Position do
     end
 
     it 'should let you get the humanised status' do
-      mock(I18n).t(:awesome, :scope => 'ui.position_status') { 'Awesome' }
-      mock(subject).status { :awesome }
-      subject.humanised_status.should == 'Awesome'
+      with_translations :ui => {:position_status => {:test_status => 'My Test Status'}} do
+        mock(subject).status.times(any_times) { :test_status }
+        subject.humanised_status.should == 'My Test Status'
+      end
     end
 
   end
