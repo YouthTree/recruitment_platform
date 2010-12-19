@@ -7,7 +7,7 @@ class Position < ActiveRecord::Base
 
     def ordered
       if loaded?
-        sort_by(&:order_position)
+        sort_by { |i| i.order_position || 0 }
       else
         order('order_position ASC')
       end
@@ -15,7 +15,7 @@ class Position < ActiveRecord::Base
 
     def next_order_position
       if loaded?
-        base = max { |r| r.order_position || 0 }
+        base = map  { |r| r.order_position || 0 }.max
       else
         base = maximum(:order_position) || 0
       end

@@ -22,6 +22,15 @@ class Question < ActiveRecord::Base
   has_many :position_questions, :dependent => :destroy
   has_many :positions, :through => :position_questions
 
+  def self.except_for(ids)
+    ids = Array(ids).flatten.map(&:to_i).uniq.compact
+    ids.empty?  ? scoped : where('id NOT IN (?)', ids)
+  end
+
+  def self.for_select
+    select('question, id').map { |q| [q.question, q.id] }
+  end
+
   def self.human_question_type_name(type)
     I18n.t type, :scope => 'ui.question_types', :default => type.to_s.humanize
   end

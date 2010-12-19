@@ -120,6 +120,10 @@ describe Position do
     end
 
     it 'should return the correct positions for unpublished' do
+      Position.viewable.all.should =~ [@viewable_a, @viewable_b]
+    end
+
+    it 'should return the correct positions for unpublished' do
       Position.unpublished.all.should =~ [@unpublished_a, @unpublished_b, @expired_b]
     end
 
@@ -162,6 +166,71 @@ describe Position do
         mock(subject).status.times(any_times) { :test_status }
         subject.human_status.should == 'My Test Status'
       end
+    end
+
+  end
+
+  context 'dealing with position questions' do
+
+    before :each do
+      @position = Position.make!
+      10.times { @position.position_questions.create :question => Question.make! }
+      @questions = @position.questions
+    end
+
+    context 'with the association loaded' do
+
+      before :each do
+        @position = Position.with_questions.find(@position.id)
+      end
+
+      it 'should return a sorted array for ordered' do
+        @position.position_questions.ordered.should be_kind_of(Array)
+        @position.position_questions.ordered.map(&:order_position) == Array(1..10)
+      end
+
+      it 'should not use the database operation' do
+        dont_allow(@position.position_questions).maximum
+        @position.position_questions.next_order_position
+      end
+
+      it 'should return the the correct value for next order position' do
+        @position.position_questions.next_order_position.should == 11
+      end
+
+      it 'should default to 1 with no order positions' do
+        # Same as no values
+        stub.instance_of(PositionQuestion).order_position { nil }
+        @position.position_questions.next_order_position.should == 1
+      end
+
+    end
+
+    context 'without the association loaded' do
+
+      before :each do
+        @position = Position.find(@position.id)
+      end
+
+      it 'should return a relation for ordered' do
+        @position.position_questions.ordered.should be_kind_of(ActiveRecord::Relation)
+        @position.position_questions.ordered.map(&:order_position) == Array(1..10)
+      end
+
+      it 'should use maximum on the association for the next order position' do
+        mock(@position.position_questions).maximum(:order_position) { 10 }
+        @position.position_questions.next_order_position.should == 11
+      end
+
+      it 'should default to 1 with no order positions' do
+        stub(@position.position_questions).maximum(:order_position) { nil }
+        @position.position_questions.next_order_position.should == 1
+      end
+
+      it 'should return the correct value for the next order position' do
+        @position.position_questions.next_order_position.should == 11
+      end
+
     end
 
   end

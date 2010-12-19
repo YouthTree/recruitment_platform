@@ -24,4 +24,29 @@ describe PositionQuestion do
     
   end
   
+  context 'setting the order position' do
+
+    it 'should default to setting it to 1 if the position is blank' do
+      subject.order_position = nil
+      subject.position = nil
+      subject.send :_run_save_callbacks
+      subject.order_position.should == 1
+    end
+
+    it 'should find the next order position if possible and set it to that' do
+      subject.order_position = nil
+      subject.position = Position.make
+      mock(subject.position.position_questions).next_order_position { 3 }
+      subject.send :_run_save_callbacks
+      subject.order_position.should == 3
+    end
+
+    it 'should not set it if the order position if present' do
+      subject.order_position = 3
+      dont_allow(subject).order_position = anything
+      subject.send :_run_save_callbacks
+    end
+
+  end
+
 end

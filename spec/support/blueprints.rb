@@ -18,3 +18,11 @@ Position.blueprint do
   expires_at            { (rand(4) + 1).weeks.from_now }
   team
 end
+
+Question.blueprint do
+  question      { Forgery(:lorem_ipsum).sentence }
+  short_name    { "Field #{sn}" }
+  hint          { rand(2) == 0 ? nil : Forgery(:lorem_ipsum).sentence }
+  question_type { Question::VALID_TYPES.choice }
+  metadata      { %w(a b c d) if Question::COLLECTION_TYPES.include?(question_type) }
+end

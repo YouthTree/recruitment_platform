@@ -24,6 +24,27 @@ describe Question do
     
   end
   
+  context 'for select' do
+
+    before :each do
+      @question_a = Question.make!
+      @question_b = Question.make!
+      @question_c = Question.make!
+      @question_d = Question.make!
+      @question_e = Question.make!
+    end
+
+    it 'should allow you to get questions for a select' do
+      Question.for_select.should =~ [[@question_a.question, @question_a.id], [@question_b.question, @question_b.id], [@question_c.question, @question_c.id], [@question_d.question, @question_d.id], [@question_e.question, @question_e.id]]
+    end
+
+    it 'should let you get questions with the exception of a specific id' do
+      Question.except_for([]).all.should =~ [@question_a, @question_b, @question_c, @question_d, @question_e]
+      Question.except_for([ @question_d.id, @question_e.id]).all.should =~ [@question_a, @question_b, @question_c]
+    end
+
+  end
+
   context 'question types' do
     
     it 'should validate it has a correct type' do

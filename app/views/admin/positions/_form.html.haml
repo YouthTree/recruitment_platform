@@ -19,3 +19,7 @@
   ~ form.input :general_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Position Background'
   ~ form.input :position_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'What does this position involve?'
   ~ form.input :applicant_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Who are you looking for?'
+
+- content_for :after_form do
+  :javascript
+     var position_options = #{Question.except_for(resource.question_ids).for_select.to_json};
