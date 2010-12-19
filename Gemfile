@@ -45,7 +45,7 @@ gem 'carrierwave'
 gem 'validates_url_format_of'
 
 gem 'devise'
-gem 'devise_imapable', :git => gh('LouisStAmour', 'devise_imapable')
+gem 'devise_imapable', :git => gh('YouthTree', 'devise_imapable')
 
 group :development do
   gem 'rails3-generators'

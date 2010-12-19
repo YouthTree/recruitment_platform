@@ -1,0 +1,14 @@
+%h2 Sign in
+
+= semantic_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f|
+
+  = f.inputs "Login Details" do
+
+    = f.input :email
+    = f.input :password
+
+    - if devise_mapping.rememberable?
+      = f.input :remember_me, :as => :boolean, :label => 'Remember my login for next time.'
+
+  = f.buttons do
+    = f.commit_button 'Sign in'

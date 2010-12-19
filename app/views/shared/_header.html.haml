@@ -1,4 +1,10 @@
 %h1= link_to 'Recruitment Platform', :root
 
 %nav#header-menu
-  %ul= ml "Home", :root
+  %ul
+    = ml "Home", :root
+    - if user_signed_in?
+      = ml 'Admin Area', :admin_root
+      = ml 'Sign out', :destroy_user_session
+    - else
+      = ml 'Sign in', :new_user_session

@@ -30,8 +30,8 @@ Devise.setup do |config|
   # config.default_scope = :user
   # config.sign_out_all_scopes = false
 
-  config.imap_server               = 'smtp.gmail.com'
-  config.imap_default_email_suffix = 'youthtree.org.au'
-  config.imap_server_use_ssl       = true
+  config.imap_server               = Settings.devise.imap_server
+  config.imap_default_email_suffix = Settings.devise.authentication_domain
+  config.imap_server_use_ssl       = Settings.devise.ssl_for_imap
 
 end

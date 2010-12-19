@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/LouisStAmour/devise_imapable.git
-  revision: 835c343e757eed83cc6174c6af51c70c1d055c21
+  remote: git://github.com/YouthTree/devise_imapable.git
+  revision: 2bfbcc71e5aa51511beeaaa24acb5d2c62228991
   specs:
     devise_imapable (0.5.1)
       devise (> 1.0.4)

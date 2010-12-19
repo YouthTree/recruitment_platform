@@ -10,4 +10,6 @@ class ApplicationController < ActionController::Base
 
   use_controller_exts :title_estuary, :translation
   
+  alias require_user authenticate_user!
+  
 end
