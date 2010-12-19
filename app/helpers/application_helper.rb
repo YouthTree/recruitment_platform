@@ -18,4 +18,12 @@ module ApplicationHelper
     options.merge :class => [options[:class], klass].join(' ').strip
   end
   
+  def render_nested_form(form, association, partial_name)
+    object = form.object
+    child = object.class.reflect_on_association(association).klass.new
+    form.fields_for(association, child, :child_index => 'NEW_IDX') do |child_form|
+      render :partial => partial_name, :object => child_form
+    end
+  end
+
 end

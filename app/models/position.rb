@@ -30,7 +30,7 @@ class Position < ActiveRecord::Base
 
   belongs_to :team
   
-  accepts_nested_attributes_for :position_questions
+  accepts_nested_attributes_for :position_questions, :allow_destroy => true
 
   is_sluggable   :title
   is_convertable :paid_description, :general_description, :position_description, :applicant_description
@@ -45,7 +45,7 @@ class Position < ActiveRecord::Base
   
   attr_accessible :title, :short_description, :paid, :duration, :time_commitment, :paid_description, :team_id,
                   :general_description, :position_description, :applicant_description, :published_at, :expires_at,
-                  :position_questions_attributes
+                  :position_questions_attributes, :next_question_id
   
   def self.expired
     where 'expires_at <= ?', Time.now

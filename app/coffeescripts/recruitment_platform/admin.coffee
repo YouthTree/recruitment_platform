@@ -1,1 +1,1 @@
-RecruitmentPlace.withNS 'Admin', (ns) ->
+RecruitmentPlatform.withNS 'Admin', (ns) ->

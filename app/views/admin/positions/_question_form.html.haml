@@ -1,9 +1,10 @@
 %li.question-form
-  = question_form.hidden_field :id, :class => 'question-id', :id => nil
   = question_form.hidden_field :order_position, :class => 'question-order-position', :id => nil
+  = question_form.hidden_field :question_id, :class => 'question-question-id', :id => nil
   - unless question_form.object.new_record?
+    = question_form.hidden_field :id, :class => 'question-id', :id => nil
     = question_form.hidden_field :_destroy, :class => 'question-remove'
-  %span.question-question= question_form.object.question.question
+  %span.question-question= question_form.object.question.try(:question)
   = link_to '(remove)', '#', :class => 'question-remove-button'
 
   = question_form.select :required, [["Use default required", nil], ["Always required", true], ["Never required", false]], {}, :class => 'question-required'

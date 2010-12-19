@@ -1,3 +1,8 @@
+- extra_head_content do
+  = javascript_include_tag 'recruitment_platform/admin/question_editor'
+  :javascript
+    RecruitmentPlatform.Admin.QuestionEditor.setTemplate(#{render_nested_form(form, :position_questions, 'question_form').to_json});
+
 = form.inputs 'About this Position' do
   = form.input :title, :label => 'Position Title'
   ~ form.input :short_description, :label => 'Short Description', :as => :text, :input_html => {:rows => 3}
@@ -21,9 +26,8 @@
   ~ form.input :applicant_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Who are you looking for?'
 
 = form.inputs 'Extra application questions' do
-  -
-  - unless (other_questions = Question.except_for(resource.question_ids)).empty?
-    = form.input :next_question_id, :as => :select, :collection => other_questions.for_select, :label => 'Add question', :hint => link_to('Add this question', '#', :id => 'questions-add-button')
+  - other_questions = Question.except_for(resource.question_ids)
+  = form.input :next_question_id, :as => :select, :collection => other_questions.for_select, :label => 'Add question'
 
   %li.questions.required#position_position_questions_input
     %label{:for => "position_position_questions"} Questions:
