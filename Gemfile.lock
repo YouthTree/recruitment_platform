@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/LouisStAmour/devise_imapable.git
+  revision: 835c343e757eed83cc6174c6af51c70c1d055c21
+  specs:
+    devise_imapable (0.5.1)
+      devise (> 1.0.4)
+
+GIT
   remote: git://github.com/mislav/will_paginate.git
   revision: b1a5beeec9f56ecbe3594fcdca76d92b6767ce50
   branch: rails3
@@ -51,6 +58,7 @@ GEM
     arel (2.0.6)
     barista (0.7.0.pre3)
       coffee-script (~> 2.1.1)
+    bcrypt-ruby (2.1.2)
     bhm-admin (0.3.4)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
@@ -84,6 +92,9 @@ GEM
       compass (>= 0.8.7)
     configuration (1.2.0)
     daemons (1.1.0)
+    devise (1.1.5)
+      bcrypt-ruby (~> 2.1.2)
+      warden (~> 1.0.2)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -235,6 +246,8 @@ GEM
     validates_url_format_of (0.1.0)
       activerecord (>= 2.3.4)
     validation_reflection (1.0.0)
+    warden (1.0.3)
+      rack (>= 1.0.0)
     ydd (0.0.11)
       activerecord
       activesupport
@@ -269,6 +282,8 @@ DEPENDENCIES
   carrierwave
   compass (= 0.10.5)
   compass-colors
+  devise
+  devise_imapable!
   forgery
   formtastic (~> 1.2)
   growl

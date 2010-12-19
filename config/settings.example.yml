@@ -3,6 +3,8 @@ default:
   secret_token: 'some-secret-token-here'
   time_zone: 'Australia/Perth'
   session_key: 'rp-session'
+  devise:
+    pepper: "some-pepper-goes-here"
 production:
   mailer:
     contact_email: "hello@youthtree.org.au"
