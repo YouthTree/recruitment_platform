@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sun, 19 Dec 2010 12:49:33 GMT from
+/* DO NOT MODIFY. This file was compiled Sun, 19 Dec 2010 14:13:02 GMT from
  * /Users/sutto/Code/YouthTree/recruitment_platform/app/coffeescripts/recruitment_platform/admin/question_editor.coffee
  */
 
@@ -13,6 +13,15 @@ RecruitmentPlatform.withNS('Admin.QuestionEditor', function(ns) {
   ns.nameSelector = 'span.question-question';
   ns.nextQuestionSelector = 'select#position_next_question_id';
   ns.htmlTemplate = '<li>BLAH</li>';
+  ns.updateQuestionSelectorState = function() {
+    var selector;
+    selector = $(ns.nextQuestionSelector);
+    if (selector.find('option').size() < 2) {
+      return selector.attr('disabled', 'disabled');
+    } else {
+      return selector.removeAttr('disabled');
+    }
+  };
   ns.makeSortable = function() {
     var field;
     field = $(ns.containerSelector);
@@ -63,7 +72,8 @@ RecruitmentPlatform.withNS('Admin.QuestionEditor', function(ns) {
       field.remove();
     }
     ns.updateFieldPositions();
-    return ns.refreshSorting();
+    ns.refreshSorting();
+    return ns.updateQuestionSelectorState();
   };
   ns.setupQuestionField = function(field) {
     return field.find(ns.removeButtonClass).click(function() {
@@ -99,7 +109,8 @@ RecruitmentPlatform.withNS('Admin.QuestionEditor', function(ns) {
       new_field.appendTo($(ns.containerSelector));
     }
     ns.updateFieldPositions();
-    return ns.refreshSorting();
+    ns.refreshSorting();
+    return ns.updateQuestionSelectorState();
   };
   return ns.setup = function() {
     $("" + ns.containerSelector + " " + ns.questionSelector).each(function() {
@@ -108,6 +119,7 @@ RecruitmentPlatform.withNS('Admin.QuestionEditor', function(ns) {
     $(ns.nextQuestionSelector).change(function() {
       return ns.addField();
     });
-    return ns.makeSortable();
+    ns.makeSortable();
+    return ns.updateQuestionSelectorState();
   };
 });

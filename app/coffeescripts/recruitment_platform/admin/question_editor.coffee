@@ -12,6 +12,13 @@ RecruitmentPlatform.withNS 'Admin.QuestionEditor', (ns) ->
   ns.nextQuestionSelector = 'select#position_next_question_id'
   ns.htmlTemplate         = '<li>BLAH</li>'
 
+  ns.updateQuestionSelectorState = ->
+    selector = $ ns.nextQuestionSelector
+    if selector.find('option').size() < 2
+      selector.attr 'disabled', 'disabled'
+    else
+      selector.removeAttr 'disabled'
+
   ns.makeSortable = ->
     field = $ ns.containerSelector
     field.sortable update: (-> ns.updateFieldPositions())
@@ -48,6 +55,7 @@ RecruitmentPlatform.withNS 'Admin.QuestionEditor', (ns) ->
       field.remove()
     ns.updateFieldPositions()
     ns.refreshSorting()
+    ns.updateQuestionSelectorState()
 
   ns.setupQuestionField = (field) ->
     field.find(ns.removeButtonClass).click ->
@@ -78,6 +86,7 @@ RecruitmentPlatform.withNS 'Admin.QuestionEditor', (ns) ->
       new_field.appendTo $(ns.containerSelector)
     ns.updateFieldPositions()
     ns.refreshSorting()
+    ns.updateQuestionSelectorState()
 
 
   ns.setup = ->
@@ -85,4 +94,5 @@ RecruitmentPlatform.withNS 'Admin.QuestionEditor', (ns) ->
       ns.setupQuestionField $ this
     $(ns.nextQuestionSelector).change -> ns.addField()
     ns.makeSortable()
+    ns.updateQuestionSelectorState()
 
