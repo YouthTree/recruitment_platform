@@ -5,7 +5,7 @@
 
 = form.inputs 'Position Commitment' do
   = form.input :duration, :label => 'Position Duration', :hint => 'e.g. 6 months, 1 year, indefinite'
-  = form.input :time_commitment, :label => 'Hours per week', :as => :select, :collection => Array(1..40)
+  = form.input :time_commitment, :label => 'Hours per week', :as => :select, :collection => Array(1..40).map { |v| [pluralize(v, "hour"), v.to_f]}
 
 = form.inputs 'Paid Positions' do
   = form.input :paid, :label => 'This is a paid position'
@@ -20,6 +20,13 @@
   ~ form.input :position_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'What does this position involve?'
   ~ form.input :applicant_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Who are you looking for?'
 
-- content_for :after_form do
-  :javascript
-     var position_options = #{Question.except_for(resource.question_ids).for_select.to_json};
+= form.inputs 'Extra application questions' do
+  -
+  - unless (other_questions = Question.except_for(resource.question_ids)).empty?
+    = form.input :next_question_id, :as => :select, :collection => other_questions.for_select, :label => 'Add question', :hint => link_to('Add this question', '#', :id => 'questions-add-button')
+
+  %li.questions.required#position_position_questions_input
+    %label{:for => "position_position_questions"} Questions:
+    %ol#position-questions-list
+      = form.fields_for :position_questions, resource.position_questions.ordered do |pqf|
+        = partial 'question_form', pqf

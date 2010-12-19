@@ -1,0 +1,1 @@
+RecruitmentPlace.withNS 'Admin', (ns) ->

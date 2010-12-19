@@ -1,4 +1,4 @@
-#position-questions
+ol#position-questions-list, #position-questions
   list-style: none
 
   li
@@ -8,10 +8,11 @@
     background: #F3F3F3
     +border-radius(0.75em)
     +clearfix
-    a
+    span.question-question
       font-weight: bold
-      font-size: 1.2em
-      +link-colors(#333, #666)
+      color: #333
+    select.question-required
+      float: right
     span.required-state
       float: right
       font-weight: bold
@@ -22,3 +23,17 @@
       &.default-required
         color: #344B99
         padding-top: 0.15em
+
+ol#position-questions-list
+  li
+    padding: 0.5em
+    +border-radius(0.5em)
+    a.question-remove-button
+      +link-colors(red)
+      font-weight: bold
+      float: right
+      margin: 0 0 0 0.5em
+#position-questions li a
+  font-weight: bold
+  font-size: 1.2em
+  +link-colors(#333, #666)

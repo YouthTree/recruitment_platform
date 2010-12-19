@@ -1,0 +1,9 @@
+%li.question-form
+  = question_form.hidden_field :id, :class => 'question-id', :id => nil
+  = question_form.hidden_field :order_position, :class => 'question-order-position', :id => nil
+  - unless question_form.object.new_record?
+    = question_form.hidden_field :_destroy, :class => 'question-remove'
+  %span.question-question= question_form.object.question.question
+  = link_to '(remove)', '#', :class => 'question-remove-button'
+
+  = question_form.select :required, [["Use default required", nil], ["Always required", true], ["Never required", false]], {}, :class => 'question-required'

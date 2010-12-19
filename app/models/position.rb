@@ -3,6 +3,8 @@ class Position < ActiveRecord::Base
 
   scope :with_questions, includes(:position_questions => :question)
 
+  attr_accessor :next_question_id # Used for showing a question select
+
   has_many :position_questions, :autosave => true do
 
     def ordered
