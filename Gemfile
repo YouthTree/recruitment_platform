@@ -81,4 +81,5 @@ end
 group :staging, :production do
   gem 'therubyracer', :require => nil
   gem 'hoptoad_notifier'
+  gem 'unicorn', :require => nil
 end

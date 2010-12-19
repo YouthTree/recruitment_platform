@@ -124,6 +124,7 @@ GEM
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
     json (1.4.6)
+    kgio (2.0.0)
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -226,6 +227,9 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    unicorn (3.1.0)
+      kgio (~> 2.0.0)
+      rack
     uuid (2.3.1)
       macaddr (~> 1.0)
     validates_url_format_of (0.1.0)
@@ -298,6 +302,7 @@ DEPENDENCIES
   stringex
   therubyracer
   title_estuary
+  unicorn
   uuid
   validates_url_format_of
   validation_reflection
