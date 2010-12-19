@@ -62,6 +62,12 @@ GEM
       will_paginate
       will_paginate
     builder (2.1.2)
+    capistrano (2.5.19)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
     carrierwave (0.5.1)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
@@ -106,6 +112,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     has_scope (0.5.0)
+    highline (1.6.1)
     hoptoad_notifier (2.3.12)
       activesupport
       builder
@@ -134,6 +141,13 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.0.23)
+    net-ssh-gateway (1.0.1)
+      net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
     open4 (1.0.1)
     open_gem (1.4.2)
@@ -196,6 +210,7 @@ GEM
       ruby-debug-base (~> 0.10.4.0)
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
+    rvm (1.1.6)
     show_for (0.2.3)
     shuriken (0.2.1)
     slugged (0.3.2)
@@ -216,6 +231,15 @@ GEM
     validates_url_format_of (0.1.0)
       activerecord (>= 2.3.4)
     validation_reflection (1.0.0)
+    ydd (0.0.11)
+      activerecord
+      activesupport
+      thor (~> 0.14)
+    youthtree-capistrano (0.2.2)
+      bundler (~> 1.0)
+      capistrano
+      rvm (~> 1.0)
+      ydd
     youthtree-controller-ext (0.1.2)
       activesupport (>= 3.0.0.beta4)
     youthtree-helpers (0.2.0)
@@ -237,6 +261,7 @@ DEPENDENCIES
   annotate!
   barista (>= 0.7.0.pre2)
   bhm-admin (~> 0.3.4)
+  capistrano
   carrierwave
   compass (= 0.10.5)
   compass-colors
@@ -277,6 +302,7 @@ DEPENDENCIES
   validates_url_format_of
   validation_reflection
   will_paginate (~> 3.0.pre2)!
+  youthtree-capistrano
   youthtree-controller-ext
   youthtree-helpers (~> 0.2)
   youthtree-js (~> 0.2)

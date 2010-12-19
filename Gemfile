@@ -49,8 +49,8 @@ group :development do
   gem 'mongrel'
   gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil
   gem 'slurper', :require => nil
-  gem 'capistrano'
-  gem 'yt-capistrano'
+  gem 'capistrano', :require => nil
+  gem 'youthtree-capistrano', :require => nil
 end
 
 group :test, :development do
@@ -66,8 +66,8 @@ group :test, :development do
 end
 
 group :test do
-  gem 'remarkable',              '>= 4.0.0.alpah4', :require => 'remarkable/core'
-  gem 'remarkable_activerecord', '>= 4.0.0.alpah4', :require => 'remarkable/active_record'
+  gem 'remarkable',              '>= 4.0.0.alpha4', :require => 'remarkable/core'
+  gem 'remarkable_activerecord', '>= 4.0.0.alpha4', :require => 'remarkable/active_record'
   gem 'rr'
   gem 'rcov', :require => nil
   gem 'rspec_tag_matchers'

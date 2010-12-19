@@ -2,7 +2,8 @@ require 'rubygems'
 require 'bundler/setup'
 require 'youthtree-capistrano'
 
-set :application, "recruitment_platform"
+set :application,     "recruitment_platform"
+set :repository_name, "recruitment_platform"
 
 set :bundle_without, [:development, :test, :test_mac]
 
