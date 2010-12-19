@@ -284,8 +284,8 @@ DEPENDENCIES
   rails3-generators
   rb-fsevent
   rcov
-  remarkable (>= 4.0.0.alpah4)
-  remarkable_activerecord (>= 4.0.0.alpah4)
+  remarkable (>= 4.0.0.alpha4)
+  remarkable_activerecord (>= 4.0.0.alpha4)
   rr
   rspec (~> 2.1)
   rspec-rails (~> 2.1)
