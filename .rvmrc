@@ -1,1 +1,7 @@
 rvm use ree@recruitment_platform --create --install >/dev/null 2>&1
+
+if [[ -s "./recruitment_platform.gems" ]]; then
+  if ! rvm gemset import recruitment_platform.gems >/dev/null 2>&1; then
+    echo "ERROR: Unable to bootstrap the gems" >&2
+  fi
+fi
