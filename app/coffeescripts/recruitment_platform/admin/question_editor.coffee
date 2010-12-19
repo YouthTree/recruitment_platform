@@ -13,7 +13,7 @@ RecruitmentPlatform.withNS 'Admin.QuestionEditor', (ns) ->
     idx = 0
     $("#{ns.containerSelector} #{ns.questionSelector}").each ->
       current = $ this
-      if current.find(ns.removeField).val() !== '1'
+      if current.find(ns.removeField).val() != '1'
         current.find(ns.positionField).val ++idx
 
   ns.isPersisted = (field) ->
