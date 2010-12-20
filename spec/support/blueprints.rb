@@ -26,3 +26,7 @@ Question.blueprint do
   question_type { Question::VALID_TYPES.choice }
   metadata      { %w(a b c d) if Question::COLLECTION_TYPES.include?(question_type) }
 end
+
+User.blueprint do
+  email { Forgery(:internet).email_address }
+end

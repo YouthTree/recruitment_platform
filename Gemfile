@@ -47,6 +47,8 @@ gem 'validates_url_format_of'
 gem 'devise'
 gem 'devise_imapable', :git => gh('YouthTree', 'devise_imapable')
 
+gem 'awesome_print'
+
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'
@@ -74,6 +76,7 @@ group :test do
   gem 'rr'
   gem 'rcov', :require => nil
   gem 'rspec_tag_matchers'
+  gem 'syntax', :require => nil
 end
 
 group :test_mac do

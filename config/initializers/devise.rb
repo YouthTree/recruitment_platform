@@ -33,5 +33,6 @@ Devise.setup do |config|
   config.imap_server               = Settings.devise.imap_server
   config.imap_default_email_suffix = Settings.devise.authentication_domain
   config.imap_server_use_ssl       = Settings.devise.ssl_for_imap
+  config.imap_email_validator      = lambda { |e| e.to_s.split("@", 2).last == Settings.devise.authentication_domain }
 
 end
