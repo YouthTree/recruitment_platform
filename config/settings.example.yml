@@ -5,6 +5,9 @@ default:
   session_key: 'rp-session'
   devise:
     pepper: "some-pepper-goes-here"
+    ssl_for_imap: true
+    imap_server: imap.gmail.com
+    authentication_domain: 'youthtree.org.au'
 production:
   mailer:
     contact_email: "hello@youthtree.org.au"
