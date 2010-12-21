@@ -47,6 +47,8 @@ class Position < ActiveRecord::Base
                   :general_description, :position_description, :applicant_description, :published_at, :expires_at,
                   :position_questions_attributes, :next_question_id
   
+  before_validation :setup_child_parents
+
   def self.expired
     where 'expires_at <= ?', Time.now
   end
@@ -85,6 +87,10 @@ class Position < ActiveRecord::Base
     end
   end
   
+  def setup_child_parents
+    position_questions.each { |pq| pq.position = self }
+  end
+
 end
 
 # == Schema Information
