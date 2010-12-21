@@ -60,7 +60,7 @@ GEM
     barista (0.7.0.pre3)
       coffee-script (~> 2.1.1)
     bcrypt-ruby (2.1.2)
-    bhm-admin (0.3.4)
+    bhm-admin (0.3.5)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
       compass-colors
