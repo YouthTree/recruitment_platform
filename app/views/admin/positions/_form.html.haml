@@ -1,5 +1,5 @@
 - extra_head_content do
-  = javascript_include_tag 'recruitment_platform/admin/question_editor'
+  = include_javascripts :admin_position_page
   :javascript
     RecruitmentPlatform.Admin.QuestionEditor.setTemplate(#{render_nested_form(form, :position_questions, 'question_form').to_json});
 
