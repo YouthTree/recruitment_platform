@@ -68,6 +68,7 @@ group :test, :development do
   gem 'guard-rspec', :require => nil
   gem 'guard-passenger', :require => nil
   gem 'ruby-debug'
+  gem 'dataset', :git => 'git://github.com/radiant/dataset.git'
 end
 
 group :test do

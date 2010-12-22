@@ -18,6 +18,14 @@ GIT
   specs:
     annotate (2.4.0)
 
+GIT
+  remote: git://github.com/radiant/dataset.git
+  revision: 9143cb3a3c2d1df6c4b4271bf0a8f85ae3651357
+  specs:
+    dataset (1.4.0.radiant)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -285,6 +293,7 @@ DEPENDENCIES
   carrierwave
   compass (= 0.10.5)
   compass-colors
+  dataset!
   devise
   devise_imapable!
   forgery

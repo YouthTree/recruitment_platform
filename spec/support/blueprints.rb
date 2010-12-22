@@ -19,6 +19,20 @@ Position.blueprint do
   team
 end
 
+Position.blueprint :unpublished do
+  published_at { nil }
+end
+
+Position.blueprint :expired do
+  published_at { (rand(2) + 3).weeks.ago }
+  expires_at   { (rand(2) + 1).weeks.ago }
+end
+
+Position.blueprint :draft do
+  published_at { nil }
+  expires_at   { nil }
+end
+
 Question.blueprint do
   question      { Forgery(:lorem_ipsum).sentence }
   short_name    { "Field #{sn}" }

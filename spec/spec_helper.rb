@@ -11,5 +11,7 @@ RSpec.configure do |config|
   config.include MassAssignmentMatcher, :type => :model
   config.include RspecTagMatchers
   config.include I18nSpecHelper
+  config.extend  DatasetCleanerHelper
+  config.include Devise::TestHelpers, :type => :controller
   config.before(:each) { Machinist.reset_before_test }
 end
