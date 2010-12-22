@@ -4,3 +4,6 @@ en:
     title:
       site:
         index: 'Welcome to the Recruitment Platform'
+      positions:
+        show: '%{position_title} on %{team_name}'
+        index: 'All positions'

@@ -7,6 +7,7 @@ class PositionsController < ApplicationController
   def show
     @position = Position.viewable.find_using_slug(params[:id])
     @team     = @position.team
+    add_title_variables! :position_title => @position.title, :team_name => @team.name
   end
   
 end

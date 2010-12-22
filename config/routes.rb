@@ -11,6 +11,9 @@ RecruitmentPlatform::Application.routes.draw do
   
   resources :positions, :only => [:show, :index]
 
-  root :to => 'site#index'
+  root :to => 'positions#index'
+  get 'positions/:id', :to => 'positions#show', :as => :position
+
+  # root :to => 'site#index'
   
 end
