@@ -11,7 +11,7 @@ class Position < ActiveRecord::Base
       if loaded?
         sort_by { |i| i.order_position || 0 }
       else
-        order('order_position ASC')
+        order("#{quoted_table_name}.order_position ASC")
       end
     end
 
@@ -50,11 +50,11 @@ class Position < ActiveRecord::Base
   before_validation :setup_child_parents
 
   def self.expired
-    where 'expires_at <= ?', Time.now
+    where "#{quoted_table_name}.expires_at <= ?", Time.now
   end
   
   def self.unexpired
-    where 'expires_at > ?', Time.now
+    where "#{quoted_table_name}.expires_at > ?", Time.now
   end
 
   def self.viewable

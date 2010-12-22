@@ -49,7 +49,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    almost-happy (0.4.0)
+    almost-happy (0.4.1)
       RedCloth
       activerecord (>= 3.0.0.beta3)
       nokogiri
