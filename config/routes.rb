@@ -9,6 +9,8 @@ RecruitmentPlatform::Application.routes.draw do
     resources :questions
   end
   
+  resources :positions, :only => [:show, :index]
+
   root :to => 'site#index'
   
 end

@@ -10,6 +10,10 @@ class Team < ActiveRecord::Base
   
   has_many :positions
   
+  def self.for_listing
+    includes(:positions).merge(Position.viewable)
+  end
+
 end
 
 # == Schema Information
