@@ -1,1 +1,31 @@
-%h2 Viewing Position
+%article#position
+  %h1 #{@position.title} for #{link_to @team.name, '#'}
+  %p#short-description= @position.short_description
+
+  %section#position-general-description
+    %h2 About this Position
+    .embedded-content= @position.general_description_as_html
+
+  %section#position-position-description
+    %h2 What does this position involve?
+    .embedded-content= @position.position_description_as_html
+
+  %section#position-applicant-description
+    %h2 Who are we looking for?
+    .embedded-content= @position.applicant_description_as_html
+
+  %section#position-extra
+    %h2 A little bit extra
+    %dl#position-details
+      %dt How long is this position for?
+      %dd= @position.duration
+      %dt Who is this position for?
+      %dd= link_to @team.name, '#'
+      %dt Expected time per week:
+      %dd= "%0.02f hours" % @position.time_commitment
+      %dt Paid position?
+      %dd
+        - if @position.paid?
+          = @position.paid_description_as_html
+        - else
+          %p This position is not paid.

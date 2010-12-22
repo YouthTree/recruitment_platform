@@ -1,1 +1,9 @@
 %h2 All Positions
+
+-  @teams.each do |team|
+
+  %h3= team.name
+
+  %ul.team-positions
+    - team.positions.each do |position|
+      %li= link_to position.title, position
