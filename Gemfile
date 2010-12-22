@@ -49,6 +49,8 @@ gem 'devise_imapable', :git => gh('YouthTree', 'devise_imapable')
 
 gem 'awesome_print'
 
+gem 'pdfkit'
+
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'

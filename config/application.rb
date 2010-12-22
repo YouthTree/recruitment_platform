@@ -16,5 +16,7 @@ module RecruitmentPlatform
     config.time_zone          = Settings.time_zone
     config.filter_parameters += [:password]
     config.autoload_paths    += %W(#{config.root}/lib)
+    
+    config.middleware.use PDFKit::Middleware, :print_media_type => true
   end
 end

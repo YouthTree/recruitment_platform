@@ -27,3 +27,5 @@ stylesheets:
   admin:
     - public/stylesheets/recruitment_platform-admin.css
     - public/jquery-ui/smoothness/jquery-ui-1.8.custom.css
+  base_print:
+    - public/stylesheets/recruitment_platform/print.css

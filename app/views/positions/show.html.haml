@@ -29,3 +29,5 @@
           = @position.paid_description_as_html
         - else
           %p This position is not paid.
+      %dt.no-print Position PDF:
+      %dd.no-print= link_to 'View this position as a PDF', position_path(@position, :format => 'pdf')
