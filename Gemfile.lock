@@ -57,6 +57,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    acts_as_indexed (0.6.6)
     almost-happy (0.4.1)
       RedCloth
       activerecord (>= 3.0.0.beta3)
@@ -285,6 +286,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_indexed
   almost-happy
   annotate!
   awesome_print

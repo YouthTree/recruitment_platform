@@ -51,6 +51,8 @@ gem 'awesome_print'
 
 gem 'pdfkit'
 
+gem 'acts_as_indexed'
+
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'
