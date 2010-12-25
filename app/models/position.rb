@@ -49,6 +49,9 @@ class Position < ActiveRecord::Base
   
   before_validation :setup_child_parents
 
+  acts_as_indexed :fields => [:title, :short_description, :position_description, :applicant_description, :paid_description],
+    :if => lambda { |r| r.viewable? }
+
   def self.expired
     where "#{quoted_table_name}.expires_at <= ?", Time.now
   end
