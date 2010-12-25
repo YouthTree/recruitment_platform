@@ -21,7 +21,7 @@ describe PositionsController do
     end
 
     it 'should let you filter the positions' do
-      get :index, :search => {:team_ids => [teams(:published).id]}
+      get :index, :position_search => {:team_ids => [teams(:published).id]}
       assigns[:teams].should =~ [teams(:published)]
       assigns[:teams].map(&:positions).flatten.uniq.should =~ [positions(:published_1), positions(:published_2), positions(:published_3), positions(:published_4)]
     end

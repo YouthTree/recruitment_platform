@@ -1,7 +1,7 @@
 class PositionsController < ApplicationController
   
   def index
-    @search = Position.search(params[:search])
+    @search = Position.search(params[:position_search])
     @teams  = Team.for_listing(@search).all
   end
   
