@@ -1,10 +1,7 @@
 class Search
   extend ActiveModel::Naming  
+  extend ActiveModel::Translation
   include ActiveModel::Conversion
-  
-  def self.to_key
-    :subscriber
-  end
   
   attr_reader :attributes
   attr_accessor :relation
@@ -52,4 +49,8 @@ class Search
     false
   end
   
+  def self.i18n_scope
+    :search
+  end
+
 end

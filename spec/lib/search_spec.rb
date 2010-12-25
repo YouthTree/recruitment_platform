@@ -26,6 +26,10 @@ describe Search do
       test_model_naming
     end
     
+    it 'should correctly implement persisted?' do
+      test_persisted?
+    end
+
   end
   
   context 'getting a search objects attributes' do
@@ -141,6 +145,23 @@ describe Search do
         search.find(1).should == result
       end
       
+      it 'should still raise exceptions correctly for unknown methods' do
+        stub(relation).respond_to?(:blah_blah_blah) { false }
+        expect { search.blah_blah_blah }.to raise_error(NoMethodError)
+      end
+
+      it 'should not call respond to on the relation if the method is defined locally' do
+        pending # FIXME: rr proxying with respond_to etc
+        dont_allow(relation).respond_to?.with_any_args
+        search.respond_to? :setup
+      end
+
+      it 'should proxy respond to' do
+        pending # FIXME: rr proxying with respond_to etc
+        mock(relation).respond_to?(:test_method, false)
+        search.respond_to? :test_method, false
+      end
+
     end
     
   end
