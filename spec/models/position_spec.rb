@@ -246,7 +246,9 @@ describe Position do
     end
 
     it 'should pass the arguments to Position Search' do
-      mock(PositionSearch).new :a => 1
+      viewable = Object.new
+      mock(Position).viewable { viewable }
+      mock(PositionSearch).new viewable, :a => 1
       Position.search :a => 1
     end
 

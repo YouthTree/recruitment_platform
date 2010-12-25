@@ -62,7 +62,7 @@ class Position < ActiveRecord::Base
   end
   
   def self.search(params = {})
-    PositionSearch.new params
+    PositionSearch.new viewable, params
   end
 
   def expired?

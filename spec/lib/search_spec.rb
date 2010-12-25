@@ -6,11 +6,24 @@ describe Search do
     def setup; end
   end
   
+  context 'passing in the base scope' do
+
+    it 'should accept the base_relation as the first argument' do
+      base_relation = Object.new
+      SearchMinusSetup.new(base_relation).base_relation.should == base_relation
+    end
+
+    it 'should require the base_relation' do
+      expect { SearchMinusSetup.new }.to raise_error(ArgumentError)
+    end
+
+  end
+
   context 'acting like an activemodel object' do
     include ActiveModel::Lint::Tests
     
     before :each do
-      @model = SearchMinusSetup.new
+      @model = SearchMinusSetup.new nil
       def @model.build_relation() nil; end
     end
     
@@ -35,7 +48,7 @@ describe Search do
   context 'getting a search objects attributes' do
     
     let(:search) do
-      SearchMinusSetup.new :field_a => 'some field', :field_b => 42,
+      SearchMinusSetup.new Object.new, :field_a => 'some field', :field_b => 42,
         :field_c => '', :field_d => nil
     end
     
@@ -77,25 +90,25 @@ describe Search do
     
     it 'should call a setup method' do
       mock.instance_of(Search).setup
-      Search.new({})
+      Search.new(Object.new, {})
     end
     
     it 'should default to not being implemented' do
-      expect { Search.new({}) }.to raise_error(NotImplementedError)
+      expect { Search.new(Object.new, {}) }.to raise_error(NotImplementedError)
     end
     
     it 'should assign attributes correctly' do
-      search = SearchMinusSetup.new :a => 1, :b => 2
+      search = SearchMinusSetup.new Object.new, :a => 1, :b => 2
       search.attributes.should == {:a => 1, :b => 2}
     end
   
     it 'should symbolize hash keys' do
-      search = SearchMinusSetup.new 'a' => 1, 'b' => 2
+      search = SearchMinusSetup.new Object.new, 'a' => 1, 'b' => 2
       search.attributes.should == {:a => 1, :b => 2}
     end
   
     it 'should ignore non-hash arguments' do
-      search = SearchMinusSetup.new %w(a b c)
+      search = SearchMinusSetup.new Object.new, %w(a b c)
       search.attributes.should == {}
     end
     
@@ -104,7 +117,7 @@ describe Search do
   context 'using the relation' do
     
     let :search do
-      SearchMinusSetup.new :a => 1, :b => 'something else'
+      SearchMinusSetup.new Object.new, :a => 1, :b => 'something else'
     end
     
     it 'should have a to_relation method' do
@@ -115,8 +128,8 @@ describe Search do
       search.should respond_to(:build_relation)
     end
     
-    it 'should default to not being implemented for build_relation' do
-      expect { search.build_relation }.to raise_error(NotImplementedError)
+    it 'should default to returning the base relation for build_relation' do
+      search.build_relation.should == search.base_relation
     end
     
     it 'should use build_relation to set the to relation method' do

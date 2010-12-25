@@ -3,10 +3,11 @@ class Search
   extend ActiveModel::Translation
   include ActiveModel::Conversion
   
-  attr_reader :attributes
+  attr_reader :attributes, :base_relation
   attr_accessor :relation
   
-  def initialize(attributes = {})
+  def initialize(base_relation, attributes = {})
+    @base_relation = base_relation
     @attributes = (attributes.is_a?(Hash) ? attributes.symbolize_keys : {})
     setup
   end
@@ -26,7 +27,7 @@ class Search
   end
   
   def build_relation
-    raise NotImplementedError, 'Implement this in a child class.'
+    base_relation
   end
   
   def to_relation

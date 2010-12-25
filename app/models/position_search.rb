@@ -8,7 +8,7 @@ class PositionSearch < Search
   end
   
   def build_relation
-    relation = Position.viewable
+    relation = base_relation
     # Add the conditions on this search.
     relation = relation.with_query(query) if query.present?
     relation = relation.where(:team_id => team_ids) if team_ids.present?
