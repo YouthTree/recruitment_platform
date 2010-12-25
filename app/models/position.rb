@@ -69,6 +69,10 @@ class Position < ActiveRecord::Base
     expires_at.present? && expires_at <= Time.now
   end
   
+  def viewable?
+    published? && !expired?
+  end
+
   def status
     if !published?
       :draft

@@ -58,6 +58,24 @@ describe Position do
   
   context 'the status of the position' do
 
+    it 'should not be viewable if it is not published' do
+      stub(subject).expired?   { false }
+      stub(subject).published? { false }
+      should_not be_viewable
+    end
+
+    it 'should not be viewable if it is expired' do
+      stub(subject).expired?   { true }
+      stub(subject).published? { true }
+      should_not be_viewable
+    end
+
+    it 'should be viewable if it is published and not expired' do
+      stub(subject).expired?   { false }
+      stub(subject).published? { true }
+      should be_viewable
+    end
+
     it 'should not be expired when expires_at is in the future' do
       subject.expires_at = 1.week.from_now
       should_not be_expired
