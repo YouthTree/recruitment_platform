@@ -235,6 +235,23 @@ describe Position do
 
   end
 
+  context 'searching on positions' do
+
+    it 'should have a search class method' do
+      Position.should respond_to(:search)
+    end
+
+    it 'should return a position search object' do
+      Position.search.should be_kind_of PositionSearch
+    end
+
+    it 'should pass the arguments to Position Search' do
+      mock(PositionSearch).new :a => 1
+      Position.search :a => 1
+    end
+
+  end
+
 end
 
 # == Schema Information

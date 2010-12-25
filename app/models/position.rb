@@ -61,6 +61,10 @@ class Position < ActiveRecord::Base
     unexpired.published
   end
   
+  def self.search(params = {})
+    PositionSearch.new params
+  end
+
   def expired?
     expires_at.present? && expires_at <= Time.now
   end
