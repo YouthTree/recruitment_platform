@@ -15,7 +15,16 @@ describe PositionsController do
       assigns[:teams].map(&:positions).flatten.uniq.should =~ [positions(:published_1), positions(:published_2), positions(:published_3), positions(:published_4), positions(:mixed_published_1)]
     end
     
-    it 'should let you filter the positions'
+    it 'should assign the search object' do
+      get :index
+      assigns[:search].should be_present
+    end
+
+    it 'should let you filter the positions' do
+      get :index, :search => {:team_ids => [teams(:published).id]}
+      assigns[:teams].should =~ [teams(:published)]
+      assigns[:teams].map(&:positions).flatten.uniq.should =~ [positions(:published_1), positions(:published_2), positions(:published_3), positions(:published_4)]
+    end
     
     it 'should fetch teams with positions present' do
       get :index

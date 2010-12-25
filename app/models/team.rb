@@ -10,8 +10,8 @@ class Team < ActiveRecord::Base
   
   has_many :positions
   
-  def self.for_listing
-    includes(:positions).merge(Position.viewable)
+  def self.for_listing(outer_scope = Position.viewable)
+    includes(:positions).merge(outer_scope)
   end
 
 end
