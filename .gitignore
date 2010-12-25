@@ -19,3 +19,4 @@ rerun.txt
 /slurper_config.yml
 /public/stylesheets/*.css
 /public/stylesheets/**/*.css
+/index/
