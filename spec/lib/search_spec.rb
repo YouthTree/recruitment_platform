@@ -167,15 +167,19 @@ describe Search do
       end
 
       it 'should not call respond to on the relation if the method is defined locally' do
-        pending # FIXME: rr proxying with respond_to etc
-        dont_allow(relation).respond_to?.with_any_args
+        def relation.respond_to?(method, include_private = false)
+          raise StandardError, 'should not be true' if method == :setup
+          super
+        end
         search.respond_to? :setup
       end
 
       it 'should proxy respond to' do
-        pending # FIXME: rr proxying with respond_to etc
-        mock(relation).respond_to?(:test_method, false)
-        search.respond_to? :test_method, false
+        def relation.respond_to?(method, include_private = false)
+          return true if method == :test_method_two
+          false
+        end
+        search.should respond_to(:test_method_two)
       end
 
     end
