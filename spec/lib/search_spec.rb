@@ -4,6 +4,9 @@ describe Search do
   
   class SearchMinusSetup < Search
     def setup; end
+
+    public :value_to_array, :value_to_boolean
+
   end
   
   context 'passing in the base scope' do
@@ -179,4 +182,71 @@ describe Search do
     
   end
   
+  context 'normalising search arguments' do
+
+    let(:search) { SearchMinusSetup.new(nil) }
+
+    describe 'the value_to_boolean' do
+
+      it 'should use the built in ActiveRecord type convertors' do
+        mock(ActiveRecord::ConnectionAdapters::Column).value_to_boolean anything
+        search.value_to_boolean 1
+      end
+
+      it 'should return the correct values to get true' do
+        [1, "1", "true", true].each do |value|
+          search.value_to_boolean(value).should == true
+        end
+      end
+
+      it 'should return the correct values to get false' do
+        [0, "0", false, "false", nil].each do |value|
+          search.value_to_boolean(value).should == false
+        end
+      end
+
+      it 'should return the correct values to get nil' do
+        ['', "   "].each do |value|
+          search.value_to_boolean(value).should == nil
+        end
+      end
+
+    end
+
+    describe 'the value_to_array method' do
+
+      it 'should take an optional type convertor block' do
+        array = %w(a b c)
+        array.each { |i| mock(i).to_something.returns rand(1000) }
+        search.value_to_array(array) { |i| i.to_something }
+      end
+
+      it 'should return a flattened array' do
+        search.value_to_array([1, [2, [3]]]).should == [1, 2, 3]
+      end
+
+      it 'should uniqify the array' do
+        search.value_to_array([1, 2, 1, 4]).should == [1, 2, 4]
+      end
+
+      it 'should remove blank values' do
+        search.value_to_array([1, '', 2, nil]).should == [1, 2]
+      end
+
+      it 'should correctly convert nil' do
+        search.value_to_array(nil).should == []
+      end
+
+      it 'should correctly convert an existing array' do
+        search.value_to_array([1, 2]).should == [1, 2]
+      end
+
+      it 'should correctly convert blank attributes' do
+        search.value_to_array('').should == []
+      end
+
+    end
+
+  end
+
 end

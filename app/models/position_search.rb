@@ -4,7 +4,7 @@ class PositionSearch < Search
   
   def setup
     @query    = attr(:query)
-    @team_ids = Array(attr(:team_ids)).flatten.reject(&:blank?).map(&:to_i).uniq 
+    @team_ids = value_to_array(attr(:team_ids), &:to_i)
   end
   
   def build_relation

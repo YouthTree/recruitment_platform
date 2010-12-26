@@ -54,4 +54,16 @@ class Search
     :search
   end
 
+  protected
+
+  def value_to_boolean(value)
+    ActiveRecord::ConnectionAdapters::Column.value_to_boolean value
+  end
+
+  def value_to_array(value, &blk)
+    values = Array(value).flatten.reject(&:blank?)
+    values = values.map(&blk) unless blk.nil?
+    values.uniq
+  end
+
 end
