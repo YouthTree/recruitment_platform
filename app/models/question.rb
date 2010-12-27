@@ -62,12 +62,12 @@ class Question < ActiveRecord::Base
     question_type.present? ? self.class.human_question_type_name(question_type) : nil
   end
 
-  def to_formtastic_options(answer)
+  def to_formtastic_options(question)
     options = {:label => question, :as => FIELD_TYPE_MAPPING[question_type]}
     options[:hint] = hint if hint.present?
     options[:collection] = Array(metadata).flatten if has_collection?
-    if answer.respond_to?(:required)
-      options[:required] = (answer.required.nil? ? required_by_default : answer.required)
+    if question.respond_to?(:required)
+      options[:required] = (question.required.nil? ? required_by_default : question.required)
     end
     options
   end

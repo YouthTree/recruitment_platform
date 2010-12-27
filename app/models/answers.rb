@@ -4,15 +4,16 @@ class Answers
   include ActiveModel::Conversion
   include ActiveModel::Validations
   
-  attr_reader :application, :position, :questions
+  attr_reader :application, :position, :questions, :position_questions
   
   VALID_NAME_REGEXP = /^question_(\d+)\=?$/
 
   def initialize(application)
-    @application = application
-    @position    = application.try(:position)
-    @questions   = position.try(:questions) || []
-    build_question_hash
+    @application        = application
+    @position           = application.try(:position)
+    @position_questions = position.try(:position_questions) || []
+    @questions          = position.try(:questions)          || position_questions.map(&:question)
+    build_question_hashes
   end
   
   delegate :persisted?, :to => :application
@@ -65,13 +66,30 @@ class Answers
     question_for_name(name).present? || super
   end
 
+  def required?(question)
+    position_question = @position_question_mapping[question]
+    if position_question.present? && !position_question.required.nil?
+      position_question.required?
+    else
+      question.required_by_default?
+    end
+  end
+
   protected
 
-  def build_question_hash
+  def build_question_hashes
     @question_lookups = questions.inject({}) do |acc, current|
       acc[question_to_param(current).to_s] = current
       acc
     end
+    @position_question_mapping = position_questions.inject({}) do |acc, current|
+      acc[current.question] = current
+      acc
+    end
+  end
+
+  def position_question_for(question)
+    @position_question_mapping[question]
   end
 
   def question_to_param(question)

@@ -138,6 +138,8 @@ describe Answers do
       let(:question_2) { Question.make.tap { |i| stub(i).id.returns(2) }  }
 
       before(:each) do
+        position.position_questions.build :question => question_1
+        position.position_questions.build :question => question_2
         position.questions = [question_1, question_2]
       end
 
@@ -167,6 +169,42 @@ describe Answers do
 
   end
   
+  context 'checking the required state of a question' do
+
+    let(:position)   { position_application.position }
+    let(:question_1) { Question.make.tap { |i| stub(i).id.returns(1) }  }
+    let(:position_question_1) { @position_question_1 }
+
+    before(:each) do
+      @position_question_1 = position.position_questions.build :question => question_1
+      position.questions = [question_1]
+    end
+
+    it 'should be required if the position question is required' do
+      position_question_1.required = true
+      should be_required(question_1)
+    end
+
+    it 'should not be required if the position question is not required' do
+      position_question_1.required = false
+      should_not be_required(question_1)
+    end
+
+    it 'should be required if it has no preference and required by default is true' do
+      position_question_1.required = nil
+      question_1.required_by_default = true
+      should be_required(question_1)
+    end
+
+    it 'should not be required if it has no preference and required by default is false' do
+      position_question_1.required = nil
+      question_1.required_by_default = false
+      should_not be_required(question_1)
+    end
+
+
+  end
+
   context 'getting properties of the answers' do
     let(:position)    { position_application.position }
     
@@ -175,9 +213,7 @@ describe Answers do
     
     context 'with stubbed out questions' do
       before(:each) { position.questions << Question.make }
-      
       its(:questions)   { should == position.questions }
-      
     end
     
   end
