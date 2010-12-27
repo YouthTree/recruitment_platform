@@ -14,4 +14,5 @@ RSpec.configure do |config|
   config.extend  DatasetCleanerHelper
   config.include Devise::TestHelpers, :type => :controller
   config.before(:each) { Machinist.reset_before_test }
+  config.after(:all)   { FileUtils.rm_rf Rails.root.join('index', Rails.env) }
 end
