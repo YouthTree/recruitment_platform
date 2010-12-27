@@ -48,10 +48,18 @@ describe Answers do
       subject.question_2.should == 'My Test Answer'
     end
 
+    it 'should raise a NoMethodMerror for unknown getters' do
+      expect { subject.question_3 }.to raise_error(NoMethodError)
+    end
+
     it 'should let you use method missing setters' do
       subject.answers['question_1'].should be_blank
       subject.question_1 = 'Another Answer'
       subject.answers['question_1'].should == 'Another Answer'
+    end
+
+    it 'should raise a NoMethodMerror for unknown setters' do
+      expect { subject.question_3 = 'Huh!' }.to raise_error(NoMethodError)
     end
 
     it 'should normalise blank values' do
