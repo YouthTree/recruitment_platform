@@ -6,12 +6,92 @@ class Answers
   
   attr_reader :application, :position, :questions
   
+  VALID_NAME_REGEXP = /^question_(\d+)\=?$/
+
   def initialize(application)
     @application = application
     @position    = application.try(:position)
-    @questions   = position.try :questions
+    @questions   = position.try(:questions) || []
+    build_question_hash
   end
   
   delegate :persisted?, :to => :application
   
+  def attributes=(value)
+    return unless value.is_a?(Hash)
+    value.each_pair do |k, v|
+      write_attribute k, v if k.to_s =~ VALID_NAME_REGEXP
+    end
+  end
+
+  def write_attribute(name, value)
+    return if question_for_name(name).blank?
+    answers[name.to_s] = normalise_value(question_for_name(name), value)
+  end
+
+  def read_attribute(name)
+    question_for_name(name).presence && answers[name.to_s]
+  end
+
+  def answers
+    @answers ||= begin
+      value = application.raw_answers
+      unless value.is_a?(Hash)
+        value                   = {}
+        application.raw_answers = value
+      end
+      value
+    end
+  end
+
+  def question_for_name(name)
+    @question_lookups[name.to_s.gsub(/\=$/, '')]
+  end
+
+  def method_missing(name, *args, &blk)
+    if (question = question_for_name(name)).present?
+      name = name.to_s
+      if name[-1, 1] == '='
+        write_attribute name[0..-2], *args
+      else
+        read_attribute name
+      end
+    else
+      super
+    end
+  end
+
+  def respond_to?(name, include_private = false)
+    question_for_name(name).present? || super
+  end
+
+  protected
+
+  def build_question_hash
+    @question_lookups = questions.inject({}) do |acc, current|
+      acc[question_to_param(current).to_s] = current
+      acc
+    end
+  end
+
+  def question_to_param(question)
+    question.presence && :"question_#{question.id}"
+  end
+
+  def param_to_id(id)
+    if id.to_s =~ VALID_NAME_REGEXP
+      $1.to_i
+    else
+      nil
+    end
+  end
+
+  def normalise_value(question, value)
+    if value.blank?
+      nil
+    else
+      value.to_s
+    end
+  end
+
 end

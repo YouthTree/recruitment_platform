@@ -9,6 +9,8 @@ class PositionApplication < ActiveRecord::Base
   validates_format_of   :email, :with => Devise.email_regexp
   validates_associated  :answers
 
+  serialize :raw_answers
+
   def answers
     @answers ||= Answers.new(self)
   end
@@ -31,5 +33,6 @@ end
 #  identifier  :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  raw_answers :text
 #
 
