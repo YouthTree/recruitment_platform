@@ -7,9 +7,62 @@ describe Answers do
   
   context 'validations' do
 
-    it 'should be valid with no required questions'
+    let(:position)   { position_application.position }
+    let(:question_1) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(1) }  }
+    let(:question_2) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(2) }  }
 
-    it 'should be invalid with incomplete required questions'
+    before(:each) do
+      position.position_questions.build :question => question_1
+      position.position_questions.build :question => question_2
+      position.questions = [question_1, question_2]
+    end
+
+    it 'should be valid with no required questions' do
+      stub(subject).required?(anything) { false }
+      should be_valid
+    end
+
+    it 'should be invalid with incomplete required questions' do
+      stub(subject).required?(question_1) { false }
+      stub(subject).required?(question_2) { true  }
+      subject.question_1 = nil
+      subject.question_2 = nil
+      should_not be_valid
+      should have(0).errors_on(:question_1)
+      should have(1).errors_on(:question_2)
+    end
+
+  end
+
+  context 'dealing with questions' do
+
+    let(:position)   { position_application.position }
+    let(:question_1) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(1) }  }
+    let(:question_2) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(2) }  }
+
+    before(:each) do
+      position.position_questions.build :question => question_1
+      position.position_questions.build :question => question_2
+      position.questions = [question_1, question_2]
+    end
+
+    it 'should iterate over all of the questions' do
+      count = 0
+      subject.each_question { |q, n| count += 1 }
+      count.should == 2
+    end
+
+    it 'should yield the questions as the first argument' do
+      questions = []
+      subject.each_question { |q, _| questions << q }
+      questions.should =~ [question_1, question_2]
+    end
+
+    it 'should yield the question param as the second argument' do
+      questions = []
+      subject.each_question { |_, n| questions << n }
+      questions.should =~ [:question_1, :question_2]
+    end
 
   end
 
@@ -18,7 +71,7 @@ describe Answers do
     let(:position) { position_application.position }
 
     before(:each) do
-      position.questions = [Question.make, Question.make]
+      position.questions = [Question.make(:question_type => 'text'), Question.make(:question_type => 'text')]
       position.questions.each_with_index { |q, i| stub(q).id.returns(i + 1) }
     end
 
@@ -124,7 +177,7 @@ describe Answers do
     describe 'as the destination of a conversion' do
 
       it 'return the correct value from a question' do
-        question = Question.make
+        question = Question.make :question_type => 'text'
         stub(question).id { 42 }
         subject.send(:question_to_param, question).should == :question_42
       end
@@ -134,8 +187,8 @@ describe Answers do
     describe 'as a way to look up questions' do
 
       let(:position)   { position_application.position }
-      let(:question_1) { Question.make.tap { |i| stub(i).id.returns(1) }  }
-      let(:question_2) { Question.make.tap { |i| stub(i).id.returns(2) }  }
+      let(:question_1) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(1) }  }
+      let(:question_2) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(2) }  }
 
       before(:each) do
         position.position_questions.build :question => question_1
@@ -172,7 +225,7 @@ describe Answers do
   context 'checking the required state of a question' do
 
     let(:position)   { position_application.position }
-    let(:question_1) { Question.make.tap { |i| stub(i).id.returns(1) }  }
+    let(:question_1) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(1) }  }
     let(:position_question_1) { @position_question_1 }
 
     before(:each) do
@@ -212,7 +265,7 @@ describe Answers do
     its(:position)    { should == position }
     
     context 'with stubbed out questions' do
-      before(:each) { position.questions << Question.make }
+      before(:each) { position.questions << Question.make(:question_type => 'text') }
       its(:questions)   { should == position.questions }
     end
     

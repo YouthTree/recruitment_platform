@@ -53,7 +53,7 @@ class Question < ActiveRecord::Base
     if value.blank?
       value = nil
     elsif value.is_a?(String)
-      value = Array(value).map(&:strip).reject(&:blank?)
+      value = normalise_array value
     end
     self.metadata = value
   end
@@ -76,6 +76,20 @@ class Question < ActiveRecord::Base
     COLLECTION_TYPES.include?(question_type)
   end
 
+  def normalise_value(value)
+    return if value.blank?
+    case question_type
+    when "date_time", "text", "short_text"
+      value.to_s
+    when "select", "multiple_choice"
+      value = value.to_s
+      Array(metadata).include?(value) ? value : nil
+    when "check_boxes"
+      Array(metadata) & normalise_array(value)
+    when "scale"
+    end
+  end
+
   VALID_TYPES.each do |type|
     class_eval(<<-EOF, __FILE__, __LINE__)
 
@@ -84,6 +98,10 @@ class Question < ActiveRecord::Base
       end
 
     EOF
+  end
+
+  def normalise_array(value)
+    Array(value).map(&:strip).reject(&:blank?)
   end
 
 end

@@ -236,6 +236,139 @@ describe Question do
     
   end
 
+  describe 'getting normalise values for a given question' do
+
+    subject { Question.make :question_type => question_type }
+
+    shared_examples_for 'all question types' do
+
+      it 'should return nil for a blank string' do
+        subject.normalise_value('').should be_nil
+        subject.normalise_value('   ').should be_nil
+      end
+
+      it 'should return nil for nil' do
+        subject.normalise_value(nil).should be_nil
+      end
+
+      it 'should return nil for a blank array' do
+        subject.normalise_value([]).should be_nil
+      end
+
+    end
+
+    shared_examples_for 'basic question types' do
+
+      it 'should return the given string for a string' do
+        subject.normalise_value('my string').should == 'my string'
+        subject.normalise_value('another string').should == 'another string'
+      end
+
+      it 'should return the string version for an array' do
+        subject.normalise_value(%w(a b c)).should == %w(a b c).to_s
+      end
+
+      it 'should return the string version for an arbitrary object' do
+        object = Object.new
+        stub(object).to_s { 'My Awesome String' }
+        subject.normalise_value(object).should == 'My Awesome String'
+      end
+
+    end
+
+    shared_examples_for 'basic question types with choices' do
+
+      before(:each) { subject.editable_metadata = "a\nb\nc" }
+
+      it 'should return the string version if in the array' do
+        subject.normalise_value('a').should == 'a'
+        subject.normalise_value('b').should == 'b'
+        subject.normalise_value('c').should == 'c'
+      end
+
+      it 'should return nil otherwise' do
+        subject.normalise_value('d').should be_nil
+        subject.normalise_value('C').should be_nil
+        subject.normalise_value('another').should be_nil
+      end
+
+    end
+
+    context 'as a date time question' do
+      let(:question_type) { 'date_time' }
+      it_should_behave_like 'all question types'
+      it_should_behave_like 'basic question types'
+    end
+
+    context 'as a short text question' do
+      let(:question_type) { 'short_text' }
+      it_should_behave_like 'all question types'
+      it_should_behave_like 'basic question types'
+    end
+
+    context 'as a text question' do
+      let(:question_type) { 'text' }
+      it_should_behave_like 'all question types'
+      it_should_behave_like 'basic question types'
+    end
+
+    context 'as a multiple choice question' do
+      let(:question_type) { 'multiple_choice' }
+      it_should_behave_like 'all question types'
+      it_should_behave_like 'basic question types with choices'
+    end
+
+    context 'as a select question' do
+      let(:question_type) { 'select' }
+      it_should_behave_like 'all question types'
+      it_should_behave_like 'basic question types with choices'
+    end
+
+    context 'as a scale question' do
+      let(:question_type) { 'scale' }
+      it_should_behave_like 'all question types'
+
+      before(:each) { subject.editable_metadata = "1\n10" }
+
+      it 'should return the string of the number if in the range' do
+        subject.normalise_value('10').should == '10'
+        subject.normalise_value('13').should == '3'
+        subject.normalise_value('1').should == '1'
+      end
+
+      it 'should return nil if below the range' do
+        subject.normalise_value('0').should be_nil
+        subject.normalise_value('-100').should be_nil
+      end
+
+      it 'should return nil if above the range' do
+        subject.normalise_value('11').should be_nil
+        subject.normalise_value('100').should be_nil
+      end
+
+    end
+
+    context 'as a check boxes question' do
+      let(:question_type) { 'check_boxes' }
+      it_should_behave_like 'all question types'
+
+      before(:each) { subject.editable_metadata = "a\nb\nc\nd" }
+
+      it 'should return an array for valid choices' do
+        subject.normalise_value('a').should == %w(a)
+        subject.normalise_value(['a']).should == %w(a)
+        subject.normalise_value(['a', 'b']).should == %w(a b)
+        subject.normalise_value("a\nb").should == %w(a b)
+      end
+
+      it 'should return the array of items matching those in the metadata' do
+        subject.normalise_value(%w(a b e)).should == %w(a b)
+      end
+
+    end
+
+  end
+
 end
 
 # == Schema Information

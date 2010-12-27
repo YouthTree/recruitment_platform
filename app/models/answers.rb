@@ -12,12 +12,14 @@ class Answers
     @application        = application
     @position           = application.try(:position)
     @position_questions = position.try(:position_questions) || []
-    @questions          = position.try(:questions)          || position_questions.map(&:question)
+    @questions          = position.try(:questions) || position_questions.map(&:question)
     build_question_hashes
   end
   
   delegate :persisted?, :to => :application
   
+  validate :check_question_requiredness
+
   def attributes=(value)
     return unless value.is_a?(Hash)
     value.each_pair do |k, v|
@@ -75,7 +77,25 @@ class Answers
     end
   end
 
+  def each_question
+    sorted_questions.each do |q|
+      yield q, question_to_param(q)
+    end
+  end
+
+  def sorted_questions
+    questions.sort_by { |q| @position_question_mapping[q].try(:order_position) || 0 }
+  end
+
   protected
+
+  def check_question_requiredness
+    each_question do |question, param|
+      if required?(question) && read_attribute(param).blank?
+        errors.add param, :blank, :message => 'is blank'
+      end
+    end
+  end
 
   def build_question_hashes
     @question_lookups = questions.inject({}) do |acc, current|
@@ -105,11 +125,7 @@ class Answers
   end
 
   def normalise_value(question, value)
-    if value.blank?
-      nil
-    else
-      value.to_s
-    end
+    question.presence && question.normalise_value(value)
   end
 
 end
