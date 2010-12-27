@@ -44,3 +44,10 @@ end
 User.blueprint do
   email { Forgery(:internet).email_address }
 end
+
+PositionApplication.blueprint do
+  position
+  full_name { Forgery(:name).full_name }
+  email     { Forgery(:internet).email_address }
+  phone     { Forgery(:address).phone }
+end

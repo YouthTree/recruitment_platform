@@ -10,6 +10,8 @@ describe Position do
 
     it { should have_many :questions, :through => :position_questions }
 
+    it { should have_many :applications, :class_name => 'PositionApplication' }
+
     it { should accept_nested_attributes_for :position_questions }
 
   end

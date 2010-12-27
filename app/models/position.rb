@@ -28,6 +28,8 @@ class Position < ActiveRecord::Base
 
   has_many :questions, :through => :position_questions
 
+  has_many :applications, :class_name => 'PositionApplication'
+
   belongs_to :team
   
   accepts_nested_attributes_for :position_questions, :allow_destroy => true
