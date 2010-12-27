@@ -50,3 +50,16 @@ describe PositionQuestion do
   end
 
 end
+
+# == Schema Information
+#
+# Table name: position_questions
+#
+#  id             :integer         not null, primary key
+#  position_id    :integer
+#  question_id    :integer
+#  order_position :integer
+#  required       :boolean
+#  created_at     :datetime
+#  updated_at     :datetime
+#
