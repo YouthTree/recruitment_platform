@@ -3,14 +3,15 @@ require 'spec_helper'
 describe PositionApplication do
   
   context 'associations' do
-    it { should belong_to :position }
-    it { should have_many :questions, :through => :position }
+    specify { should belong_to :position }
+    specify { should have_many :questions, :through => :position }
   end
   
   context 'validations' do
-    it { should validate_presence_of :full_name, :email, :phone }
-    it { should allow_values_for :email,  'test@example.com', 'web@youthtree.org.au', 'sutto@sutto.net' }
-    it { should_not allow_values_for :email, 'blah', nil, '', 'test @ example.com', 'google.com'  }
+
+    specify { should validate_presence_of :full_name, :email, :phone }
+    specify { should allow_values_for :email,  'test@example.com', 'web@youthtree.org.au', 'sutto@sutto.net' }
+    specify { should_not allow_values_for :email, 'blah', nil, '', 'test @ example.com', 'google.com'  }
     
     describe 'validating the answers' do
       
@@ -18,13 +19,13 @@ describe PositionApplication do
       
       it 'should be invalid when answers is invalid' do
         stub(subject).answers.stub!.valid? { false }
-        subject.should_not be_valid
+        should_not be_valid
         subject.errors[:answers].should be_present
       end
       
       it 'should be valid when answers is valid' do
         stub(subject).answers.stub!.valid? { true }
-        subject.should be_valid
+        should be_valid
         subject.errors[:answers].should be_blank
       end
       
@@ -33,8 +34,30 @@ describe PositionApplication do
   end
   
   context 'accessible attributes' do
-    it { should allow_mass_assignment_of :full_name, :email, :phone, :answers }
-    it { should_not allow_mass_assignment_of :position_id, :position, :identifier }
+    specify { should allow_mass_assignment_of :full_name, :email, :phone, :answers }
+    specify { should_not allow_mass_assignment_of :position_id, :position, :identifier }
+  end
+
+  describe '#answers' do
+
+    its(:answers) { should be_kind_of Answers }
+
+    it 'should return the same object' do
+      old_object = subject.answers
+      subject.answers.should be_equal(old_object)
+    end
+
+  end
+
+  describe '#answers=' do
+
+    let(:attributes) { {:question_1 => 'Yes'} }
+
+    it 'should call attributes= on the answer attribute' do
+      mock(subject).answers.mock!.attributes = attributes
+      subject.answers = attributes
+    end
+
   end
   
 end
