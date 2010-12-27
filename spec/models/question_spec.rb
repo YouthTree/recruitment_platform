@@ -22,6 +22,24 @@ describe Question do
     
     it { should validate_presence_of :question, :short_name, :question_type }
     
+    context 'metadata validations' do
+
+      it 'should ensure there are multiple options when needed' do
+        stub(subject).has_collection? { true }
+        stub(subject).scale?          { false }
+        should_not allow_values_for :editable_metadata, %w(a), [], nil
+        should allow_values_for     :editable_metadata, %w(a b), %w(a b c)
+      end
+
+      it 'should require two integer options when a scale' do
+        stub(subject).scale? { true }
+        stub(subject).scale? { true }
+        should_not allow_values_for :editable_metadata, nil, [], %w(a), %w(a b), %w(1), %w(2 1), %w(1 b), %w(c 1), %w(1 2 3), [2, 1], [1, 1], %w(1 1)
+        should allow_values_for     :editable_metadata, %w(1 2), [1, 2], %w(10 100)
+      end
+
+    end
+
   end
   
   context 'for select' do
@@ -117,6 +135,20 @@ describe Question do
   
   context 'dealing with metadata' do
     
+    it 'should let you get a range for a scale' do
+      stub(subject).scale? { true }
+      subject.metadata = [1, 2]
+      subject.scale_range.should == (1..2)
+      subject.metadata = %w(1 10)
+      subject.scale_range.should == (1..10)
+    end
+
+    it 'should return nil for scale_range if not a scale' do
+      stub(subject).scale? { false }
+      subject.metadata = [1, 2]
+      subject.scale_range.should be_nil
+    end
+
     it 'should serialize metadata' do
       subject.metadata.should be_nil
       subject.metadata = [1, 2, "a"]
@@ -332,7 +364,7 @@ describe Question do
 
       it 'should return the string of the number if in the range' do
         subject.normalise_value('10').should == '10'
-        subject.normalise_value('13').should == '3'
+        subject.normalise_value('3').should == '3'
         subject.normalise_value('1').should == '1'
       end
 

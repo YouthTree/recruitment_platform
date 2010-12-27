@@ -17,6 +17,9 @@ class Question < ActiveRecord::Base
   validates_presence_of :question, :short_name, :question_type
   validates_inclusion_of :question_type, :in => VALID_TYPES
 
+  validate :has_multiple_choices,      :if => :has_collection?
+  validate :has_correct_scale_choices, :if => :scale?
+
   attr_accessible :editable_metadata, :question, :short_name, :question_type, :hint, :default_value, :required_by_default
 
   has_many :position_questions, :dependent => :destroy
@@ -87,6 +90,8 @@ class Question < ActiveRecord::Base
     when "check_boxes"
       Array(metadata) & normalise_array(value)
     when "scale"
+      int_value = Integer(value) rescue nil
+      scale_range.include?(int_value) ? value : nil
     end
   end
 
@@ -102,6 +107,38 @@ class Question < ActiveRecord::Base
 
   def normalise_array(value)
     Array(value).map(&:strip).reject(&:blank?)
+  end
+
+  def scale_range
+    return unless scale?
+    options = Array(metadata).map(&:to_i)
+    options.first..options.last
+  end
+
+  protected
+
+  def has_multiple_choices
+    if Array(metadata).length < 2
+      errors.add :editable_metadata, :incorrect_number_of_choices, :message => 'needs at least 2 choices (1 per line)'
+    end
+  end
+
+  def has_correct_scale_choices
+    options = Array(metadata)
+    if options.length != 2
+      errors.add :editable_metadata, :needs_two_choices, :message => 'needs 2 choices (1 per line)'
+    elsif !options.all? { |o| valid_integer? o }
+      errors.add :editable_metadata, :choices_arent_numbers, :message => 'needs numbers as choices'
+    elsif options[0].to_i >= options[1].to_i
+      errors.add :editable_metadata, :choices_are_invalid, :message => 'must contain two, ordered numbers'
+    end
+  end
+
+  def valid_integer?(number)
+    Integer(number)
+    true
+  rescue ArgumentError
+    false
   end
 
 end

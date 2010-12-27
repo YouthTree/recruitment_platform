@@ -38,7 +38,7 @@ Question.blueprint do
   short_name    { "Field #{sn}" }
   hint          { rand(2) == 0 ? nil : Forgery(:lorem_ipsum).sentence }
   question_type { Question::VALID_TYPES.choice }
-  metadata      { %w(a b c d) if Question::COLLECTION_TYPES.include?(question_type) }
+  metadata      { %w(0 10) }
 end
 
 User.blueprint do
