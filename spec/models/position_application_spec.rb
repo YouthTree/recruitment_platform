@@ -47,6 +47,8 @@ describe PositionApplication do
       subject.answers.should be_equal(old_object)
     end
 
+    its('answers.application') { should == subject }
+
   end
 
   describe '#answers=' do

@@ -10,9 +10,11 @@ class PositionApplication < ActiveRecord::Base
   validates_associated  :answers
 
   def answers
+    @answers ||= Answers.new(self)
   end
   
   def answers=(value)
+    answers.attributes = value
   end
   
 end
