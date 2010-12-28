@@ -1,5 +1,5 @@
 %article#position
-  %h1 #{@position.title} for #{link_to @team.name, '#'}
+  %h1 #{@position.title} on #{link_to @team.name, '#'}
   %p#short-description= @position.short_description
 
   %section#position-general-description
@@ -17,6 +17,8 @@
   %section#position-extra
     %h2 A little bit extra
     %dl#position-details
+      %dt Apply for this positionL
+      %dd= link_to 'Apply Now', [:apply, @position]
       %dt How long is this position for?
       %dd= @position.duration
       %dt Who is this position for?

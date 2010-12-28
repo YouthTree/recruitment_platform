@@ -14,4 +14,4 @@
 
   = form.input :question_type, :collection => Question.types_for_select, :as => :select, :label => 'Type of question'
 
-  = form.input :editable_metadata, :as => :text, :input_html => {:rows => 5}, :label => 'Options', :hint => 'Format as one option per line.'
+  = form.input :editable_metadata, :as => :text, :input_html => {:rows => 5}, :label => 'Options', :hint => 'Format as one option per line. For scale, have the start number on the first line and the end number on the second line'

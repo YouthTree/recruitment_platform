@@ -7,3 +7,4 @@ en:
       positions:
         show: '%{position_title} on %{team_name}'
         index: 'All positions'
+        apply: 'Applying for %{position_title} on %{team_name}'

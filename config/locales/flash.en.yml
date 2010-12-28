@@ -1,6 +1,7 @@
 ---
 en:
   flash:
+    application_received: "Your application has been received - We'll be in contact shortly to let you know how you go."
     actions:
       create:
         notice: '%{resource_name} was successfully created.'

@@ -33,7 +33,8 @@ class Answers
   end
 
   def read_attribute(name)
-    question_for_name(name).presence && answers[name.to_s]
+    question = question_for_name(name)
+    question.presence && (answers[name.to_s] || question.normalise_value(question.default_value))
   end
 
   def answers
@@ -85,6 +86,14 @@ class Answers
 
   def sorted_questions
     questions.sort_by { |q| @position_question_mapping[q].try(:order_position) || 0 }
+  end
+
+  def to_formtastic_options(question)
+    question.to_formtastic_options @position_question_mapping[question]
+  end
+
+  def needed?
+    questions.present?
   end
 
   protected

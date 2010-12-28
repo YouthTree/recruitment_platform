@@ -1,0 +1,19 @@
+%article#position-application
+  %h1 Applying for #{link_to @position.title, @position} at #{link_to @team.name, '#'}
+  %p#short-description= @position.short_description
+
+  = semantic_form_for @position_application, :url => [:apply, @position] do |form|
+
+    = form.inputs 'Your Details' do
+      = form.input :full_name
+      = form.input :email
+      = form.input :phone
+
+    - if @position_application.answers.needed?
+      = form.fields_for :answers, @position_application.answers do |af|
+        = af.inputs 'Extra Questions' do
+          - af.object.each_question do |question, name|
+            = af.input name, af.object.to_formtastic_options(question)
+
+    = form.buttons do
+      = form.commit_button 'Apply for this position'

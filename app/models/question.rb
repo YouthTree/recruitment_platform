@@ -7,9 +7,10 @@ class Question < ActiveRecord::Base
     'date_time'       => :datetime_picker,
     'short_text'      => :string,
     'text'            => :text,
-    'multiple_choice' => :radio_buttons,
+    'multiple_choice' => :radio,
     'check_boxes'     => :check_boxes,
-    'select'          => :select
+    'select'          => :select,
+    'scale'           => :select
   }
 
   serialize :metadata
@@ -66,9 +67,14 @@ class Question < ActiveRecord::Base
   end
 
   def to_formtastic_options(question)
-    options = {:label => question, :as => FIELD_TYPE_MAPPING[question_type]}
+    options = {:label => self.question, :as => FIELD_TYPE_MAPPING[question_type]}
+    options[:input_html] = {:rows => 5} if text?
     options[:hint] = hint if hint.present?
-    options[:collection] = Array(metadata).flatten if has_collection?
+    if has_collection?
+      options[:collection] = Array(metadata).flatten
+    elsif scale?
+      options[:collection] = Array(scale_range).map(&:to_s)
+    end
     if question.respond_to?(:required)
       options[:required] = (question.required.nil? ? required_by_default : question.required)
     end

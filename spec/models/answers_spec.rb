@@ -139,6 +139,12 @@ describe Answers do
       subject.question_2.should == 'My Test Answer'
     end
 
+    it 'should use the default_value if present' do
+      subject.question_2 = nil
+      subject.question_for_name(:question_2).default_value = 'My Simple Response'
+      subject.question_2.should == 'My Simple Response'
+    end
+
     it 'should respond to the correct pattern methods for questions' do
       should respond_to(:question_1)
       should respond_to(:question_2)
@@ -255,6 +261,20 @@ describe Answers do
       should_not be_required(question_1)
     end
 
+
+  end
+
+  context 'checking if answers are needed' do
+
+    it 'should be false when there are no questions' do
+      stub(subject).questions { [] }
+      should_not be_needed
+    end
+
+    it 'should be true with questions' do
+      stub(subject).questions { [Question.make] }
+      should be_needed
+    end
 
   end
 

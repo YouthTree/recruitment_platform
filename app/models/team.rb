@@ -2,7 +2,7 @@ class Team < ActiveRecord::Base
   include MarkdownFormattedModel
   
   is_convertable :description
-  is_sluggable   :name
+  is_sluggable   :name, :use_cache => false
   
   attr_accessible :name, :website_url, :description
   

@@ -231,7 +231,7 @@ describe Question do
       subject.question_type = 'multiple_choice'
       subject.metadata = %w(a b c)
       options = subject.to_formtastic_options(@answer)
-      options[:as].should == :radio_buttons
+      options[:as].should == :radio
       options[:collection].should == %w(a b c)
     end
 
@@ -259,6 +259,7 @@ describe Question do
     it 'should return the correct form options for a text question' do
       subject.question_type = 'text'
       subject.to_formtastic_options(@answer)[:as].should == :text
+      subject.to_formtastic_options(@answer)[:input_html].should == {:rows => 5}
     end
 
     it 'should return the correct form options for a short text question' do
@@ -266,6 +267,14 @@ describe Question do
       subject.to_formtastic_options(@answer)[:as].should == :string
     end
     
+    it 'should return the correct form options for a short text question' do
+      subject.question_type = 'scale'
+      subject.metadata      = %w(1 5)
+      options = subject.to_formtastic_options(@answer)
+      options[:as].should == :select
+      options[:collection].should == %w(1 2 3 4 5)
+    end
+
   end
 
   describe 'getting normalise values for a given question' do

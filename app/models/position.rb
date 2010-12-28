@@ -34,7 +34,7 @@ class Position < ActiveRecord::Base
   
   accepts_nested_attributes_for :position_questions, :allow_destroy => true
 
-  is_sluggable   :title
+  is_sluggable   :title, :use_cache => false
   is_convertable :paid_description, :general_description, :position_description, :applicant_description
   is_publishable
   

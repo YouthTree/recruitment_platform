@@ -9,7 +9,12 @@ RecruitmentPlatform::Application.routes.draw do
     resources :questions
   end
   
-  resources :positions, :only => [:show, :index]
+  resources :positions, :only => [:show, :index] do
+    member do
+      get  :apply
+      post :apply
+    end
+  end
 
   root :to => 'positions#index'
   get 'positions/:id', :to => 'positions#show', :as => :position
