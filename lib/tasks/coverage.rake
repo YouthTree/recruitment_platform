@@ -1,4 +1,9 @@
 # Delete the old task.
+begin
+
+require 'rspec/rails'
+require 'rspec/core'
+require 'rspec/core/rake_task'
 
 Rake.application.instance_eval do
   @tasks.delete "spec:rcov"
@@ -12,4 +17,7 @@ namespace :spec do
     t.pattern = "./spec/**/*_spec.rb"
     t.rcov_opts = '--exclude /gems/,/Library/,/usr/,lib/tasks,.bundle,config,/lib/rspec/,/lib/rspec-,^spec/'
   end
+end
+
+rescue LoadError
 end
