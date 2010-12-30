@@ -10,12 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101227165357) do
+ActiveRecord::Schema.define(:version => 20101230163145) do
+
+  create_table "email_addresses", :force => true do |t|
+    t.string   "email"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_addresses", ["addressable_id", "addressable_type"], :name => "index_email_addresses_on_addressable_id_and_addressable_type"
 
   create_table "position_applications", :force => true do |t|
     t.integer  "position_id"
     t.string   "full_name"
-    t.string   "email"
     t.string   "phone"
     t.string   "identifier"
     t.datetime "created_at"

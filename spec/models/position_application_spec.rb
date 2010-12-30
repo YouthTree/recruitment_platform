@@ -5,13 +5,14 @@ describe PositionApplication do
   context 'associations' do
     specify { should belong_to :position }
     specify { should have_many :questions, :through => :position }
+    specify { should have_one  :email_address, :as => :addressable }
+    specify { should accept_nested_attributes_for :email_address }
   end
   
   context 'validations' do
 
-    specify { should validate_presence_of :full_name, :email, :phone }
-    specify { should allow_values_for :email,  'test@example.com', 'web@youthtree.org.au', 'sutto@sutto.net' }
-    specify { should_not allow_values_for :email, 'blah', nil, '', 'test @ example.com', 'google.com'  }
+    specify { should validate_presence_of :full_name, :email_address, :phone }
+    specify { should validate_associated :email_address }
     
     describe 'validating the answers' do
       
@@ -34,7 +35,7 @@ describe PositionApplication do
   end
   
   context 'accessible attributes' do
-    specify { should allow_mass_assignment_of :full_name, :email, :phone, :answers }
+    specify { should allow_mass_assignment_of :full_name, :email_address_attributes, :phone, :answers }
     specify { should_not allow_mass_assignment_of :position_id, :position, :identifier }
   end
 

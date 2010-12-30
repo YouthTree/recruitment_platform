@@ -8,6 +8,13 @@
   ~ form.input :short_description, :label => 'Short Description', :as => :text, :input_html => {:rows => 3}
   = form.input :team, :label => 'Team'
 
+= form.inputs 'Contact Email Addresses' do
+  - form.object.contact_emails.build
+  - offset = 0
+  = form.fields_for :contact_emails do |ef|
+    - hint = (offset += 1) == 1 ? 'These emails will be notified on a new application.' : nil
+    = ef.input :email, :label => 'Email Address', :hint  => hint
+
 = form.inputs 'Position Commitment' do
   = form.input :duration, :label => 'Position Duration', :hint => 'e.g. 6 months, 1 year, indefinite'
   = form.input :time_commitment, :label => 'Hours per week', :as => :select, :collection => Array(1..40).map { |v| [pluralize(v, "hour"), v.to_f]}

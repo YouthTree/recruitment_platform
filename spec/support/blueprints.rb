@@ -16,6 +16,7 @@ Position.blueprint do
   paid_description      { Forgery(:lorem_ipsum).paragraphs(3, :random => true) }
   published_at          { (rand(12) + 1).weeks.ago }
   expires_at            { (rand(4) + 1).weeks.from_now }
+  contact_emails        1
   team
 end
 
@@ -47,7 +48,11 @@ end
 
 PositionApplication.blueprint do
   position
+  email_address
   full_name { Forgery(:name).full_name }
-  email     { Forgery(:internet).email_address }
   phone     { Forgery(:address).phone }
+end
+
+EmailAddress.blueprint do
+  email { Forgery(:internet).email_address }
 end

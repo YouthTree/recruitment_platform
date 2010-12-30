@@ -12,13 +12,17 @@ describe Position do
 
     it { should have_many :applications, :class_name => 'PositionApplication' }
 
-    it { should accept_nested_attributes_for :position_questions }
+    it { should have_many :contact_emails, :class_name => 'EmailAddress', :as => :addressable }
+
+    it { should accept_nested_attributes_for :position_questions, :contact_emails, :allow_destroy => true }
 
   end
   
   context 'validations' do
 
     it { should validate_presence_of :title, :short_description, :duration, :time_commitment, :team, :general_description, :position_description, :applicant_description }
+
+    it { should validate_associated :contact_emails }
 
     it 'should not require the paid description when unpaid' do
       mock(subject).paid? { false }
@@ -36,10 +40,17 @@ describe Position do
       should allow_values_for :expires_at, (subject.published_at + 1.day), 2.weeks.from_now, nil
     end
     
+    it 'should require the contact emails only when published' do
+      stub(subject).published? { false }
+      should_not validate_presence_of :contact_emails
+      stub(subject).published? { true }
+      should validate_presence_of :contact_emails
+    end
+
   end
   
   context 'accessible attributes' do
-    it { should allow_mass_assignment_of :title, :short_description, :duration, :time_commitment, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid, :position_questions_attributes }
+    it { should allow_mass_assignment_of :title, :short_description, :duration, :time_commitment, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid, :position_questions_attributes, :contact_emails_attributes }
     it { should_not allow_mass_assignment_of :rendered_paid_description, :rendered_general_description, :rendered_position_description, :rendered_applicant_description }
   end
   

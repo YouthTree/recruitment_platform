@@ -2,12 +2,14 @@ class PositionApplication < ActiveRecord::Base
   
   belongs_to :position
   has_many   :questions, :through => :position
+  has_one    :email_address, :as => :addressable, :dependent => :destroy
   
-  attr_accessible :full_name, :email, :phone, :answers
+  accepts_nested_attributes_for :email_address
   
-  validates_presence_of :full_name, :email, :phone
-  validates_format_of   :email, :with => Devise.email_regexp
-  validates_associated  :answers
+  attr_accessible :full_name, :email_address_attributes, :phone, :answers
+
+  validates_presence_of :full_name, :email_address, :phone
+  validates_associated  :answers, :email_address
 
   serialize :raw_answers
 
