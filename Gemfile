@@ -82,6 +82,7 @@ group :test do
   gem 'rcov', :require => nil
   gem 'rspec_tag_matchers'
   gem 'syntax', :require => nil
+  gem 'email_spec'
 end
 
 group :test_mac do

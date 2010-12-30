@@ -106,6 +106,8 @@ GEM
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
     diff-lcs (1.1.2)
+    email_spec (1.1.1)
+      rspec (~> 2.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     fancy-buttons (1.0.1)
@@ -299,6 +301,7 @@ DEPENDENCIES
   dataset!
   devise
   devise_imapable!
+  email_spec
   forgery
   formtastic (~> 1.2)
   growl

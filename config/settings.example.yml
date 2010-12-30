@@ -27,7 +27,11 @@ development:
     contact_email: "your-email@your-email.com"
     from: "test@rp.local"
     host: "rp.local"
-    delivery_method: sendmail
+    delivery_method: smtp
+    smtp_settings:
+      address: localhost
+      port: 1025
+      domain: rp.local
 test:
   mailer:
     contact_email: "example@example.com"
