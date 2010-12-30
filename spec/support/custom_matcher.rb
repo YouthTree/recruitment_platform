@@ -1,5 +1,5 @@
-module MassAssignmentMatcher
-  class Matcher
+module CustomMatchers
+  class MassAssignmentMatcher
     
     def initialize(*args)
       @attributes     = Array(args).flatten.reject(&:blank?).map(&:to_s).uniq.sort
@@ -31,7 +31,12 @@ module MassAssignmentMatcher
   end
   
   def allow_mass_assignment_of(*args)
-    Matcher.new *args
+    MassAssignmentMatcher.new *args
+  end
+  
+  def have_link_to(text = /.*/, url = nil, *args, &blk)
+    selector = url.nil? ? 'a' : "a[href=\"#{url}\"]"
+    have_tag(selector, text, *args, &blk)
   end
   
 end

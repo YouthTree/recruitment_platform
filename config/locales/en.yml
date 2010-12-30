@@ -7,3 +7,6 @@ en:
     errors:
       messages:
         must_be_ordered_correctly: 'can not expire before it is published'
+  position_notifier:
+    application_received:
+      subject: 'New Position Application Received'
