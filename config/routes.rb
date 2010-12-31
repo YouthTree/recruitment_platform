@@ -5,7 +5,9 @@ RecruitmentPlatform::Application.routes.draw do
   namespace :admin do
     root :to => 'dashboard#index'
     resources :teams
-    resources :positions
+    resources :positions do
+      resources :position_applications, :path => 'applications', :only => [:show]
+    end
     resources :questions
   end
   

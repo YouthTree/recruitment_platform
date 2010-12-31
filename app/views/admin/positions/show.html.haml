@@ -12,6 +12,9 @@
   = r.association :team do
     = link_to resource.team.name, [:admin, resource.team]
 
+  = r.association :contact_emails, :if_blank => "None currently assigned." do |email|
+    %li= mail_to email, email, :subject => "Re. #{resource.title}"
+
 
 %h3 Position Commitment
 
@@ -60,3 +63,10 @@
           %span.not-required.required-state Not required.
       - else
         %span.default-required.required-state Using default required.
+
+- if resource.applications.present?
+
+%h3 Position Applications
+= show_for resource do |r|
+  = r.association :applications, :if_blank => "None received so far." do |app|
+    = link_to "Application received #{l app.created_at, :format => :short} for #{app.full_name}", [:admin, resource, app]
