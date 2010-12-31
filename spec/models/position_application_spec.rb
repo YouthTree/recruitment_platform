@@ -68,6 +68,22 @@ describe PositionApplication do
 
   end
   
+  describe 'sending the notification email' do
+
+    it 'should send a notification email on create' do
+      position_application = PositionApplication.make
+      mock(PositionNotifier).application_received(position_application).mock!.deliver
+      position_application.save
+    end
+
+    it 'should not send a notification email on create' do
+      position_application = PositionApplication.make!
+      dont_allow(PositionNotifier).application_received(anything)
+      position_application.update_attributes :full_name => "Some new full name"
+    end
+
+  end
+
 end
 
 # == Schema Information

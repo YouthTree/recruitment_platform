@@ -14,6 +14,7 @@ class PositionApplication < ActiveRecord::Base
   serialize :raw_answers
 
   after_initialize :setup_default_email_address
+  after_create     :send_notification_email
 
   def answers
     @answers ||= Answers.new(self)
@@ -28,6 +29,10 @@ class PositionApplication < ActiveRecord::Base
   def setup_default_email_address
     # Setup the default email
     build_email_address if email_address.blank?
+  end
+
+  def send_notification_email
+    PositionNotifier.application_received(self).deliver
   end
 
 end
