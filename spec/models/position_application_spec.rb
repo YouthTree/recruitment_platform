@@ -7,6 +7,11 @@ describe PositionApplication do
     specify { should have_many :questions, :through => :position }
     specify { should have_one  :email_address, :as => :addressable }
     specify { should accept_nested_attributes_for :email_address }
+
+    it 'should automatically set the email address to be a relationship' do
+      PositionApplication.new.email_address.should be_present
+    end
+
   end
   
   context 'validations' do

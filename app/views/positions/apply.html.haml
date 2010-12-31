@@ -6,7 +6,6 @@
 
     = form.inputs 'Your Details' do
       = form.input :full_name
-      - form.object.build_email_address if form.object.email_address.nil?
       = form.fields_for :email_address do |ef|
         = ef.input :email
       = form.input :phone

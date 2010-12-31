@@ -5,7 +5,7 @@ class Position < ActiveRecord::Base
 
   attr_accessor :next_question_id # Used for showing a question select
 
-  has_many :position_questions, :autosave => true do
+  has_many :position_questions, :dependent => :destroy, :autosave => true do
 
     def ordered
       if loaded?

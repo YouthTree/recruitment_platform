@@ -13,6 +13,8 @@ class PositionApplication < ActiveRecord::Base
 
   serialize :raw_answers
 
+  after_initialize :setup_default_email_address
+
   def answers
     @answers ||= Answers.new(self)
   end
@@ -21,6 +23,13 @@ class PositionApplication < ActiveRecord::Base
     answers.attributes = value
   end
   
+  protected
+
+  def setup_default_email_address
+    # Setup the default email
+    build_email_address if email_address.blank?
+  end
+
 end
 
 # == Schema Information
