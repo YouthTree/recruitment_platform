@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 22 Dec 2010 14:39:05 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 31 Dec 2010 01:19:57 GMT from
  * /Users/sutto/Code/YouthTree/recruitment_platform/app/coffeescripts/recruitment_platform/admin/question_editor.coffee
  */
 
@@ -12,7 +12,7 @@ RecruitmentPlatform.withNS('Admin.QuestionEditor', function(ns) {
   ns.questionSelector = 'li.question-form';
   ns.nameSelector = 'span.question-question';
   ns.nextQuestionSelector = 'select#position_next_question_id';
-  ns.htmlTemplate = '<li>BLAH</li>';
+  ns.htmlTemplate = '<li></li>';
   ns.updateQuestionSelectorState = function() {
     var selector;
     selector = $(ns.nextQuestionSelector);

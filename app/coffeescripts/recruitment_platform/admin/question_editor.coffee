@@ -10,7 +10,7 @@ RecruitmentPlatform.withNS 'Admin.QuestionEditor', (ns) ->
   ns.questionSelector     = 'li.question-form'
   ns.nameSelector         = 'span.question-question'
   ns.nextQuestionSelector = 'select#position_next_question_id'
-  ns.htmlTemplate         = '<li>BLAH</li>'
+  ns.htmlTemplate         = '<li></li>'
 
   ns.updateQuestionSelectorState = ->
     selector = $ ns.nextQuestionSelector
