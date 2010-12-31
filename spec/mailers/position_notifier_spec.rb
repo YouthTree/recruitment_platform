@@ -13,15 +13,9 @@ describe PositionNotifier do
     its(:from)    { should == [Settings.mailer.from] }
     its(:subject) { should == 'New Position Application Received' }
 
-    pending "renders the body" do
-      mail.body.encoded.should match("Hi")
-    end
-
     context 'the message body' do
 
       subject { mail.body.encoded }
-
-      pending 'should have a link to the application'
 
       it 'should have a link to the position' do
         should have_link_to position.title, admin_position_url(position)
@@ -29,6 +23,10 @@ describe PositionNotifier do
 
       it 'should have a link to the team' do
         should have_link_to position.team.name, admin_team_url(position.team)
+      end
+
+      it 'should have a link to the application' do
+        should have_link_to /.*/, admin_position_position_application_url(position, position_application)
       end
 
     end
