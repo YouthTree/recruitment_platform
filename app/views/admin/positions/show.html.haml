@@ -4,6 +4,12 @@
 
   = r.attribute :title
 
+  = r.attribute :public_link do
+    - if resource.viewable?
+      = link_to 'Click here', resource
+    - else
+      This position is not currently viewable.
+
   = r.attribute :status
 
   = r.attribute :short_description, :label => 'Brief Description' do
@@ -69,4 +75,4 @@
 %h3 Position Applications
 = show_for resource do |r|
   = r.association :applications, :if_blank => "None received so far." do |app|
-    = link_to "Application received #{l app.created_at, :format => :short} for #{app.full_name}", [:admin, resource, app]
+    %li= link_to "Application received #{l app.created_at, :format => :short} for #{app.full_name}", [:admin, resource, app]

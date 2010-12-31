@@ -21,7 +21,7 @@ RecruitmentPlatform.withNS 'Admin.ContactEmails', (ns) ->
       inner = $(this).parents ns.itemSelector
       remove = inner.find ns.removeInput
       if remove.size() > 0
-        remove.val 'true'
+        remove.val '1'
         inner.hide()
       else
         inner.remove()

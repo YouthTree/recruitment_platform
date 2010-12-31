@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 31 Dec 2010 03:58:49 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 31 Dec 2010 16:49:40 GMT from
  * /Users/sutto/Code/YouthTree/recruitment_platform/app/coffeescripts/recruitment_platform/admin/contact_emails.coffee
  */
 
@@ -25,7 +25,7 @@ RecruitmentPlatform.withNS('Admin.ContactEmails', function(ns) {
       inner = $(this).parents(ns.itemSelector);
       remove = inner.find(ns.removeInput);
       if (remove.size() > 0) {
-        remove.val('true');
+        remove.val('1');
         return inner.hide();
       } else {
         return inner.remove();

@@ -2,7 +2,7 @@
   - hint = "These emails will be notified on a new email. #{link_to 'Click here', '#', :class => 'add-field'} to add another."
 - else
   - hint = "#{link_to 'Click here', '#', :class => 'remove-field'} to remove this email."
-= email_form.input :email, :label => 'Email Address', :hint  => hint.html_safe
-- unless email_form.object.new_record?
-  = email_form.input :_destroy, :as => :hidden
-  = email_form.input :id, :as => :hidden
+
+- hint_extra = content_tag(:span, email_form.hidden_field(:_destroy, :class => 'destroy-field') + email_form.hidden_field(:id), :style => 'display: none;')
+
+= email_form.input :email, :label => 'Email Address', :hint  => (hint.html_safe + hint_extra)
