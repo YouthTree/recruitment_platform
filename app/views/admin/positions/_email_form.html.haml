@@ -1,0 +1,8 @@
+- if defined?(offset) && offset < 2
+  - hint = "These emails will be notified on a new email. #{link_to 'Click here', '#', :class => 'add-field'} to add another."
+- else
+  - hint = "#{link_to 'Click here', '#', :class => 'remove-field'} to remove this email."
+= email_form.input :email, :label => 'Email Address', :hint  => hint.html_safe
+- unless email_form.object.new_record?
+  = email_form.input :_destroy, :as => :hidden
+  = email_form.input :id, :as => :hidden

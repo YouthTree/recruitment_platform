@@ -2,18 +2,18 @@
   = include_javascripts :admin_position_page
   :javascript
     RecruitmentPlatform.Admin.QuestionEditor.setTemplate(#{render_nested_form(form, :position_questions, 'question_form').to_json});
+    RecruitmentPlatform.Admin.ContactEmails.setTemplate(#{render_nested_form(form, :contact_emails, 'email_form').to_json})
 
 = form.inputs 'About this Position' do
   = form.input :title, :label => 'Position Title'
   ~ form.input :short_description, :label => 'Short Description', :as => :text, :input_html => {:rows => 3}
   = form.input :team, :label => 'Team'
 
-= form.inputs 'Contact Email Addresses' do
-  - form.object.contact_emails.build
+= form.inputs 'Contact Email Addresses', :id => 'contact-emails' do
+  - form.object.contact_emails.build if form.object.contact_emails.empty?
   - offset = 0
   = form.fields_for :contact_emails do |ef|
-    - hint = (offset += 1) == 1 ? 'These emails will be notified on a new application.' : nil
-    = ef.input :email, :label => 'Email Address', :hint  => hint
+    = partial 'email_form', :email_form => ef, :offset => (offset += 1)
 
 = form.inputs 'Position Commitment' do
   = form.input :duration, :label => 'Position Duration', :hint => 'e.g. 6 months, 1 year, indefinite'

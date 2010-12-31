@@ -21,6 +21,7 @@ javascripts:
   admin_position_page:
     - public/javascripts/recruitment_platform/admin/paid_field.js
     - public/javascripts/recruitment_platform/admin/question_editor.js
+    - public/javascripts/recruitment_platform/admin/contact_emails.js
 stylesheets:
   base:
     - public/stylesheets/recruitment_platform.css
