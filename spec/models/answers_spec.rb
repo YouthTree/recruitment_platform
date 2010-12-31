@@ -264,6 +264,19 @@ describe Answers do
 
   end
 
+  context 'getting the options for a question' do
+
+    let(:position)   { position_application.position }
+    let(:question_1) { Question.make(:question_type => 'text').tap { |i| stub(i).id.returns(1) }  }
+    let(:position_question_1) { @position_question_1 }
+
+    it 'should proxy it to the question' do
+      mock(question_1).to_formtastic_options(position_question_1)
+      subject.to_formtastic_options(question_1)
+    end
+
+  end
+
   context 'checking if answers are needed' do
 
     it 'should be false when there are no questions' do

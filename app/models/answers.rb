@@ -38,14 +38,13 @@ class Answers
   end
 
   def answers
-    @answers ||= begin
-      value = application.raw_answers
-      unless value.is_a?(Hash)
-        value                   = {}
-        application.raw_answers = value
-      end
-      value
+    return @answers if defined?(@answers) && @answers.present?
+    value = application.raw_answers
+    unless value.is_a?(Hash)
+      value                   = {}
+      application.raw_answers = value
     end
+    @answers = value
   end
 
   def question_for_name(name)
@@ -89,7 +88,7 @@ class Answers
   end
 
   def to_formtastic_options(question)
-    question.to_formtastic_options @position_question_mapping[question]
+    question.to_formtastic_options position_question_for(question)
   end
 
   def needed?
