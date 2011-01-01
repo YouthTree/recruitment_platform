@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 31 Dec 2010 16:49:40 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 01 Jan 2011 13:56:33 GMT from
  * /Users/sutto/Code/YouthTree/recruitment_platform/app/coffeescripts/recruitment_platform/admin/contact_emails.coffee
  */
 

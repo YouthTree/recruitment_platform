@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sun, 19 Dec 2010 10:22:20 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 01 Jan 2011 13:56:33 GMT from
  * /Users/sutto/.rvm/gems/ree-1.8.7-2010.02@recruitment_platform/gems/youthtree-js-0.4.1/coffeescripts/youth_tree/flickr/gallery.coffee
  */
 
@@ -8,7 +8,7 @@ YouthTree.withNS('Flickr.Gallery', function(ns) {
   flickr = YouthTree.Flickr;
   ns.navigationClass = 'flickr-gallery-navigation';
   ns.containerClass = 'flickr-gallery';
-  InnerFlickrGallery = function() {
+  InnerFlickrGallery = (function() {
     function InnerFlickrGallery(name, container) {
       this.name = name;
       this.container = container;
@@ -54,7 +54,7 @@ YouthTree.withNS('Flickr.Gallery', function(ns) {
       return YouthTree.Gallery.create(this.name, this.container.find('a'));
     };
     return InnerFlickrGallery;
-  }();
+  })();
   ns.fromPhotoset = function(name, container, photoset, extraParams) {
     var flickr_gallery;
     flickr_gallery = new InnerFlickrGallery(name, container);
