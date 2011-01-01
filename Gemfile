@@ -53,6 +53,8 @@ gem 'pdfkit'
 
 gem 'acts_as_indexed'
 
+gem 'fastercsv'
+
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'

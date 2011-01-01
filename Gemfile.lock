@@ -113,6 +113,7 @@ GEM
     fancy-buttons (1.0.1)
       compass (>= 0.10.0)
       haml (>= 3.0.2)
+    fastercsv (1.5.3)
     fastthread (1.0.7)
     forgery (0.3.6)
     formtastic (1.2.2)
@@ -302,6 +303,7 @@ DEPENDENCIES
   devise
   devise_imapable!
   email_spec
+  fastercsv
   forgery
   formtastic (~> 1.2)
   growl

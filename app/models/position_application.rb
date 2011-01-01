@@ -16,7 +16,8 @@ class PositionApplication < ActiveRecord::Base
   after_initialize :setup_default_email_address
   after_create     :send_notification_email
 
-  def answers
+  def answers(force = false)
+    @answers = nil if force
     @answers ||= Answers.new(self)
   end
   
