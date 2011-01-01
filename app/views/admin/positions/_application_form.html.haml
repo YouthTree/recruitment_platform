@@ -1,0 +1,9 @@
+%h4 Downloadable Application Details
+- reporter = resource.to_application_reporter
+= semantic_form_for reporter, :url => admin_position_position_applications_url(resource, :format => :csv), :html => {:method => :get} do |form|
+  
+  = form.inputs "Fields to show" do
+    = form.input :fields, :collection => reporter.available_field_options, :as => :check_boxes
+  
+  = form.buttons do
+    = form.commit_button 'Get CSV File'

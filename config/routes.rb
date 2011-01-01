@@ -6,7 +6,7 @@ RecruitmentPlatform::Application.routes.draw do
     root :to => 'dashboard#index'
     resources :teams
     resources :positions do
-      resources :position_applications, :path => 'applications', :only => [:show]
+      resources :position_applications, :path => 'applications', :only => [:show, :index]
     end
     resources :questions
   end

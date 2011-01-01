@@ -76,3 +76,5 @@
 = show_for resource do |r|
   = r.association :applications, :if_blank => "None received so far." do |app|
     %li= link_to "Application received #{l app.created_at, :format => :short} for #{app.full_name}", [:admin, resource, app]
+
+= partial 'application_form'
