@@ -18,5 +18,6 @@ RSpec.configure do |config|
   config.include MiscSpecExt
   config.before(:each) { Machinist.reset_before_test }
   config.after(:all)   { FileUtils.rm_rf Rails.root.join('index', Rails.env) }
+  config.around(:each) { |s| BHM::Admin.silence_attr_accessible(&s) }
 
 end

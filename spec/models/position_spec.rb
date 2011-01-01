@@ -285,6 +285,24 @@ describe Position do
 
   end
 
+  describe 'getting an application reporter' do
+
+    specify { should respond_to(:to_application_reporter) }
+
+    it 'should bu default pass it through with an empty hash' do
+      object = Object.new
+      mock(PositionApplicationReporter).new(subject, Hash.new) { object }
+      subject.to_application_reporter.should == object
+    end
+
+    it 'should pass through options when given' do
+      object = Object.new
+      mock(PositionApplicationReporter).new(subject, :fields => %w(full_name)) { object }
+      subject.to_application_reporter(:fields => %w(full_name)).should == object
+    end
+
+  end
+
 end
 
 # == Schema Information

@@ -99,6 +99,10 @@ class Position < ActiveRecord::Base
     I18n.t status, :scope => 'ui.position_status', :default => status.to_s.humanize
   end
   
+  def to_application_reporter(options = {})
+    PositionApplicationReporter.new self, options
+  end
+
   protected
   
   def ensure_published_at_is_valid
