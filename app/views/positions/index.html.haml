@@ -8,7 +8,7 @@
     -  @teams.each do |team|
       - team.positions.each do |position|
         %li.position
-          %span.team-name= team.name
+          %span.team-name #{team.name}:
           = link_to position.title, position
           - if position.paid?
             %span.tag.paid Paid
