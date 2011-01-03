@@ -1,11 +1,16 @@
-%h2 All Positions
+%aside
+  = partial 'search'
 
-= partial 'search'
-
--  @teams.each do |team|
-
-  %h3= team.name
-
-  %ul.team-positions
-    - team.positions.each do |position|
-      %li= link_to position.title, position
+%article.with-sidebar
+  %h1 Get Involved with Youth Tree Inc.
+  
+  %ul#all-positions
+    -  @teams.each do |team|
+      - team.positions.each do |position|
+        %li.position
+          %span.team-name= team.name
+          = link_to position.title, position
+          - if position.paid?
+            %span.tag.paid Paid
+          - else
+            %span.tag.volunteer Volunteer

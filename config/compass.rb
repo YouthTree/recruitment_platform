@@ -14,3 +14,6 @@ sass_dir = "app/stylesheets"
 environment = Compass::AppIntegration::Rails.env
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
+
+yt_sass_root = Pathname(__FILE__).dirname.dirname.join("design", "sass").to_s
+Compass::Frameworks.register 'youthtree', :path => yt_sass_root, :stylesheets_directory => yt_sass_root

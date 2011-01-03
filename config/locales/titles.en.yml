@@ -5,6 +5,6 @@ en:
       site:
         index: 'Welcome to the Recruitment Platform'
       positions:
-        show: '%{position_title} on %{team_name}'
-        index: 'All positions'
+        show: '%{team_name}: %{position_title}'
+        index: 'Get Involved with Youth Tree Inc.'
         apply: 'Applying for %{position_title} on %{team_name}'

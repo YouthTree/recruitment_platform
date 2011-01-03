@@ -1,10 +1,25 @@
-%h1= link_to 'Recruitment Platform', :root
-
-%nav#header-menu
+%h1
+  %a{:href => "/"} Youth Tree
+  
+%nav#site-navigation
   %ul
-    = ml "Home", :root
-    - if user_signed_in?
-      = ml 'Admin Area', :admin_root
-      = ml 'Sign out', :destroy_user_session
-    - else
-      = ml 'Sign in', :new_user_session
+    %li
+      %a{:href => "#"} Contact Us
+    %li
+      %a{:href => "#"} Partners
+      %ul
+        = ml "ZettaGrid", '#'
+        = ml "Caimes Web", '#'
+        = ml "The Frontier Group", '#'
+    %li
+      %a{:href => "#"} Get Involved
+      %ul
+        = ml "Sign up for a Position", '#'
+        = ml "Be Awesome", '#'
+    %li
+      %a{:href => "/general"} About
+      %ul
+        = ml "What We Do", '#'
+        = ml "Mission And Vision", '#'
+        = ml "People", '#'
+        = ml "History", '#'

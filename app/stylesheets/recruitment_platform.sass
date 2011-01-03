@@ -1,9 +1,78 @@
-@import recruitment_platform/public/colours
-@import recruitment_platform/base
-@import recruitment_platform/public/util
-@import recruitment_platform/public/grid
-@import recruitment_platform/public/base
-@import recruitment_platform/public/header
-@import recruitment_platform/public/footer
-@import recruitment_platform/public/content
-@import recruitment_platform/public/forms
+@import "youthtree"
+
+p#quick-links
+  font-size: 1em
+  margin: -14px 0 14px
+  padding: 0.5em
+  border-bottom: 1px dotted #777
+  a
+    font-weight: bold
+    text-decoration: none
+    
+#content h1 span.team-name
+  color: #5C3F0F
+  
+aside form.formtastic
+  margin-top: 0.4em
+  
+  abbr.required
+    display: none
+  
+  fieldset.inputs
+    label
+      float: none
+      width: auto
+    > ol > li:last-child
+      margin-bottom: 0
+    ol
+      float: none
+      margin-bottom: 0
+    fieldset
+      ol
+        width: auto
+        padding: 2em 0 0
+        margin: 0 !important
+    p.inline-hints, p.inline-errors
+      margin-left: 0
+    &.string input[size], &.password input[size], &.numeric input[size], &.email input[size], &.url input[size], &.phone input[size], &.search input[size], &.datetime_picker input[size], &.date_picker input[size]
+      width: auto
+      max-width: none
+    &.text textarea
+      width: auto
+      &[cols]
+        width: auto
+        max-width: none
+    
+  fieldset.buttons
+    padding: 0
+    margin: 0 0 14px
+    z-index: 50
+    
+ul#all-positions
+  list-style: none
+  border-top: 1px dotted #777
+  li
+    line-height: 2em
+    font-size: 1em
+    padding: 0.25em
+    border-bottom: 1px dotted #777
+    
+    span.team-name
+      font-weight: bold
+      color: #222
+      
+    a
+      text-decoration: none
+      color: #555
+    
+    span.tag
+      +border-radius(0.5em)
+      font-size: 0.75em
+      padding: 0.25em 0.5em 0.35em
+      color: #FFF
+      background-color: #999
+      font-weight: bold
+    span.paid
+      background-color: #384999
+    span.volunteer
+      background-color: #467A3E

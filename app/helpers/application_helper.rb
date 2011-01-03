@@ -25,5 +25,9 @@ module ApplicationHelper
       render :partial => partial_name, :object => child_form
     end
   end
+  
+  def from_radiant(name)
+    RadiantContent[name]
+  end
 
 end

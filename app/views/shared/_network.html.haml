@@ -1,0 +1,45 @@
+#yt-network
+  
+  #yt-subscribe-panel
+    %form{:action => "http://youthtree.createsend.com/t/r/s/ojyat/", :method => "post"}
+    
+      %fieldset#yt-subscriber-details
+        %label{:for => 'subscriber_name'} Name:
+        %input{:type => 'text', :id => 'subscriber_name', :name => 'cm-name' }
+        %label{:for => 'subscriber_email'} Email:
+        %input{:type => 'email', :id => 'subscriber_email', :name => '"cm-ojyat-ojyat' }
+    
+    
+      %fieldset#yt-subscriber-subscriptions
+        %label{:for => 'subscriber_name'} Select newsletters:
+        %ul#yt-newsletter-choices
+          %li
+            %label
+              %input{:type => 'checkbox', :disabled => true, :checked => true}
+              %span.yt-list-name Youth Tree Inc.
+              %span.yt-list-description A brief list description here
+          %li
+            %label
+              %input{:type => 'checkbox', :name => 'cm-ol-ojycd'}
+              %span.yt-list-name Big Help Mob
+              %span.yt-list-description This description shows something.
+          %li
+            %label
+              %input{:type => 'checkbox', :name => 'cm-ol-ojych'}
+              %span.yt-list-name TEDxPerth
+              %span.yt-list-description Just short and sweet
+    
+      %fieldset#yt-subscribe-button
+        %button{:name => 'subscribe', :type => 'submit'} Subscribe
+    
+  
+  #yt-network-inner
+
+    #yt-subscribe
+      %a{:href => "#"} Subscribe to our updates
+  
+    %ul#yt-sites
+      %li
+        %a{:href => "http://bighelpmob.org/", :title => "", :target => '_blank'} Big Help Mob &raquo;
+      %li
+        %a{:href => "http://tedxperth.org/", :title => "", :target => '_blank'} TEDxPerth &raquo;

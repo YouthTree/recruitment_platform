@@ -1,6 +1,15 @@
 %article#position
-  %h1 #{@position.title} on #{link_to @team.name, '#'}
+  %h1
+    %span.team-name #{@team.name}:
+    = @position.title
+  
+  %p#quick-links
+    = link_to 'Apply for this position', [:apply, @position]
+    or
+    = link_to 'View as a PDF', position_path(@position, :format => 'pdf')
+  
   %p#short-description= @position.short_description
+    
 
   %section#position-general-description
     %h2 About this Position
@@ -17,19 +26,14 @@
   %section#position-extra
     %h2 A little bit extra
     %dl#position-details
-      %dt Apply for this position:
-      %dd= link_to 'Apply Now', [:apply, @position]
       %dt How long is this position for?
       %dd= @position.duration
-      %dt Who is this position for?
-      %dd= link_to @team.name, '#'
       %dt Expected time per week:
       %dd= "%0.02f hours" % @position.time_commitment
-      %dt Paid position?
+      %dt Type of position:
       %dd
         - if @position.paid?
+          %p This is a paid position.
           = @position.paid_description_as_html
         - else
-          %p This position is not paid.
-      %dt.no-print Position PDF:
-      %dd.no-print= link_to 'View this position as a PDF', position_path(@position, :format => 'pdf')
+          %p This is a volunteer position.

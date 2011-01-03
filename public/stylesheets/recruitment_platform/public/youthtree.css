@@ -1,0 +1,731 @@
+/* line 302, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 311, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+body {
+  line-height: 1;
+}
+
+/* line 314, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 317, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+nav ul {
+  list-style: none;
+}
+
+/* line 320, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 324, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 329, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 333, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 339, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+ins {
+  background-color: #ffff99;
+  color: black;
+  text-decoration: none;
+}
+
+/* line 344, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+mark {
+  background-color: #ffff99;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* line 350, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+del {
+  text-decoration: line-through;
+}
+
+/* line 353, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* line 357, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 361, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 369, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+input, select {
+  vertical-align: middle;
+}
+
+/* line 1, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-network {
+  width: 100%;
+  background: black;
+  color: #5e5e5e;
+}
+
+/* line 6, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-network-inner {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 11, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-network-inner a {
+  text-decoration: none;
+  color: #5e5e5e;
+}
+/* line 284, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+#yt-network-inner a:hover {
+  color: #999999;
+}
+
+/* line 15, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe {
+  float: left;
+}
+/* line 17, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe a {
+  padding: 0 20px;
+}
+/* line 19, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe.active {
+  background: #1e1e1e;
+  -moz-border-radius-bottomleft: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -o-border-bottom-left-radius: 15px;
+  -ms-border-bottom-left-radius: 15px;
+  -khtml-border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -o-border-bottom-right-radius: 15px;
+  -ms-border-bottom-right-radius: 15px;
+  -khtml-border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+/* line 22, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe.active a {
+  color: #c4771b;
+}
+
+/* line 25, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe, ul#yt-sites {
+  font-size: 12px;
+  line-height: 18px;
+  padding: 10px;
+}
+
+/* line 30, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+ul#yt-sites {
+  float: right;
+  margin: 0;
+  list-style: none;
+}
+/* line 35, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+ul#yt-sites li {
+  display: inline;
+  margin: 0 0 0 20px;
+}
+
+/* line 39, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel {
+  display: none;
+  background: #1e1e1e;
+}
+/* line 42, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel form {
+  width: 960px;
+  margin: 0 auto;
+  padding: 15px 0;
+  overflow: hidden;
+  *zoom: 1;
+  font-size: 12px;
+}
+/* line 49, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 52, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset label {
+  color: white;
+  padding: 5px 10px 5px 0;
+  clear: both;
+  float: left;
+  display: block;
+}
+/* line 59, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscriber-details {
+  float: left;
+  margin-right: 10px;
+  width: 220px;
+}
+/* line 63, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscriber-details label {
+  width: 50px;
+  padding-top: 8px;
+}
+/* line 66, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscriber-details input {
+  float: left;
+  background: #666666;
+  padding: 5px;
+  border: 0;
+  display: block;
+  color: white;
+  width: 150px;
+  margin-bottom: 10px;
+}
+/* line 77, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscriber-subscriptions {
+  float: left;
+  width: 520px;
+  margin: 0 10px;
+}
+/* line 81, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscriber-subscriptions label {
+  width: 130px;
+}
+/* line 84, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscribe-button {
+  float: right;
+  width: 170px;
+  margin-left: 20px;
+  padding-top: 15px;
+  text-align: left;
+}
+/* line 91, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscribe-button button {
+  padding: 10px 30px;
+  background: #c86e05 url("/images/bg-gradient.png") bottom center repeat-x;
+  font-size: 16px;
+  border: 2px solid #ad5f06;
+  color: white;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  text-shadow: black 1px 1px 2px;
+  font-weight: bold;
+  -moz-box-shadow: black 1px 1px 5px false;
+  -webkit-box-shadow: black 1px 1px 5px false;
+  -o-box-shadow: black 1px 1px 5px false;
+  box-shadow: black 1px 1px 5px false;
+}
+/* line 102, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel fieldset#yt-subscribe-button button:hover {
+  cursor: pointer;
+  background-color: #af6004;
+}
+/* line 107, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel ul#yt-newsletter-choices {
+  float: left;
+  display: block;
+  width: 380px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 114, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel ul#yt-newsletter-choices li {
+  display: block;
+}
+/* line 116, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel ul#yt-newsletter-choices li label {
+  width: auto;
+}
+/* line 118, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel ul#yt-newsletter-choices li label span.yt-list-name {
+  color: white;
+}
+/* line 120, ../../../../app/stylesheets/recruitment_platform/public/_network.sass */
+#yt-subscribe-panel ul#yt-newsletter-choices li label span.yt-list-description {
+  padding-left: 5px;
+  color: #6a6a6a;
+}
+
+/* line 7, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+body {
+  background: #cccccc url("/images/background.jpg") center center repeat;
+  font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+}
+
+@font-face {
+  font-family: "IngomarJNLRegular";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/fonts/ingomar-webfont.eot");
+  src: local("☺"), url("/fonts/ingomar-webfont.woff") format("woff"), url("/fonts/ingomar-webfont.ttf") format("truetype"), url("/fonts/ingomar-webfont.svg#webfont") format("svg");
+}
+
+/* line 19, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#container {
+  width: 960px;
+  margin: 1em auto;
+}
+
+/* line 23, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-header {
+  *zoom: 1;
+  margin: 0 0 0.5em;
+}
+/* line 264, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+#page-header:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 26, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-header h1 {
+  float: left;
+}
+/* line 28, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-header h1 a {
+  display: block;
+  margin: 0;
+  width: 200px;
+  height: 200px;
+  text-indent: -10000px;
+  background: url("/images/logo.png") center center no-repeat;
+}
+
+/* line 36, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation, #site-navigation ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* line 43, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation {
+  overflow: hidden;
+  *zoom: 1;
+  padding-top: 4.5em;
+  z-index: 50;
+}
+/* line 48, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation ul {
+  font-size: 2.5em;
+  z-index: 50;
+}
+/* line 52, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation a {
+  display: block;
+  font-weight: bold;
+  font-style: normal;
+  font-family: "IngomarJNLRegular";
+  text-transform: uppercase;
+  color: black;
+  text-decoration: none;
+  padding: 0.25em 0.5em;
+  text-shadow: white 1px 1px 1px;
+}
+/* line 60, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation li {
+  float: right;
+  cursor: pointer;
+}
+/* line 63, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation li ul {
+  font-size: 0.75em;
+  position: absolute;
+  left: -999em;
+  background: #ce8d22;
+}
+/* line 69, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation li ul li {
+  float: none;
+}
+/* line 72, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation li:hover, #site-navigation li.sfhover {
+  cursor: pointer;
+}
+/* line 74, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation li:hover a, #site-navigation li.sfhover a {
+  background: #ce8d22;
+  color: white;
+  text-shadow: black 1px 1px 1px;
+}
+/* line 78, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation li:hover ul, #site-navigation li.sfhover ul {
+  left: auto;
+}
+/* line 81, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#site-navigation li:hover ul li:hover a, #site-navigation li:hover ul li.sfhover a, #site-navigation li.sfhover ul li:hover a, #site-navigation li.sfhover ul li.sfhover a {
+  background: #614210;
+}
+
+/* line 86, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content a {
+  color: #36527e;
+}
+/* line 284, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+#content a:hover {
+  color: #a26f1b;
+}
+/* line 287, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+#content a:active {
+  color: #777777;
+}
+/* line 89, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+  font-weight: bold;
+  font-style: normal;
+  font-family: "IngomarJNLRegular";
+  text-transform: uppercase;
+  border-bottom: 1px dotted #777777;
+  padding: 5px;
+  margin-bottom: 14px;
+  color: #ce8d22;
+}
+/* line 96, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h1 {
+  font-size: 2em;
+}
+/* line 99, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h2 {
+  font-size: 1.5em;
+}
+/* line 102, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h3 {
+  font-size: 1.25em;
+}
+/* line 105, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h4 {
+  font-size: 1.2em;
+}
+/* line 108, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h5 {
+  font-size: 1.1em;
+}
+/* line 111, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h6 {
+  font-size: 1em;
+}
+/* line 114, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content p {
+  line-height: 1.35em;
+  font-size: 0.9em;
+  margin-bottom: 14px;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 120, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content p img {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+/* line 124, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content blockquote {
+  font-size: 1.2em;
+  color: black;
+  padding: 1em;
+  margin: 0 0 14px;
+  line-height: 1.5em;
+}
+/* line 131, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content pre {
+  color: #444444;
+  margin: 0 0 14px;
+  padding: 1em;
+}
+/* line 136, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content pre p {
+  margin: 0;
+  padding: 0;
+}
+/* line 140, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .image-container {
+  text-align: center;
+  padding: 24px 0;
+}
+/* line 143, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .image-container img {
+  background: white;
+  border: 0.25em solid #d2d8dd;
+}
+/* line 146, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .image-container p {
+  color: #555555;
+  font-size: 0.8em;
+  margin: 0;
+  padding: 1em 0;
+}
+/* line 152, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content ul, #content ol, #content dl {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  margin: 0 0 14px;
+}
+/* line 157, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content ul, #content ol {
+  list-style-position: inside;
+}
+/* line 161, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content dl dt {
+  font-weight: bold;
+  margin-top: 8px;
+  color: #111111;
+}
+/* line 165, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content dl dd {
+  color: #444444;
+}
+/* line 168, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content img a {
+  border: none;
+}
+
+/* line 171, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content {
+  padding: 20px;
+  background: #e9eff4;
+}
+/* line 174, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+  font-weight: bold;
+  font-style: normal;
+  font-family: "IngomarJNLRegular";
+  text-transform: uppercase;
+}
+/* line 177, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .subsection-container {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 180, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .subsection {
+  float: left;
+  width: 215px;
+  margin: 0 10px;
+}
+/* line 186, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .subsection:first-child {
+  margin-left: 0;
+}
+/* line 188, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .subsection:last-child {
+  margin-right: 0;
+}
+/* line 191, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .subsection h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+/* line 195, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content .subsection p {
+  line-height: 1.5em;
+  font-size: 0.9em;
+}
+/* line 199, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content ul.section-links {
+  list-style: none;
+  margin: 0;
+  line-height: 1.25em;
+  font-size: 0.9em;
+}
+/* line 204, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#content ul.section-links a {
+  color: #555555;
+  text-decoration: none;
+}
+/* line 284, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+#content ul.section-links a:hover {
+  color: #111111;
+}
+
+/* line 209, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#carousel {
+  background: white;
+  border: 1px dotted #777777;
+  padding: 10px;
+  text-align: center;
+  z-index: 5;
+}
+/* line 216, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#carousel ul {
+  display: block;
+  width: 895px;
+  height: 350px;
+  margin: 0 auto;
+  list-style: none;
+  position: relative;
+}
+/* line 223, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#carousel ul li {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 895px;
+  height: 350px;
+  display: none;
+}
+/* line 230, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#carousel ul li:first-child {
+  display: block;
+}
+
+/* line 233, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+ul#social-media-icons {
+  overflow: hidden;
+  *zoom: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 150px;
+}
+/* line 239, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+ul#social-media-icons li {
+  display: inline;
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 10px 20px 10px 0;
+  float: left;
+}
+/* line 246, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+ul#social-media-icons li a {
+  display: block;
+  width: 16px;
+  height: 16px;
+  text-indent: -1000px;
+}
+
+/* line 252, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#vimeo-link {
+  background-image: url("/images/icons/vimeo.png");
+}
+
+/* line 254, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#twitter-link {
+  background-image: url("/images/icons/twitter.png");
+}
+
+/* line 256, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#linkedin-link {
+  background-image: url("/images/icons/linkedin.png");
+}
+
+/* line 258, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#facebook-link {
+  background-image: url("/images/icons/facebook.png");
+}
+
+/* line 260, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#youtube-link {
+  background-image: url("/images/icons/youtube.png");
+}
+
+/* line 262, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#flickr-link {
+  background-image: url("/images/icons/flickr.png");
+}
+
+/* line 264, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#feed-link {
+  background-image: url("/images/icons/feed.png");
+}
+
+/* line 266, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+a#email-link {
+  background-image: url("/images/icons/email.png");
+}
+
+/* line 269, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+h2#mission-statement {
+  text-align: center;
+  padding: 0.75em 0;
+  border-bottom: 1px dotted #777777;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin: 0 0 1em;
+}
+
+/* line 277, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-footer {
+  overflow: hidden;
+  *zoom: 1;
+  padding: 0.75em 1em;
+  background: #2a2b2c url("/images/footer.jpg") center center repeat-x;
+  color: #929292;
+}
+/* line 283, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-footer a {
+  color: #929292;
+  text-decoration: underline;
+}
+/* line 284, ../../../../app/stylesheets/recruitment_platform/public/_simplass.sass */
+#page-footer a:hover {
+  color: white;
+}
+/* line 287, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-footer p#copyright-information {
+  float: left;
+  font-size: 0.8em;
+  line-height: 1.5em;
+}
+/* line 292, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-footer ul#supporter-information {
+  float: right;
+  font-size: 1.2em;
+  margin: 0.5em 0 0;
+  padding: 0;
+  list-style: none;
+  font-weight: bold;
+  font-style: normal;
+  font-family: "IngomarJNLRegular";
+  text-transform: uppercase;
+  text-shadow: black 1px 1px 2px;
+}
+/* line 300, ../../../../app/stylesheets/recruitment_platform/public/youthtree.sass */
+#page-footer ul#supporter-information li {
+  display: inline;
+  margin-left: 0.5em;
+}

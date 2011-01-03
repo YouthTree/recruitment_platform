@@ -7,6 +7,8 @@ javascripts:
     - public/javascripts/vendor/youthtree/youth_tree.js
     - public/javascripts/recruitment_platform.js
     - public/javascripts/recruitment_platform/flash.js
+    - public/javascripts/youth_tree/network.js
+    - public/javascripts/youth_tree/sucker_fish.js
   admin:
     - public/javascripts/vendor/jquery.js
     - public/javascripts/vendor/jquery.rails.js
