@@ -7,6 +7,8 @@ set :repository_name, "recruitment_platform"
 
 set :bundle_without, [:development, :test, :test_mac]
 
+set :git_enable_submodules, true
+
 # Use git-flow based branches for deployment.
 set :branch do
   stage == "production" ? "master" : "develop"
