@@ -29,8 +29,8 @@
 
 = form.inputs 'About this Position' do
   ~ form.input :general_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Position Background'
-  ~ form.input :position_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'What does this position involve?'
-  ~ form.input :applicant_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Who are you looking for?'
+  ~ form.input :position_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'What would I be doing?'
+  ~ form.input :applicant_description, :as => :text, :input_html => {:rows => 8}, :hint => partial('admin/shared/markdown_reference'), :label => 'Who should apply?'
 
 = form.inputs 'Extra application questions' do
   - other_questions = Question.except_for(resource.question_ids)
