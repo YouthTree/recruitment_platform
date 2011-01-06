@@ -55,6 +55,8 @@ gem 'acts_as_indexed'
 
 gem 'fastercsv'
 
+gem 'acts-as-taggable-on'
+
 group :development do
   gem 'rails3-generators'
   gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil

@@ -57,6 +57,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    acts-as-taggable-on (2.0.6)
     acts_as_indexed (0.6.6)
     almost-happy (0.4.1)
       RedCloth
@@ -151,7 +152,7 @@ GEM
     linecache (0.43)
     macaddr (1.0.0)
     machinist (2.0.0.beta2)
-    mail (2.2.13)
+    mail (2.2.14)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -174,7 +175,7 @@ GEM
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
-    rack-test (0.5.6)
+    rack-test (0.5.7)
       rack (>= 1.0)
     rails (3.0.3)
       actionmailer (= 3.0.3)
@@ -206,19 +207,19 @@ GEM
       rspec (>= 2.0.0.alpha11)
     responders (0.6.2)
     rr (1.0.2)
-    rspec (2.3.0)
-      rspec-core (~> 2.3.0)
-      rspec-expectations (~> 2.3.0)
-      rspec-mocks (~> 2.3.0)
-    rspec-core (2.3.1)
-    rspec-expectations (2.3.0)
+    rspec (2.4.0)
+      rspec-core (~> 2.4.0)
+      rspec-expectations (~> 2.4.0)
+      rspec-mocks (~> 2.4.0)
+    rspec-core (2.4.0)
+    rspec-expectations (2.4.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.3.0)
-    rspec-rails (2.3.1)
+    rspec-mocks (2.4.0)
+    rspec-rails (2.4.1)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
-      rspec (~> 2.3.0)
+      rspec (~> 2.4.0)
     rspec_tag_matchers (1.0.0)
       nokogiri (>= 1.4.0)
       rspec-rails (>= 1.2.6)
@@ -227,7 +228,7 @@ GEM
       ruby-debug-base (~> 0.10.4.0)
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
-    rvm (1.1.8)
+    rvm (1.1.12)
     show_for (0.2.3)
     shuriken (0.2.1)
     slugged (0.4.0)
@@ -244,7 +245,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    unicorn (3.2.1)
+    unicorn (3.3.0)
       kgio (~> 2.1)
       rack
     uuid (2.3.1)
@@ -258,7 +259,7 @@ GEM
       activerecord
       activesupport
       thor (~> 0.14)
-    youthtree-capistrano (0.2.2)
+    youthtree-capistrano (0.3.1)
       bundler (~> 1.0)
       capistrano
       rvm (~> 1.0)
@@ -280,6 +281,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   acts_as_indexed
   almost-happy
   annotate!
