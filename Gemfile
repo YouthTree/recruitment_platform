@@ -55,8 +55,6 @@ gem 'acts_as_indexed'
 
 gem 'fastercsv'
 
-gem 'acts-as-taggable-on'
-
 group :development do
   gem 'rails3-generators'
   gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil
@@ -86,6 +84,7 @@ group :test do
   gem 'rspec_tag_matchers'
   gem 'syntax', :require => nil
   gem 'email_spec'
+  gem 'fuubar'
 end
 
 group :test_mac do

@@ -57,7 +57,6 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    acts-as-taggable-on (2.0.6)
     acts_as_indexed (0.6.6)
     almost-happy (0.4.1)
       RedCloth
@@ -118,6 +117,10 @@ GEM
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (>= 0.4.0)
+    fuubar (0.0.3)
+      rspec (~> 2.0)
+      rspec-instafail (~> 0.1.4)
+      ruby-progressbar (~> 0.0.9)
     growl (1.0.3)
     guard (0.2.2)
       open_gem (~> 1.4.2)
@@ -214,6 +217,7 @@ GEM
     rspec-core (2.4.0)
     rspec-expectations (2.4.0)
       diff-lcs (~> 1.1.2)
+    rspec-instafail (0.1.5)
     rspec-mocks (2.4.0)
     rspec-rails (2.4.1)
       actionpack (~> 3.0)
@@ -228,6 +232,7 @@ GEM
       ruby-debug-base (~> 0.10.4.0)
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
+    ruby-progressbar (0.0.9)
     rvm (1.1.12)
     show_for (0.2.3)
     shuriken (0.2.1)
@@ -281,7 +286,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on
   acts_as_indexed
   almost-happy
   annotate!
@@ -299,6 +303,7 @@ DEPENDENCIES
   fastercsv
   forgery
   formtastic (~> 1.2)
+  fuubar
   growl
   guard
   guard-passenger

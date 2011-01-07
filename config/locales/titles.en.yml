@@ -8,3 +8,6 @@ en:
         show: '%{team_name}: %{position_title}'
         index: 'Get Involved with Youth Tree Inc.'
         apply: 'Applying for %{position_title} on %{team_name}'
+      "devise/users":
+        new: "Sign in"
+        create: "Sign in"
