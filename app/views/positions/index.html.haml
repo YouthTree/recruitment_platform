@@ -14,3 +14,5 @@
             %span.tag.paid Paid
           - else
             %span.tag.volunteer Volunteer
+          - position.tags.each do |tag|
+            %span.tag= tag.name.titleize

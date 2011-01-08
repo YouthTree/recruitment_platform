@@ -21,6 +21,9 @@
   = r.association :contact_emails, :if_blank => "None currently assigned." do |email|
     %li= mail_to email, email, :subject => "Re. #{resource.title}"
 
+  = r.association :tags do |tag|
+    %li= tag.name
+
 
 %h3 Position Commitment
 
