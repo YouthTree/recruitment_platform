@@ -1,6 +1,8 @@
 class Position < ActiveRecord::Base
   include MarkdownFormattedModel
 
+  TIME_COMMITMENTS = [:'1_hour', :'2_to_3_hours', :a_full_day, :a_couple_of_days, :full_time]
+
   scope :with_questions, includes(:position_questions => :question)
 
   attr_accessor :next_question_id # Used for showing a question select
@@ -52,6 +54,8 @@ class Position < ActiveRecord::Base
 
   validate :ensure_published_at_is_valid
 
+  validates_inclusion_of :time_commitment, :in => TIME_COMMITMENTS
+
   attr_accessible :title, :short_description, :paid, :duration, :time_commitment, :paid_description, :team_id,
                   :general_description, :position_description, :applicant_description, :published_at, :expires_at,
                   :position_questions_attributes, :next_question_id, :contact_emails_attributes
@@ -97,6 +101,19 @@ class Position < ActiveRecord::Base
 
   def human_status
     I18n.t status, :scope => 'ui.position_status', :default => status.to_s.humanize
+  end
+
+  def time_commitment
+    (value = read_attribute(:time_commitment)) and TIME_COMMITMENTS[value]
+  end
+
+  def time_commitment=(value)
+    write_attribute(:time_commitment, value && TIME_COMMITMENTS.index(value.to_sym))
+  end
+
+  def human_time_commitment
+    return '' if time_commitment.blank?
+    time_commitment.to_s.humanize
   end
   
   def to_application_reporter(options = {})

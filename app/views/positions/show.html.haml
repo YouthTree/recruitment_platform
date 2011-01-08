@@ -29,7 +29,7 @@
       %dt How long is this position for?
       %dd= @position.duration
       %dt Expected time per week:
-      %dd= "%0.02f hours" % @position.time_commitment
+      %dd= @position.human_time_commitment
       %dt Type of position:
       %dd
         - if @position.paid?

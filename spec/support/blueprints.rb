@@ -26,7 +26,7 @@ Position.blueprint do
   title                 { Forgery(:lorem_ipsum).sentence }
   paid                  { rand(2) < 1 }
   duration              { "#{1 + rand(12)} #{%w(hours days months).choice}" }
-  time_commitment       { rand * 12 }
+  time_commitment       { Position::TIME_COMMITMENTS.choice }
   short_description     { Forgery(:lorem_ipsum).paragraph }
   general_description   { Forgery(:lorem_ipsum).paragraphs(3, :random => true) }
   position_description  { Forgery(:lorem_ipsum).paragraphs(3, :random => true) }

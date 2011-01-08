@@ -303,6 +303,48 @@ describe Position do
 
   end
 
+  describe '#human_time_commitment' do
+
+    let(:position) { Position.new }
+
+    context 'time commitment is nil' do
+
+      before :each do
+        position.time_commitment = nil
+      end
+
+      it 'has no description' do
+        position.human_time_commitment.should == ''
+      end
+
+    end
+
+    context 'time commitment of 1 hour' do
+
+      before :each do
+        position.time_commitment = :'1_hour'
+      end
+
+      it 'has a description of "1 hour"' do
+        position.human_time_commitment.should == '1 hour'
+      end
+
+    end
+
+    context 'time commitment of a full day' do
+
+      before :each do
+        position.time_commitment = :a_full_day
+      end
+
+      it 'has a description of "A full day"' do
+        position.human_time_commitment.should == 'A full day'
+      end
+
+    end
+
+  end
+
 end
 
 # == Schema Information
@@ -315,7 +357,7 @@ end
 #  team_id                        :integer
 #  paid                           :boolean         default(FALSE)
 #  duration                       :string(255)
-#  time_commitment                :decimal(, )
+#  time_commitment                :integer
 #  rendered_paid_description      :text
 #  rendered_general_description   :text
 #  rendered_position_description  :text

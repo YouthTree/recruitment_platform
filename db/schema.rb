@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101230163145) do
+ActiveRecord::Schema.define(:version => 20110108102800) do
 
   create_table "email_addresses", :force => true do |t|
     t.string   "email"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20101230163145) do
     t.integer  "team_id"
     t.boolean  "paid",                           :default => false
     t.string   "duration"
-    t.decimal  "time_commitment"
+    t.integer  "time_commitment"
     t.text     "rendered_paid_description"
     t.text     "rendered_general_description"
     t.text     "rendered_position_description"

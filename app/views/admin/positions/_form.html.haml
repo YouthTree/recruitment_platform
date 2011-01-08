@@ -17,7 +17,7 @@
 
 = form.inputs 'Position Commitment' do
   = form.input :duration, :label => 'Position Duration', :hint => 'e.g. 6 months, 1 year, indefinite'
-  = form.input :time_commitment, :label => 'Hours per week', :as => :select, :collection => Array(1..40).map { |v| [pluralize(v, "hour"), v.to_f]}
+  = form.input :time_commitment, :label => 'Time available', :as => :select, :collection => Position::TIME_COMMITMENTS.map {|p| [p.to_s.humanize, p]}
 
 = form.inputs 'Paid Positions' do
   = form.input :paid, :label => 'This is a paid position'
