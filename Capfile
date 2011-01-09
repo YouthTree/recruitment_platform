@@ -17,6 +17,8 @@ end
 set :aai_index_shared, 'index'
 set :aai_index_latest, 'index'
 
+set :deploy_via, :remote_cache
+
 namespace :acts_as_indexed do
 
   desc "Creates the index dir in the shared path"
