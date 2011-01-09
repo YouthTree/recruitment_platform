@@ -36,6 +36,9 @@ class Position < ActiveRecord::Base
 
   belongs_to :team
   
+  has_many :taggings, :dependent => :destroy, :as => :taggable
+  has_many :tags, :through => :taggings
+  
   accepts_nested_attributes_for :position_questions, :allow_destroy => true
   accepts_nested_attributes_for :contact_emails, :allow_destroy => true, :reject_if => lambda { |a| a[:email].blank? }
 
@@ -58,7 +61,7 @@ class Position < ActiveRecord::Base
 
   attr_accessible :title, :short_description, :paid, :duration, :time_commitment, :paid_description, :team_id,
                   :general_description, :position_description, :applicant_description, :published_at, :expires_at,
-                  :position_questions_attributes, :next_question_id, :contact_emails_attributes
+                  :position_questions_attributes, :next_question_id, :contact_emails_attributes, :tag_list
   
   before_validation :setup_child_parents
 
@@ -118,6 +121,33 @@ class Position < ActiveRecord::Base
   
   def to_application_reporter(options = {})
     PositionApplicationReporter.new self, options
+  end
+
+  def tag_list
+    tags.map(&:name).join(", ")
+  end
+  
+  def tag_list=(value)
+    self.tags = Tag.from_list(value)
+  end
+
+  def self.tag_counts
+    Tagging.includes(:tag).where(:taggable_type => name).count :all, :group => 'tags.name'
+  end
+
+  def self.tag_options
+    tag_counts.keys.sort
+  end
+
+  def self.tagged_with(tags)
+    tags = Array(tags).reject(&:blank?).map { |t| Tag.normalise_tag_list t }.flatten.uniq
+    scope = includes(:tags)
+    scope = scope.where(:id => Tagging.tagged_ids_for(Position, tags)) if tags.present?
+    scope
+  end
+
+  def self.for_listing(outer_scope = Position.viewable)
+    outer_scope.includes(:team, :tags).order('teams.name ASC')
   end
 
   protected

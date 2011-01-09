@@ -8,6 +8,7 @@
   = form.input :title, :label => 'Position Title'
   ~ form.input :short_description, :label => 'Short Description', :as => :text, :input_html => {:rows => 3}
   = form.input :team, :label => 'Team'
+  = form.input :tag_list, :label => 'Tags', :hint => 'Separated by commas, tags will be searchable on the front end. Note they are unordered.'
 
 = form.inputs 'Contact Email Addresses', :id => 'contact-emails' do
   - form.object.contact_emails.build if form.object.contact_emails.empty?

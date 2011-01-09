@@ -45,6 +45,22 @@ describe PositionSearch do
       PositionSearch.new(base, :team_ids => [1, 4, '1', 2]).team_ids.should =~ [1, 2, 4]
     end
     
+    it 'should correctly deal with the tags with strings' do
+      PositionSearch.new(base, :tags => ['a', 'b', 'c']).tags.should =~ %w(a b c)
+    end
+
+    it 'should correctly deal with the tags with blanks' do
+      PositionSearch.new(base, :tags => ['a', 'b', '', 'c']).tags.should =~ %w(a b c)
+    end
+
+    it 'should correctly deal with the tags with a single string' do
+      PositionSearch.new(base, :tags => 'b').tags.should =~ %w(b)
+    end
+
+    it 'should correctly deal with the tags with duplicate strings' do
+      PositionSearch.new(base, :tags => ['a', 'b', 'b']).tags.should =~ %w(a b)
+    end
+
     it 'should correctly set the query if present' do
       PositionSearch.new(base, :query => 'x').query.should == 'x'
     end
@@ -77,6 +93,19 @@ describe PositionSearch do
       PositionSearch.new(base, :query => '').to_relation
     end
     
+    it 'should use tagged with when tags are present' do
+      mock(relation).tagged_with(%w(a b c)) { relation }
+      PositionSearch.new(base, :tags => %w(a b c)).to_relation
+    end
+
+    it 'should not use tagged with without tags' do
+      dont_allow(relation).tagged_with.with_any_args
+      PositionSearch.new(base, :tags => '').to_relation
+      PositionSearch.new(base).to_relation
+      PositionSearch.new(base, :tags => ['']).to_relation
+      PositionSearch.new(base, :tags => ['  ']).to_relation
+    end
+
     it 'should add team ids if present' do
       mock(relation).where(:team_id => [1, 2, 3]) { relation }
       PositionSearch.new(base, :team_ids => [1, 2, 3]).to_relation

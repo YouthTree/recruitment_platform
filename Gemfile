@@ -84,6 +84,7 @@ group :test do
   gem 'rspec_tag_matchers'
   gem 'syntax', :require => nil
   gem 'email_spec'
+  gem 'fuubar'
 end
 
 group :test_mac do

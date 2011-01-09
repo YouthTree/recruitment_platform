@@ -3,8 +3,8 @@ class PositionsController < ApplicationController
   before_filter :prepare_position, :only => [:show, :apply]
   
   def index
-    @search = Position.search(params[:position_search])
-    @teams  = Team.for_listing(@search.to_relation).all
+    @search    = Position.search(params[:position_search])
+    @positions = Position.for_listing(@search.to_relation).all
   end
   
   def show

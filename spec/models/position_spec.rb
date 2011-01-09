@@ -15,6 +15,9 @@ describe Position do
     it { should have_many :contact_emails, :class_name => 'EmailAddress', :as => :addressable }
 
     it { should accept_nested_attributes_for :position_questions, :contact_emails, :allow_destroy => true }
+    
+    it { should have_many :taggings, :dependent => :destroy, :as => :taggable }
+    it { should have_many :tags, :through => :taggings }
 
   end
   
@@ -50,7 +53,7 @@ describe Position do
   end
   
   context 'accessible attributes' do
-    it { should allow_mass_assignment_of :title, :short_description, :duration, :time_commitment, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid, :position_questions_attributes, :contact_emails_attributes }
+    it { should allow_mass_assignment_of :title, :short_description, :duration, :time_commitment, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid, :position_questions_attributes, :contact_emails_attributes, :tag_list }
     it { should_not allow_mass_assignment_of :rendered_paid_description, :rendered_general_description, :rendered_position_description, :rendered_applicant_description }
   end
   
@@ -299,6 +302,65 @@ describe Position do
       object = Object.new
       mock(PositionApplicationReporter).new(subject, :fields => %w(full_name)) { object }
       subject.to_application_reporter(:fields => %w(full_name)).should == object
+    end
+
+  end
+  
+  context 'tagging' do
+    
+    subject { Position.make! }
+    
+    it 'should default to an empty tag list' do
+      subject.tag_list.should == ''
+    end
+    
+    it 'should let you set the tag list' do
+      subject.tags.should == []
+      subject.tag_list = 'a, b, c'
+      subject.tags.size.should == 3
+      subject.tags.map(&:name).should == %w(a b c)
+    end
+    
+    it 'should let you get a correctly setup tag list' do
+      subject.tag_list = 'x, y, z'
+      subject.tag_list.should == 'x, y, z'
+    end
+    
+    it 'should correctly normalise tag lists' do
+      subject.tag_list = 'a, y,    a,c'
+      subject.tag_list.should == 'a, y, c'
+    end
+    
+    it 'should correctly tag counts' do
+      Position.tag_counts.should == {}
+      Position.make! :tag_list => 'a, b, c'
+      Position.make! :tag_list => 'a, b'
+      Position.make! :tag_list => 'b'
+      Position.tag_counts.should == {
+        'b' => 3,
+        'a' => 2,
+        'c' => 1
+      }
+    end
+
+    it 'should correctly tag counts' do
+      Position.tag_options.should == []
+      Position.make! :tag_list => 'a, b, c'
+      Position.make! :tag_list => 'a, b'
+      Position.make! :tag_list => 'b'
+      Position.tag_options.should == %w(a b c)
+    end
+
+    it 'should let you correctly find tagged positions' do
+      position_a = Position.make! :tag_list => 'a', :title => 'Position A'
+      position_b = Position.make! :tag_list => 'b', :title => 'Position B'
+      position_c = Position.make! :tag_list => 'c', :title => 'Position C'
+      Position.tagged_with('a').all.should =~ [position_a]
+      Position.tagged_with(%w(a b)).all.should =~ [position_a, position_b]
+      Position.tagged_with('a, b').all.should =~ [position_a, position_b]
+      Position.tagged_with(['c', '']).all.should =~ [position_c]
+      Position.tagged_with('').all.should =~ [position_a, position_b, position_c]
+      Position.tagged_with(['']).all.should =~ [position_a, position_b, position_c]
     end
 
   end
