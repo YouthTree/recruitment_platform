@@ -1,6 +1,6 @@
 %article#position
   %h1
-    %span.team-name #{@team.name}:
+    = link_to "#{@team.name}:", @team.website_url, :class => 'team-name', :target => '_blank'
     = @position.title
   
   %p#quick-links

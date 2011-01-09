@@ -1,11 +1,11 @@
-/* DO NOT MODIFY. This file was compiled Sat, 01 Jan 2011 13:56:33 GMT from
+/* DO NOT MODIFY. This file was compiled Sun, 09 Jan 2011 13:50:40 GMT from
  * /Users/sutto/Code/YouthTree/recruitment_platform/app/coffeescripts/recruitment_platform/flash.coffee
  */
 
 RecruitmentPlatform.withNS('Flash', function(ns) {
   ns.parentSelector = '#flash-messages';
   ns.insideSelector = 'p.flash';
-  ns.hideTimeout = 5000;
+  ns.hideTimeout = 15000;
   ns.hideAllFlash = function() {
     return $("" + ns.parentSelector + " " + ns.insideSelector).each(function() {
       return ns.hideFlash(this);

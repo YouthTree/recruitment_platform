@@ -2,7 +2,7 @@ RecruitmentPlatform.withNS 'Flash', (ns) ->
   
   ns.parentSelector = '#flash-messages'
   ns.insideSelector = 'p.flash'
-  ns.hideTimeout    = 5000
+  ns.hideTimeout    = 15000
   
   ns.hideAllFlash = ->
     $("#{ns.parentSelector} #{ns.insideSelector}").each -> ns.hideFlash @
