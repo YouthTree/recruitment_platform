@@ -28,7 +28,7 @@ class RadiantContent
       url = "http://#{Settings.radiant.host}/snippets.json"
       open(url).read
     end
-  rescue Timeout::Error, SystemCallError, OpenURI::HTTPErro
+  rescue Timeout::Error, SystemCallError, OpenURI::HTTPError
     nil
   end
   
