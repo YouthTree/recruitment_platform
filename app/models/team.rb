@@ -9,10 +9,6 @@ class Team < ActiveRecord::Base
   validates_presence_of :name, :website_url, :description
   
   has_many :positions
-  
-  def self.for_listing(outer_scope = Position.viewable)
-    includes(:positions).merge(outer_scope)
-  end
 
 end
 

@@ -11,8 +11,8 @@ describe PositionsController do
     
     it 'should only fetch published positions' do
       get :index
-      assigns[:teams].should be_present
-      assigns[:teams].map(&:positions).flatten.uniq.should =~ [positions(:published_1), positions(:published_2), positions(:published_3), positions(:published_4), positions(:mixed_published_1)]
+      assigns[:positions].should be_present
+      assigns[:positions].flatten.uniq.should =~ [positions(:published_1), positions(:published_2), positions(:published_3), positions(:published_4), positions(:mixed_published_1)]
     end
     
     it 'should assign the search object' do
@@ -22,13 +22,13 @@ describe PositionsController do
 
     it 'should let you filter the positions' do
       get :index, :position_search => {:team_ids => [teams(:published).id]}
-      assigns[:teams].should =~ [teams(:published)]
-      assigns[:teams].map(&:positions).flatten.uniq.should =~ [positions(:published_1), positions(:published_2), positions(:published_3), positions(:published_4)]
+      assigns[:positions].map(&:team).uniq.should =~ [teams(:published)]
+      assigns[:positions].should =~ [positions(:published_1), positions(:published_2), positions(:published_3), positions(:published_4)]
     end
     
-    it 'should fetch teams with positions present' do
+    it 'should fetch positions with teams present' do
       get :index
-      assigns[:teams].should =~ [teams(:published), teams(:mixed)]
+      assigns[:positions].map(&:team).uniq.should =~ [teams(:published), teams(:mixed)]
     end
     
     it 'should render the index template' do

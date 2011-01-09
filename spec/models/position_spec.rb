@@ -331,6 +331,38 @@ describe Position do
       subject.tag_list.should == 'a, y, c'
     end
     
+    it 'should correctly tag counts' do
+      Position.tag_counts.should == {}
+      Position.make! :tag_list => 'a, b, c'
+      Position.make! :tag_list => 'a, b'
+      Position.make! :tag_list => 'b'
+      Position.tag_counts.should == {
+        'b' => 3,
+        'a' => 2,
+        'c' => 1
+      }
+    end
+
+    it 'should correctly tag counts' do
+      Position.tag_options.should == []
+      Position.make! :tag_list => 'a, b, c'
+      Position.make! :tag_list => 'a, b'
+      Position.make! :tag_list => 'b'
+      Position.tag_options.should == %w(a b c)
+    end
+
+    it 'should let you correctly find tagged positions' do
+      position_a = Position.make! :tag_list => 'a', :title => 'Position A'
+      position_b = Position.make! :tag_list => 'b', :title => 'Position B'
+      position_c = Position.make! :tag_list => 'c', :title => 'Position C'
+      Position.tagged_with('a').all.should =~ [position_a]
+      Position.tagged_with(%w(a b)).all.should =~ [position_a, position_b]
+      Position.tagged_with('a, b').all.should =~ [position_a, position_b]
+      Position.tagged_with(['c', '']).all.should =~ [position_c]
+      Position.tagged_with('').all.should =~ [position_a, position_b, position_c]
+      Position.tagged_with(['']).all.should =~ [position_a, position_b, position_c]
+    end
+
   end
 
 end

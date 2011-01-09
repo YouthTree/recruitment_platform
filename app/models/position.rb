@@ -114,6 +114,25 @@ class Position < ActiveRecord::Base
     self.tags = Tag.from_list(value)
   end
 
+  def self.tag_counts
+    Tagging.includes(:tag).where(:taggable_type => name).count :all, :group => 'tags.name'
+  end
+
+  def self.tag_options
+    tag_counts.keys.sort
+  end
+
+  def self.tagged_with(tags)
+    tags = Array(tags).reject(&:blank?).map { |t| Tag.normalise_tag_list t }.flatten.uniq
+    scope = includes(:tags)
+    scope = scope.where(:id => Tagging.tagged_ids_for(Position, tags)) if tags.present?
+    scope
+  end
+
+  def self.for_listing(outer_scope = Position.viewable)
+    outer_scope.includes(:team, :tags).order('teams.name ASC')
+  end
+
   protected
   
   def ensure_published_at_is_valid
