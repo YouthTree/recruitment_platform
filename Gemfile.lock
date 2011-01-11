@@ -341,6 +341,7 @@ DEPENDENCIES
   validates_url_format_of
   validation_reflection
   will_paginate (~> 3.0.pre2)!
+  ydd
   youthtree-capistrano
   youthtree-controller-ext
   youthtree-helpers (~> 0.2)
