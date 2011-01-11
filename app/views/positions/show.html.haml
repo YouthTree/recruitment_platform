@@ -20,7 +20,8 @@
         %dt Contact email:
         %dd
           %p
-            #{email_for @position, :subject => "Re. #{@team.name} - #{@position.title}"} - Please note that to apply for this position, you should use the link above.
+            #{email_for @position, :subject => "Re. #{@team.name} - #{@position.title}"}
+            %span.no-print - Please note that to apply for this position, you should use the link above.
       %dl.last
         %dt How long is this position for?
         %dd
@@ -46,3 +47,6 @@
   %section#position-applicant-description
     %h2 Who should apply?
     .embedded-content= @position.applicant_description_as_html
+    
+  %p#view-online.print-only
+    Apply online at #{request.host}

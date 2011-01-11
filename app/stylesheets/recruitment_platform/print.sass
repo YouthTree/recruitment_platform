@@ -3,41 +3,120 @@
 +reset-html5
 +global-reset
 
-footer, header nav
+#page-footer, #page-header, #yt-network
   display: none
 
 .no-print
   display: none
 
-.print-only
-  display: auto
+a
+  text-decoration: none
+  color: inherit
+
 
 body
-  line-height: 16px
   font-size: 12px
+  font-family: Helvetica, Verdana, Arial, sans-serif
+  color: #2f2f2f
+  line-height: 16px
 
 h1, h2, h3, h4, h5, h6, strong
   font-weight: bold
 
-h1, h2, h3, h4, h5, h6
-  margin-bottom: 16px
+h1
+  margin-bottom: 8px
+h2, h3, h4, h5, h6
+  margin-bottom: 4px
 
 p
-  margin-bottom: 16px
+  margin-bottom: 4px
+  
+h3, h4, h5, h6
+  font-size: 12px
+  line-height: 16px
 
 h1
-  font-size: 34px
-  line-height: 48px
+  font-size: 32px
+  color: #ce8d22
+  +link-colors(#ce8d22)
+  text-align: center
+  line-height: 40px
+
 h2
-  font-size: 30px
-  line-height: 32px
-h3
-  font-size: 24px
-  line-height: 32px
-h4
-  font-size: 20px
-  line-height: 32px
-h5
+  color: #ce8d22
   font-size: 16px
-h6
-  font-size: 12px
+  text-transform: capitalize
+  line-height: 24px
+  
+p
+  margin: 0 0 8px
+  
+#short-description
+  margin-top: 4px
+  margin-bottom: 24px
+  font-size: 20px
+  text-align: center
+  color: #ce8d22
+
+#apply
+  font-weight: bold
+  color: #ce8d22
+  font-size: 20px
+  padding-top: 20px
+  padding-right: 40px
+  text-align: right
+
+#pay
+  font-weight: bold
+  font-size: 18px
+
+#contact
+  padding-left: 20px
+  padding-bottom: 5px
+  padding-top: 5px
+  background-color: #2f2f2f
+  font-size: 14px
+  text-align: left
+  color: #ce8d22
+  
+#quick-links
+  display: none
+  
+#position-details
+  +clearfix
+  margin-top: -7px
+  dl
+    width: 45%
+    float: left
+    margin-right: 10%
+    text-align: justify
+    margin-bottom: 0
+    margin-top: 6px
+    
+    dt
+      font-weight: bold
+
+    &.last
+      margin-right: 0
+
+    p
+      margin-bottom: 7px
+
+#content
+  ul, ol
+    line-height: 18px
+    margin: 8px 0 8px 16px
+    li
+      list-style-position: outside
+  ul li
+    list-style-type: disc
+  ol
+    list-style-type: decimal
+    background: blue
+    
+p#view-online
+  text-align: center
+  margin: 16px 0 0
+  font-size: 16px
+  font-weight: bold
+  color: #ce8d22
