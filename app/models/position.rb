@@ -111,7 +111,8 @@ class Position < ActiveRecord::Base
   end
 
   def time_commitment=(value)
-    write_attribute(:time_commitment, value && TIME_COMMITMENTS.index(value.to_sym))
+    value = value.presence && TIME_COMMITMENTS.index(value.to_sym)
+    write_attribute :time_commitment, value
   end
 
   def human_time_commitment
