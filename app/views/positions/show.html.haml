@@ -12,8 +12,32 @@
     
 
   %section#position-general-description
-    %h2 About this Position
+    %h2 About this Position    
     .embedded-content= @position.general_description_as_html
+    
+    %section#position-details
+      %dl
+        %dt Contact email:
+        %dd
+          %p
+            #{email_for @position, :subject => "Re. #{@team.name} - #{@position.title}"} - Please note that to apply for this position, you should use the link above.
+      %dl.last
+        %dt How long is this position for?
+        %dd
+          %p= @position.duration
+      %dl
+        %dt Expected time per week:
+        %dd
+          %p= @position.human_time_commitment
+      %dl.last
+        %dt Type of position:
+        %dd
+          - if @position.paid?
+            %p This is a paid position.
+            = @position.paid_description_as_html
+          - else
+            %p This is a volunteer position.
+    
 
   %section#position-position-description
     %h2 What would I be doing?
@@ -22,23 +46,3 @@
   %section#position-applicant-description
     %h2 Who should apply?
     .embedded-content= @position.applicant_description_as_html
-
-  %section#position-extra
-    %h2 A little bit extra
-    %dl#position-details
-      %dt Contact email:
-      %dd
-        %p
-          = email_for @position, :subject => "Re. #{@team.name} - #{@position.title}"
-          \- Please note that to apply for this position, you should use the link above.
-      %dt How long is this position for?
-      %dd= @position.duration
-      %dt Expected time per week:
-      %dd= @position.human_time_commitment
-      %dt Type of position:
-      %dd
-        - if @position.paid?
-          %p This is a paid position.
-          = @position.paid_description_as_html
-        - else
-          %p This is a volunteer position.
