@@ -1,7 +1,7 @@
 %article#position
   %h1
     = link_to "#{@team.name}:", @team.website_url, :class => 'team-name', :target => '_blank'
-    = @position.title
+    %span.position-name= @position.title
   
   %p#quick-links
     = link_to 'Apply for this position', [:apply, @position]
@@ -26,6 +26,11 @@
   %section#position-extra
     %h2 A little bit extra
     %dl#position-details
+      %dt Contact email:
+      %dd
+        %p
+          = email_for @position, :subject => "Re. #{@team.name} - #{@position.title}"
+          \- Please note that to apply for this position, you should use the link above.
       %dt How long is this position for?
       %dd= @position.duration
       %dt Expected time per week:

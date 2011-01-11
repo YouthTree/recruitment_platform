@@ -29,5 +29,13 @@ module ApplicationHelper
   def from_radiant(name)
     RadiantContent[name]
   end
+  
+  def email_for(position, options = {})
+    email_address = position.contact_emails.first
+    if email_address.present?
+      address = email_address.email
+      mail_to address, nil, options
+    end
+  end
 
 end
