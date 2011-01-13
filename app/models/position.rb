@@ -157,6 +157,11 @@ class Position < ActiveRecord::Base
       attributes.each do |name|
         child[name] = nil
       end
+      # Clone associations
+      child.tag_list = tag_list
+      contact_emails.each do |contact_email|
+        child.contact_emails.build :email => contact_email.email
+      end
     end
   end
 

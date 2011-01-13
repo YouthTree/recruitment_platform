@@ -409,10 +409,15 @@ describe Position do
 
   context '#clone_for_editing' do
 
-    let(:original_position) { Position.make }
-    let(:position)          { original_position.clone_for_editing }
-
-    subject                 { position }
+    let(:original_position) do
+      Position.make!(:tag_list => 'a, b, c, d').tap do |position|
+        position.contact_emails.create! :email => 'test-a@example.com'
+        position.contact_emails.create! :email => 'test-b@example.com'
+      end
+    end
+    
+    let(:position) { original_position.clone_for_editing }
+    subject        { position }
 
     it 'should have a blank id' do
       subject.id.should be_blank
@@ -447,6 +452,15 @@ describe Position do
 
     it 'should be valid' do
       should be_valid
+    end
+    
+    it 'should preserve the tag list' do
+      subject.tag_list.split(", ").should =~ original_position.tag_list.split(", ")
+    end
+    
+    it 'should preserve the email list' do
+      subject.contact_emails.size.should == original_position.contact_emails.size
+      subject.contact_emails.map(&:email).should == original_position.contact_emails.map(&:email)
     end
 
   end
