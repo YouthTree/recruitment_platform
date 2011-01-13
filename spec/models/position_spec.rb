@@ -407,6 +407,50 @@ describe Position do
 
   end
 
+  context '#clone_for_editing' do
+
+    let(:original_position) { Position.make }
+    let(:position)          { original_position.clone_for_editing }
+
+    subject                 { position }
+
+    it 'should have a blank id' do
+      subject.id.should be_blank
+    end
+
+    it 'should not be persisted' do
+      should_not be_persisted
+    end
+
+    it 'should have a blank publishing time' do
+      should_not be_published
+      should_not be_viewable
+      subject.published_at.should be_blank
+    end
+
+    it 'should have a blank expiry time' do
+      should_not be_expired
+      should_not be_viewable
+      subject.expires_at.should be_blank
+    end
+
+    it 'should not have the rendered content' do
+      subject.rendered_applicant_description.should be_blank
+      subject.rendered_position_description.should be_blank
+      subject.rendered_general_description.should be_blank
+      subject.rendered_paid_description.should be_blank
+    end
+
+    it 'should not have a cached slug' do
+      subject.cached_slug.should be_blank
+    end
+
+    it 'should be valid' do
+      should be_valid
+    end
+
+  end
+
 end
 
 # == Schema Information
