@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   alias require_user authenticate_user!
   
   rescue_from ActiveRecord::RecordNotFound do |e|
-    render :file => Rails.root.join('public', '404.html'), :status => :not_found
+    render :file => Rails.root.join('public', '404.html'), :status => :not_found, :layout => false
   end
 
 end
