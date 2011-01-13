@@ -151,6 +151,15 @@ class Position < ActiveRecord::Base
     outer_scope.includes(:team, :tags).order('teams.name ASC')
   end
 
+  def clone_for_editing
+    clone.tap do |child|
+      attributes = %w(published_at expires_at cached_slug) + child.attributes.keys.grep(/^rendered_/)
+      attributes.each do |name|
+        child[name] = nil
+      end
+    end
+  end
+
   protected
   
   def ensure_published_at_is_valid

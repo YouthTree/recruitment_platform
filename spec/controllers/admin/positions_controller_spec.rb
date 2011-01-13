@@ -16,4 +16,19 @@ describe Admin::PositionsController do
     
   end
   
+  describe 'cloning a resource' do
+
+    let(:position) { Position.make! }
+    let(:resource) { controller.send(:build_resource_for_cloning) }
+
+    it 'should correctly initialize the object' do
+      object = position.clone_for_editing
+      stub(controller).end_of_association_chain.mock!.with_questions.mock!.find_using_slug!(position.to_param) { position }
+      mock(position).clone_for_editing { object }
+      get :clone_position, :id => position.to_param
+      resource.should equal object
+    end
+
+  end
+
 end

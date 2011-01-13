@@ -7,6 +7,9 @@ RecruitmentPlatform::Application.routes.draw do
     resources :teams
     resources :positions do
       resources :position_applications, :path => 'applications', :only => [:show, :index]
+      member do
+        get :clone_position, :path => 'clone'
+      end
     end
     resources :questions
   end

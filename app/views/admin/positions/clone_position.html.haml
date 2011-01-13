@@ -1,0 +1,6 @@
+- content_for :sidebar do
+  = collection_sidebar
+
+= render :partial => 'admin/shared/new_base'
+
+= yield :after_form
