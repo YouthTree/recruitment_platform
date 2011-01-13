@@ -1,3 +1,6 @@
+- content_for :sidebar_menu_end do
+  = ml 'Clone this position', [:clone_position_admin, resource]
+
 %h2.title Viewing Position: #{h resource.title}
 
 = show_for resource do |r|
