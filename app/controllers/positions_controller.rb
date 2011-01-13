@@ -27,9 +27,13 @@ class PositionsController < ApplicationController
   end
 
   def prepare_position
-    @position = Position.viewable.find_using_slug!(params[:id])
+    @position = position_scope.find_using_slug!(params[:id])
     @team     = @position.team
     add_title_variables! :position_title => @position.title, :team_name => @team.name
   end
   
+  def position_scope
+    user_signed_in? ? Position : Position.viewable
+  end
+
 end

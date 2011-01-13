@@ -45,10 +45,8 @@ describe PositionsController do
   
   describe 'the show page' do
     
-    context 'with a published position' do
-    
-      let(:position) { positions(:published_1) }
-    
+    shared_examples_for 'a known position' do
+
       before :each do
         get :show, :id => position.to_param
       end
@@ -87,6 +85,14 @@ describe PositionsController do
       
     end
     
+    context 'with a published position' do
+
+      let(:position) { positions(:published_1) }
+
+      it_should_behave_like 'a known position'
+
+    end
+
     context 'with a non-existent position' do
       
       let(:position) { Position.make!.tap { |p| p.destroy } }
@@ -95,27 +101,63 @@ describe PositionsController do
       
     end
     
-    context 'with an expired position' do
+    context 'when not signed in' do
+
+      context 'with an expired position' do
       
-      let(:position) { positions(:expired_1) }
+        let(:position) { positions(:expired_1) }
       
-      it_should_behave_like 'an unknown position'
+        it_should_behave_like 'an unknown position'
       
+      end
+    
+      context 'with a drafted position' do
+      
+        let(:position) { positions(:draft_1) }
+      
+        it_should_behave_like 'an unknown position'
+
+      end
+
+      context 'with an unpublished position' do
+      
+        let(:position) { positions(:unpublished_1) }
+
+        it_should_behave_like 'an unknown position'
+
+      end
+
     end
     
-    context 'with a drafted position' do
+    context 'when signed in' do
       
-      let(:position) { positions(:draft_1) }
+      before :each do
+        stub(controller).user_signed_in? { true }
+      end
       
-      it_should_behave_like 'an unknown position'
-      
-    end
-    
-    context 'with an unpublished position' do
-      
-      let(:position) { positions(:unpublished_1) }
-      
-      it_should_behave_like 'an unknown position'
+      context 'with an expired position' do
+
+        let(:position) { positions(:expired_1) }
+
+        it_should_behave_like 'a known position'
+
+      end
+
+      context 'with a drafted position' do
+
+        let(:position) { positions(:draft_1) }
+
+        it_should_behave_like 'a known position'
+
+      end
+
+      context 'with an unpublished position' do
+
+        let(:position) { positions(:unpublished_1) }
+
+        it_should_behave_like 'a known position'
+
+      end
       
     end
     
