@@ -1,6 +1,6 @@
 class PositionsController < ApplicationController
 
-  before_filter :prepare_position, :only => [:show, :apply]
+  before_filter :prepare_position, :only => [:show, :apply, :applied]
   
   def index
     @search    = Position.search(params[:position_search])
@@ -16,12 +16,15 @@ class PositionsController < ApplicationController
     process_application if request.post?
   end
 
+  def applied
+  end
+
   protected
 
   def process_application
     @position_application.attributes = params[:position_application]
     if @position_application.save
-      redirect_to :root, :notice => tf(:application_received)
+      redirect_to [:applied, @position]
     else
       render :action => 'apply'
     end

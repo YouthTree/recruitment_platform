@@ -218,14 +218,9 @@ describe PositionsController do
 
       let(:save_result) { true }
 
-      it 'should set the flash' do
-        flash[:notice].should be_present
-        flash[:notice].should == I18n.t(:application_received, :scope => :flash)
-      end
-
       it 'should redirect to root' do
         response.should be_redirect
-        response.should redirect_to :root
+        response.should redirect_to [:applied, position]
       end
 
     end

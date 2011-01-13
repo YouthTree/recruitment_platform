@@ -16,6 +16,7 @@ RecruitmentPlatform::Application.routes.draw do
   
   resources :positions, :only => [:show, :index] do
     member do
+      get :applied
       get  :apply
       post :apply
     end
