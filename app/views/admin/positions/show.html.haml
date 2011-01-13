@@ -8,10 +8,11 @@
   = r.attribute :title
 
   = r.attribute :public_link do
-    - if resource.viewable?
-      = link_to 'Click here', resource
-    - else
-      This position is not currently viewable.
+    = link_to 'Click here', resource
+    - unless resource.viewable?
+      \-
+      %strign Please note,
+      This position is not currently viewable to normal visitors.
 
   = r.attribute :status
 

@@ -8,6 +8,7 @@ class PositionsController < ApplicationController
   end
   
   def show
+    autoset_position_notice
   end
 
   def apply
@@ -34,6 +35,12 @@ class PositionsController < ApplicationController
   
   def position_scope
     user_signed_in? ? Position : Position.viewable
+  end
+
+  def autoset_position_notice
+    if user_signed_in? && !@position.viewable?
+      flash.now[:notice] = "Please note - This position is not currently viewable to normal visitors."
+    end
   end
 
 end
