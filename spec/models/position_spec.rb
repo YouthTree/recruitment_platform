@@ -411,6 +411,7 @@ describe Position do
 
     let(:original_position) do
       Position.make!(:tag_list => 'a, b, c, d').tap do |position|
+        position.questions << Question.make!
         position.contact_emails.create! :email => 'test-a@example.com'
         position.contact_emails.create! :email => 'test-b@example.com'
       end
@@ -461,6 +462,16 @@ describe Position do
     it 'should preserve the email list' do
       subject.contact_emails.size.should == original_position.contact_emails.size
       subject.contact_emails.map(&:email).should == original_position.contact_emails.map(&:email)
+    end
+
+    it 'should preserve the questions' do
+      subject.position_questions.size.should == original_position.position_questions.size
+      subject.position_questions.each do |pq|
+        other = original_position.position_questions.detect { |q| q.question_id == pq.question_id }
+        other.should be_present
+        other.required.should == pq.required
+        other.order_position.should == pq.order_position
+      end
     end
 
   end

@@ -159,8 +159,13 @@ class Position < ActiveRecord::Base
       end
       # Clone associations
       child.tag_list = tag_list
+      # All emails (eugh!)
       contact_emails.each do |contact_email|
         child.contact_emails.build :email => contact_email.email
+      end
+      # Oh look, all position questions...
+      position_questions.each do |pq|
+        child.position_questions.build pq.attributes.except("position_id")
       end
     end
   end
