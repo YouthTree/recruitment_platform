@@ -3,7 +3,7 @@
     = link_to "#{@team.name}:", @team.website_url, :class => 'team-name', :target => '_blank'
     %span.position-name= @position.title
   
-  %p#quick-links
+  %p.quick-links
     = link_to 'Apply for this position', [:apply, @position]
     or
     = link_to 'View as a PDF', position_path(@position, :format => 'pdf')
@@ -50,3 +50,9 @@
     
   %p#view-online.print-only
     Apply online at #{request.host}
+
+  %h2.no-print Interested?
+  %p.quick-links
+    = link_to 'Apply for this position', [:apply, @position]
+    or
+    = link_to 'View as a PDF', position_path(@position, :format => 'pdf')
