@@ -9,10 +9,11 @@
       %li.position
         %span.team-name #{position.team.name}:
         = link_to position.title, position
-        - if position.paid?
-          %span.tag.paid Paid
-        - else
-          %span.tag.volunteer Volunteer
-        - position.tags.each do |tag|
-          %span.tag= tag.name.titleize
         %p.position-description= position.short_description
+        .position-tags
+          - if position.paid?
+            %span.tag.paid Paid
+          - else
+            %span.tag.volunteer Volunteer
+          - position.tags.each do |tag|
+            %span.tag= tag.name.titleize
