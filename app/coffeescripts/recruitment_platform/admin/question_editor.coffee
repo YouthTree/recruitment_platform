@@ -71,7 +71,6 @@ RecruitmentPlatform.withNS 'Admin.QuestionEditor', (ns) ->
     return if $.trim(id) is ''
     current_option.remove()
     # Find for existing fields.
-    @debug "Adding question", name, "with id", id
     existing = $("#{ns.containerSelector} #{ns.questionSelector} #{ns.questionIdSelector}[value='#{id}']")
     if existing.size() > 0
       existing = existing.parents(ns.questionSelector)

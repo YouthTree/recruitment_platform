@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sat, 01 Jan 2011 13:56:33 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 15 Jan 2011 15:54:01 GMT from
  * /Users/sutto/Code/YouthTree/recruitment_platform/app/coffeescripts/recruitment_platform/admin/question_editor.coffee
  */
 
@@ -94,7 +94,6 @@ RecruitmentPlatform.withNS('Admin.QuestionEditor', function(ns) {
       return;
     }
     current_option.remove();
-    this.debug("Adding question", name, "with id", id);
     existing = $("" + ns.containerSelector + " " + ns.questionSelector + " " + ns.questionIdSelector + "[value='" + id + "']");
     if (existing.size() > 0) {
       existing = existing.parents(ns.questionSelector);
