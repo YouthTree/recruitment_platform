@@ -2,7 +2,7 @@ class Admin::PositionApplicationsController < Admin::BaseController
   
   belongs_to :position, :finder => :find_using_slug!
   
-  respond_to :html, :only => :show
+  respond_to :html
   respond_to :csv,  :only => :index
 
   def index
@@ -12,13 +12,21 @@ class Admin::PositionApplicationsController < Admin::BaseController
           :type => :csv,
           :filename => "#{parent.team.name} - #{parent.title} Applications.csv"
       end
+      format.html do
+        render :layout => 'application'
+      end
     end
+  end
+  
+  def printable
+    resource
+    render :layout => 'application'
   end
 
   protected
   
   def end_of_association_chain
-    parent.applications
+    parent.applications.includes(:email_address)
   end
   
   def application_reporter

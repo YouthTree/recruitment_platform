@@ -26,6 +26,12 @@ GIT
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.0)
 
+GIT
+  remote: git://github.com/thefrontiergroup/title_estuary.git
+  revision: 0acbbfab7c70417475d134b800c14fb00ccc24d7
+  specs:
+    title_estuary (1.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -246,7 +252,6 @@ GEM
     syntax (1.0.0)
     therubyracer (0.8.0)
     thor (0.14.6)
-    title_estuary (1.2.0)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
@@ -335,7 +340,7 @@ DEPENDENCIES
   stringex
   syntax
   therubyracer
-  title_estuary
+  title_estuary!
   unicorn
   uuid
   validates_url_format_of

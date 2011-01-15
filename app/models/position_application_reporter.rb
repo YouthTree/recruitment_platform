@@ -11,7 +11,7 @@ class PositionApplicationReporter
   def initialize(position, options = {})
     @position        = position
     @base_scope      = position.applications
-    @options         = options.is_a?(Hash) ? options : options
+    @options         = options.is_a?(Hash) ? options : {}
     @question_fields = position.questions.map { |q| [q.short_name, "question_#{q.id}"] }
   end
   
