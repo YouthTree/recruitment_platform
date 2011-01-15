@@ -31,7 +31,7 @@
         %dd
           %p
             #{@position.human_time_commitment}
-            - if @position.time_commitment_flexibility
+            - if @position.time_commitment_flexibility.present?
               (#{@position.time_commitment_flexibility})
       %dl.last
         %dt Type of position:
