@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110108102800) do
+ActiveRecord::Schema.define(:version => 20110115020534) do
+
+  create_table "contents", :force => true do |t|
+    t.text     "content"
+    t.string   "key"
+    t.string   "title"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "email_addresses", :force => true do |t|
     t.string   "email"
