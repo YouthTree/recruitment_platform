@@ -12,6 +12,7 @@ RecruitmentPlatform::Application.routes.draw do
       end
     end
     resources :questions
+    resources :contents
   end
   
   resources :positions, :only => [:show, :index] do
