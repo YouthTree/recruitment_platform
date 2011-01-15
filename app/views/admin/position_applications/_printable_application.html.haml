@@ -1,0 +1,18 @@
+%article.position-application
+  %h2 Applicant Details
+
+  = show_for printable_application do |r|
+    = r.attribute :full_name
+    = r.attribute :phone
+    = r.association :email_address
+    = r.association :position do
+      #{@position.title} on #{@position.team.name}
+    = r.attribute :created_at, :label => "Received at" do
+      = l printable_application.created_at, :format => :short
+
+  %h2 Application Details
+
+  - answers = printable_application.answers
+  = show_for answers  do |r|
+    - answers.each_question do |question, key|
+      = r.attribute key, :label => question.question

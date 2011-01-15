@@ -82,6 +82,9 @@
 - if resource.applications.present?
 
 %h3 Position Applications
+%p
+  Want to get all as a PDF?
+  = link_to 'Click here', admin_position_position_applications_path(resource, :format => 'pdf')
 = show_for resource do |r|
   = r.association :applications, :if_blank => "None received so far." do |app|
     %li= link_to "Application received #{l app.created_at, :format => :short} for #{app.full_name}", [:admin, resource, app]

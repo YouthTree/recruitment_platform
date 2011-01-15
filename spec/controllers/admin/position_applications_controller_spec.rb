@@ -10,7 +10,7 @@ describe Admin::PositionApplicationsController do
     
     it 'should have the correct association chain' do
       mock(Position).find_using_slug!(position.to_param) { position }
-      mock(position).applications.mock!.find(application.to_param) { application }
+      mock(position).applications.mock!.includes(:email_address).mock!.find(application.to_param) { application }
       get :show, :position_id => position.to_param, :id => application.to_param
       resource.should == application
     end

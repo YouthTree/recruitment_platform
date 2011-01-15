@@ -4,6 +4,7 @@
   = sidebar_menu do
     = ml "View Position", [:admin, @position]
     = ml "View Team",     [:admin, @position.team]
+    = ml "View as PDF",     printable_admin_position_position_application_path(@position, resource, :format => 'pdf')
 
 %h2.title Viewing Application for #{link_to @position.title, [:admin, @position]}
 
@@ -16,6 +17,8 @@
     = link_to @position.title, [:admin, @position]
     on
     = link_to @position.team.name, [:admin, @position.team]
+  = r.attribute :created_at, :label => "Received at" do
+    = l resource.created_at, :format => :short
 
 %h2 Application Details
 
