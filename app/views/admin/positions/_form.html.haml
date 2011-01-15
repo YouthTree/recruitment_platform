@@ -19,7 +19,7 @@
 = form.inputs 'Position Commitment' do
   = form.input :duration, :label => 'Position Duration', :hint => 'e.g. 6 months, 1 year, indefinite'
   = form.input :time_commitment, :label => 'Time available', :as => :select, :collection => Position::TIME_COMMITMENTS.map {|p| [p.to_s.humanize, p]}
-  = form.input :time_commitment_flexibility, :label => 'Flexibility', :hint => 'e.g. TODO: Some examples of position flexibility should go here'
+  = form.input :time_commitment_flexibility, :label => 'Flexibility', :hint => 'e.g. Business hours, after hours, whenever you can'
 
 = form.inputs 'Paid Positions' do
   = form.input :paid, :label => 'This is a paid position'
