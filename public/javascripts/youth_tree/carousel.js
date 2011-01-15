@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sun, 02 Jan 2011 19:19:18 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 15 Jan 2011 19:45:26 GMT from
  * /Users/sutto/Code/YouthTree/recruitment_platform/app/coffeescripts/youth_tree/carousel.coffee
  */
 
@@ -16,6 +16,7 @@ YouthTree.withNS('Carousel', function(ns) {
       this.index = 0;
       this.container = this.carousel.find(ns.containerSelector);
       this.elements = this.container.find(ns.elementSelector);
+      this.elements.filter(":eq(" + this.index + ")").css('display', 'block');
       this.count = this.elements.size();
       this.elements.hover((__bind(function() {
         return this.pause();

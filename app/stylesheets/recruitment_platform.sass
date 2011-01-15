@@ -26,9 +26,11 @@ aside form.formtastic
       float: none
       margin-bottom: 0
     fieldset
+      legend.label
+        width: 100%
       ol
         width: auto
-        padding: 2em 0 0
+        padding: 2.25em 0 0
         margin: 0 !important
     p.inline-hints, p.inline-errors
       margin-left: 0
@@ -45,6 +47,10 @@ aside form.formtastic
     padding: 0
     margin: 0 0 14px
     z-index: 50
+    
+.ie6 aside form.formtastic fieldset.inputs fieldset
+  legend.label
+    width: 100%
     
 ul#all-positions
   list-style: none

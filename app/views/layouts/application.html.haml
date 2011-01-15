@@ -20,4 +20,6 @@
       %footer#page-footer= from_radiant :footer
       / JS at the bottom for speedy load times
       = include_javascripts :base
+      /[if IE 6]
+        = include_javascripts :ie6
       = extra_footer_content

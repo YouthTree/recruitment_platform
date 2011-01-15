@@ -12,8 +12,10 @@ YouthTree.withNS 'Carousel', (ns) ->
       @index     = 0
       @container = @carousel.find ns.containerSelector
       @elements  = @container.find ns.elementSelector
+      @elements.filter(":eq(#{@index})").css 'display', 'block'
       @count     = @elements.size()
       @elements.hover((=> @pause()), (=> @schedule()))
+      # Show the first element.
       @schedule()
       
     schedule: ->

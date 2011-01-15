@@ -24,6 +24,9 @@ javascripts:
     - public/javascripts/recruitment_platform/admin/paid_field.js
     - public/javascripts/recruitment_platform/admin/question_editor.js
     - public/javascripts/recruitment_platform/admin/contact_emails.js
+  ie6:
+    - public/javascripts/vendor/dd_belatedpng.js
+    - public/javascripts/youth_tree/ie6.js
 stylesheets:
   base:
     - public/stylesheets/recruitment_platform.css
