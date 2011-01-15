@@ -1,1 +1,8 @@
-../defaults/new.html.haml
+%h2.title== Add a new #{current_resource_name}
+
+= humanized_errors_on resource
+
+= semantic_form_for resource, :url => collection_url do |form|
+  = render :partial => 'form', :object => form
+  = form.buttons do
+    = form.commit_button
