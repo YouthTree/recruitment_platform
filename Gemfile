@@ -17,7 +17,7 @@ gem 'compass-colors'
 
 gem 'formtastic', '~> 1.2'
 gem 'validation_reflection'
-gem 'title_estuary'
+gem 'title_estuary', :git => 'git://github.com/thefrontiergroup/title_estuary.git'
 gem 'inherited_resources'
 gem 'show_for'
 
