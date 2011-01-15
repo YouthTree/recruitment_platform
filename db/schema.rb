@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110115032223) do
+ActiveRecord::Schema.define(:version => 20110115035622) do
 
   create_table "contents", :force => true do |t|
     t.text     "content"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20110115032223) do
     t.string   "cached_slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "time_commitment_flexibility"
   end
 
   add_index "positions", ["cached_slug"], :name => "index_positions_on_cached_slug"

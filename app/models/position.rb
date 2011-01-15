@@ -59,9 +59,12 @@ class Position < ActiveRecord::Base
 
   validates_inclusion_of :time_commitment, :in => TIME_COMMITMENTS
 
-  attr_accessible :title, :short_description, :paid, :duration, :time_commitment, :paid_description, :team_id,
-                  :general_description, :position_description, :applicant_description, :published_at, :expires_at,
-                  :position_questions_attributes, :next_question_id, :contact_emails_attributes, :tag_list
+  attr_accessible :title, :short_description, :paid, :duration,
+    :time_commitment, :time_commitment_flexibility, :paid_description,
+    :team_id, :general_description, :position_description,
+    :applicant_description, :published_at, :expires_at,
+    :position_questions_attributes, :next_question_id,
+    :contact_emails_attributes, :tag_list
   
   before_validation :setup_child_parents
 
@@ -195,6 +198,7 @@ end
 #  paid                           :boolean         default(FALSE)
 #  duration                       :string(255)
 #  time_commitment                :decimal(, )
+#  time_commitment_flexibility    :string(255)
 #  rendered_paid_description      :text
 #  rendered_general_description   :text
 #  rendered_position_description  :text
