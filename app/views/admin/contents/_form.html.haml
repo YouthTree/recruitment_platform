@@ -3,5 +3,4 @@
   = form.input :key
   
 = form.inputs :name => "Content" do
-  - has_ckeditor
-  ~ form.input :content, :wrapper_html => {:class => 'ckeditor'}
+  ~ form.input :content, :as => :text, :input_html => {:rows => 24}, :hint => partial('admin/shared/markdown_reference'), :label => 'Content'
