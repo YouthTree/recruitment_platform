@@ -64,8 +64,8 @@ Which loads the schema and creates an initial user.
 
 On the Youth Tree team? Deployment should be a simple matter of:
 
-1. `cap production deploy` - Deploy from `master` to the production server, http://positions.youthtree.org.au/
-2. `cap deploy` - Deploy from `develop` to the staging server, http://staging.positions.youthtree.org.au/
+1. `cap production deploy` - Deploy from `master` to the production server, http://getinvolved.youthtree.org.au/
+2. `cap deploy` - Deploy from `develop` to the staging server, http://staging.recruitment.youthtree.org.au/
 
 For more access details, please contact the other members of the team.
 
