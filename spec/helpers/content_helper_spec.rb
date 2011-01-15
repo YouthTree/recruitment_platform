@@ -22,7 +22,7 @@ describe ContentHelper do
       end
 
       it 'renders the content as markdown' do
-        content_section('spor').should =~ /aztec/
+        content_section(:spor).should =~ /aztec/
       end
 
       context 'a scope is supplied' do
