@@ -13,8 +13,8 @@
     = extra_head_content
   %body
     = from_radiant :network
+    %header#page-header= from_radiant :header
     #container
-      %header#page-header= from_radiant :header
       = flash_messages :alert, :notice
       %section#content= yield
       %footer#page-footer= from_radiant :footer
