@@ -396,11 +396,11 @@ describe Position do
     context 'time commitment of a full day' do
 
       before :each do
-        position.time_commitment = :a_full_day
+        position.time_commitment = :'Part_time_(20_hours)'
       end
 
       it 'has a description of "A full day"' do
-        position.human_time_commitment.should == 'A full day'
+        position.human_time_commitment.should == 'Part time (20 hours)'
       end
 
     end
