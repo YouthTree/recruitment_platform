@@ -55,6 +55,8 @@ gem 'acts_as_indexed'
 
 gem 'fastercsv'
 
+gem 'state_machine'
+
 gem 'ydd', :require => nil
 
 group :development do

@@ -249,6 +249,7 @@ GEM
       uuid
     slurper (0.4.3)
       activeresource (>= 2.3.5)
+    state_machine (0.9.4)
     stringex (1.2.0)
     syntax (1.0.0)
     therubyracer (0.8.0)
@@ -338,6 +339,7 @@ DEPENDENCIES
   shuriken (~> 0.2)
   slugged
   slurper
+  state_machine
   stringex
   syntax
   therubyracer
