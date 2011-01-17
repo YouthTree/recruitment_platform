@@ -41,6 +41,19 @@ class PositionApplication < ActiveRecord::Base
     answers.attributes = value
   end
   
+  # The application state machine
+
+  state_machine :state, :initial => :created do
+
+    state :created
+    state :submitted
+
+    event :submit do
+      transition :created => :submitted
+    end
+
+  end
+
   protected
 
   def setup_default_email_address

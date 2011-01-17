@@ -84,6 +84,22 @@ describe PositionApplication do
 
   end
   
+  describe 'application states' do
+
+    it 'should default to created' do
+      PositionApplication.new.should be_created
+      PositionApplication.make!.should be_created
+    end
+
+    it 'should let you transition to submitted' do
+      app = PositionApplication.make!
+      app.should be_created
+      app.submit!
+      app.should be_submitted
+    end
+
+  end
+
   describe 'sending the notification email' do
 
     it 'should send a notification email on create' do
