@@ -32,12 +32,27 @@ describe PositionApplication do
   
   context 'validations' do
 
-    specify { should validate_presence_of :full_name, :email_address, :phone }
-    specify { should validate_associated :email_address }
+    describe 'when not submitted' do
+      before(:each) { stub(subject).submitted? { false } }
+      it { should_not validate_presence_of :full_name, :email_address, :phone }
+      it { should_not validate_associated :email_address }
+    end
+
+    describe 'when submitted' do
+      before(:each) { stub(subject).submitted? { true } }
+      it { should validate_presence_of :full_name, :email_address, :phone }
+      it { should validate_associated :email_address }
+    end
     
     describe 'validating the answers' do
       
-      let(:subject) { PositionApplication.make }
+      let(:subject) { PositionApplication.make(:state => 'submitted') }
+
+      it 'should not validate the answers when not submitted' do
+        dont_allow(subject.answers).valid?
+        stub(subject).submitted? { false }
+        subject.valid?
+      end
       
       it 'should be invalid when answers is invalid' do
         stub(subject).answers.stub!.valid? { false }

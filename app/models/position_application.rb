@@ -24,8 +24,8 @@ class PositionApplication < ActiveRecord::Base
   
   attr_accessible :full_name, :email_address_attributes, :phone, :answers
 
-  validates_presence_of :full_name, :email_address, :phone
-  validates_associated  :answers, :email_address
+  validates_presence_of :full_name, :email_address, :phone, :if => :submitted?
+  validates_associated  :answers, :email_address, :if => :submitted?
 
   serialize :raw_answers
 
