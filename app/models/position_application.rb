@@ -75,9 +75,15 @@ class PositionApplication < ActiveRecord::Base
   end
 
   def searchable_identifier_taken?
-    scope = new_record? ? scoped : where(:id.ne => id)
-    scope = scope.where(:searchable_identifier => searchable_identifier)
-    scope.exists?
+    self.class.other_than(self).where(:searchable_identifier => searchable_identifier).exists?
+  end
+
+  def self.other_than(child)
+    if child.new_record?
+      scoped
+    else
+      where(:id.ne => child.id)
+    end
   end
 
 end
