@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110118131059) do
+ActiveRecord::Schema.define(:version => 20110122095010) do
 
   create_table "contents", :force => true do |t|
     t.text     "content"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20110118131059) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "time_commitment_flexibility"
+    t.integer  "order_position"
   end
 
   add_index "positions", ["cached_slug"], :name => "index_positions_on_cached_slug"
@@ -132,8 +133,6 @@ ActiveRecord::Schema.define(:version => 20110118131059) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "teams", ["cached_slug"], :name => "index_teams_on_cached_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",               :default => "", :null => false

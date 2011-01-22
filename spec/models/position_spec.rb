@@ -503,4 +503,20 @@ describe Position do
 
   end
 
+  context 'ordering' do
+    before :each do
+      @first = Position.make! :title => 'I am Spartacus', :order_position => 0
+      @last = Position.make! :title => 'No, I am Spartacus', :order_position => 1
+    end
+
+    it 'has positions in the default order' do
+      Position.in_order.all.should == [@first, @last]
+    end
+
+    it 'accepts a new ordering for the positions' do
+      Position.update_order([@last.id, @first.id])
+      Position.in_order.all.should == [@last, @first]
+    end
+  end
+
 end

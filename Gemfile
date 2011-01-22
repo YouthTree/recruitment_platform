@@ -25,6 +25,7 @@ gem 'uuid'
 gem 'stringex'
 gem 'slugged'
 gem 'almost-happy'
+gem 'orderable'
 
 gem 'youthtree-settings'
 gem 'youthtree-controller-ext'

@@ -4,7 +4,7 @@ class PositionsController < ApplicationController
   
   def index
     @search    = Position.search(params[:position_search])
-    @positions = Position.for_listing(@search.to_relation).all
+    @positions = Position.for_listing(@search.to_relation).in_order.all
   end
   
   def show
