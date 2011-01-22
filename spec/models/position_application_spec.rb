@@ -131,4 +131,18 @@ describe PositionApplication do
 
   end
 
+  describe 'searchable tokens' do
+
+    it 'should generate a token on create' do
+      position_application = PositionApplication.make
+      position_application.searchable_token.should be_blank
+      position_application.save
+      position_application.searchable_token.should be_present
+    end
+
+    it 'should generate unique tokens' do
+    end
+
+  end
+
 end

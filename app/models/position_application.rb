@@ -31,6 +31,8 @@ class PositionApplication < ActiveRecord::Base
 
   after_initialize :setup_default_email_address
   after_create     :send_notification_email
+  before_save      :generate_searchable_identifier
+
 
   def answers(force = false)
     @answers = nil if force
@@ -63,6 +65,19 @@ class PositionApplication < ActiveRecord::Base
 
   def send_notification_email
     PositionNotifier.application_received(self).deliver
+  end
+
+  def generate_searchable_identifier
+    return if searchable_identifier.present?
+    while searchable_identifier.blank? || searchable_identifier_taken?
+      self.searchable_identifier = ActiveSupport::SecureRandom.hex(32)
+    end
+  end
+
+  def searchable_identifier_taken?
+    scope = new_record? ? scoped : where(:id.ne => id)
+    scope = scope.where(:searchable_identifier => searchable_identifier)
+    scope.exists?
   end
 
 end

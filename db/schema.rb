@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110117144650) do
+ActiveRecord::Schema.define(:version => 20110118131059) do
 
   create_table "contents", :force => true do |t|
     t.text     "content"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20110117144650) do
     t.datetime "updated_at"
     t.text     "raw_answers"
     t.string   "state"
+    t.string   "searchable_identifier"
   end
 
   add_index "position_applications", ["state"], :name => "index_position_applications_on_state"
