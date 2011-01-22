@@ -32,6 +32,8 @@ class PositionApplication < ActiveRecord::Base
   after_initialize :setup_default_email_address
   before_save      :generate_searchable_identifier
 
+  scope :submitted, where(:state => 'submitted')
+  scope :created,   where(:state => 'created')
 
   def answers(force = false)
     @answers = nil if force

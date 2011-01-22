@@ -25,8 +25,12 @@ class Admin::PositionApplicationsController < Admin::BaseController
 
   protected
   
+  def resource
+    get_resource_ivar || set_resource_ivar(end_of_association_chain.from_searchable_identifier!(params[:id]))
+  end
+
   def end_of_association_chain
-    parent.applications.includes(:email_address)
+    parent.applications.includes(:email_address).submitted
   end
   
   def application_reporter
