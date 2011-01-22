@@ -23,6 +23,7 @@
 #  created_at                     :datetime
 #  updated_at                     :datetime
 #  time_commitment_flexibility    :string(255)
+#  order_position                 :integer
 #
 
 class Position < ActiveRecord::Base

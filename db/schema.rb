@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20110122095010) do
     t.datetime "updated_at"
   end
 
+  add_index "teams", ["cached_slug"], :name => "index_teams_on_cached_slug"
+
   create_table "users", :force => true do |t|
     t.string   "email",               :default => "", :null => false
     t.string   "remember_token"
