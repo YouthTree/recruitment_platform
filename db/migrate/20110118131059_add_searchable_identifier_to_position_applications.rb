@@ -3,8 +3,8 @@ class AddSearchableIdentifierToPositionApplications < ActiveRecord::Migration
     add_column :position_applications, :searchable_identifier, :string
     PositionApplication.reset_column_information
     PositionApplication.find_each do |pa|
-      next if pa.searchable_identifier.present?
       pa.update_attribute :searchable_identifier, pa.id.to_s
+      pa.update_attribute :state, 'submitted'
     end
   end
 
