@@ -59,7 +59,7 @@ gem 'ydd', :require => nil
 
 group :development do
   gem 'rails3-generators'
-  gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil
+  gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil, :ref => 'for_me'
   gem 'slurper', :require => nil
   gem 'capistrano', :require => nil
   gem 'youthtree-capistrano', :require => nil

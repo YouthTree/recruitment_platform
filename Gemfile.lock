@@ -14,9 +14,10 @@ GIT
 
 GIT
   remote: git://github.com/miyucy/annotate_models.git
-  revision: ace84ab47a21a0fcbbed431051ea3a140a4f99f9
+  revision: efd6fba2798a5cc6c8298df3ca1d31246845b2d1
+  ref: for_me
   specs:
-    annotate (2.4.0)
+    annotate (2.4.2)
 
 GIT
   remote: git://github.com/radiant/dataset.git
