@@ -117,16 +117,43 @@ describe PositionApplication do
 
   describe 'sending the notification email' do
 
-    it 'should send a notification email on create' do
+    let(:position_application) { PositionApplication.make! }
+
+    it 'should not send a notification email on create' do
       position_application = PositionApplication.make
-      mock(PositionNotifier).application_received(position_application).mock!.deliver
+      dont_allow(PositionNotifier).application_received(anything)
       position_application.save
     end
 
-    it 'should not send a notification email on create' do
-      position_application = PositionApplication.make!
+    it 'should not send a notification email on update' do
       dont_allow(PositionNotifier).application_received(anything)
       position_application.update_attributes :full_name => "Some new full name"
+    end
+
+    it 'should send the email on the state transition' do
+      mock(PositionNotifier).application_received(position_application).mock!.deliver
+      position_application.should_not be_submitted
+      position_application.submit
+      position_application.should be_submitted
+    end
+
+    it 'should not trigger it when invalid and submitting' do
+      dont_allow(PositionNotifier).application_received(anything)
+      position_application.full_name = ''
+      position_application.submit
+    end
+
+    it 'should call it when invoked via the state event attribute' do
+      mock(PositionNotifier).application_received(position_application).mock!.deliver
+      position_application.state_event = 'submit'
+      position_application.save
+    end
+
+    it 'should not trigger it when invoked via the state event attribute with invalid details' do
+      dont_allow(PositionNotifier).application_received(anything)
+      position_application.full_name = ''
+      position_application.state_event = 'submit'
+      position_application.save
     end
 
   end
@@ -140,8 +167,7 @@ describe PositionApplication do
       position_application.searchable_identifier.should be_present
     end
 
-    it 'should generate unique tokens' do
-    end
+    it 'should generate unique tokens'
 
   end
 

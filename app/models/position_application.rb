@@ -30,7 +30,6 @@ class PositionApplication < ActiveRecord::Base
   serialize :raw_answers
 
   after_initialize :setup_default_email_address
-  after_create     :send_notification_email
   before_save      :generate_searchable_identifier
 
 
@@ -53,6 +52,8 @@ class PositionApplication < ActiveRecord::Base
     event :submit do
       transition :created => :submitted
     end
+
+    after_transition :created => :submitted, :do => :send_notification_email
 
   end
 
