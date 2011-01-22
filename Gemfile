@@ -59,6 +59,8 @@ gem 'state_machine'
 
 gem 'ydd', :require => nil
 
+gem 'meta_where'
+
 group :development do
   gem 'rails3-generators'
   gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil, :ref => 'for_me'

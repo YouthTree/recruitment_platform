@@ -5,6 +5,8 @@ require 'singleton'
 class RadiantContent
   include Singleton
   
+  TIMEOUT = 15
+
   def self.[](name)
     instance[name]
   end
@@ -26,7 +28,9 @@ class RadiantContent
   def fetch_json
     if Settings.radiant.host?
       url = "http://#{Settings.radiant.host}/snippets.json"
-      open(url).read
+      Timeout.timeout(TIMEOUT) do
+        open(url).read
+      end
     end
   rescue Timeout::Error, SystemCallError, OpenURI::HTTPError
     nil
