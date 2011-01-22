@@ -25,6 +25,11 @@ RecruitmentPlatform::Application.routes.draw do
       get  :apply
       post :apply
     end
+    resources :position_applications, :path => 'applications', :only => [:create, :edit, :update, :show] do
+      member do
+        get :applied
+      end
+    end
   end
 
   root :to => 'positions#index'

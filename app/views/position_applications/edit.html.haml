@@ -1,0 +1,26 @@
+%article#position-application
+  %h1 Applying for #{link_to @position.title, @position} at #{link_to @team.name, '#'}
+  %p#short-description= @position.short_description
+
+  = semantic_form_for @position_application, :url => [@position, @position_application] do |form|
+
+    = form.inputs 'Your Details' do
+      = form.input :full_name, :required => true
+      = form.fields_for :email_address do |ef|
+        = ef.input :email, :required => true
+      = form.input :phone, :required => true
+
+    - if @position_application.answers.needed?
+      = form.fields_for :answers, @position_application.answers do |af|
+        = af.inputs 'Application Questions' do
+          - af.object.each_question do |question, name|
+            = af.input name, af.object.to_formtastic_options(question)
+
+    = form.buttons do
+      %li.commit
+        %p.inline-hint
+          If you choose to save and edit later, you will need to bookmark this page / keep it open to continue it later. Once it has been
+          submitted, your application can no longer be edited.
+        %button.update{:type => "submit", :name => "position_application[state_event]", :value => 'submit'} Submit my Application
+        %span.or or
+        %button.update{:type => "submit"} Save &amp; Edit Later

@@ -4,7 +4,7 @@
     %span.position-name= @position.title
   
   %p.quick-links
-    = link_to 'Apply for this position', [:apply, @position]
+    = link_to 'Apply for this position', [@position, :position_applications], :method => :post
     or
     = link_to 'View as a PDF', position_path(@position, :format => 'pdf')
   

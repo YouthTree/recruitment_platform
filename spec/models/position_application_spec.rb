@@ -24,8 +24,14 @@ describe PositionApplication do
     specify { should have_one  :email_address, :as => :addressable }
     specify { should accept_nested_attributes_for :email_address }
 
-    it 'should automatically set the email address to be a relationship' do
-      PositionApplication.new.email_address.should be_present
+    it 'should not automatically set the email address to be a relationship on create' do
+      PositionApplication.new.email_address.should_not be_present
+    end
+
+    it 'should automatically set the email address to be a relationship on edit' do
+      position_application = PositionApplication.create
+      position_application = PositionApplication.find(position_application.id)
+      position_application.email_address.should be_present
     end
 
   end
@@ -71,8 +77,8 @@ describe PositionApplication do
   end
   
   context 'accessible attributes' do
-    specify { should allow_mass_assignment_of :full_name, :email_address_attributes, :phone, :answers }
-    specify { should_not allow_mass_assignment_of :position_id, :position, :identifier }
+    specify { should allow_mass_assignment_of :full_name, :email_address_attributes, :phone, :answers, :state_event }
+    specify { should_not allow_mass_assignment_of :position_id, :position, :identifier, :state }
   end
 
   describe '#answers' do
@@ -180,6 +186,11 @@ describe PositionApplication do
       position_application.save
       position_application.should be_persisted
       position_application.searchable_identifier.should == expected_token
+    end
+
+    it 'should use the searchable identifier for to_param' do
+      position_application = PositionApplication.make!
+      position_application.to_param.should == position_application.searchable_identifier
     end
 
   end

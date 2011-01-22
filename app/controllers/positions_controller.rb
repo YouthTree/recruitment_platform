@@ -11,24 +11,7 @@ class PositionsController < ApplicationController
     autoset_position_notice
   end
 
-  def apply
-    @position_application = @position.applications.build
-    process_application if request.post?
-  end
-
-  def applied
-  end
-
   protected
-
-  def process_application
-    @position_application.attributes = params[:position_application]
-    if @position_application.save
-      redirect_to [:applied, @position]
-    else
-      render :action => 'apply'
-    end
-  end
 
   def prepare_position
     @position = position_scope.find_using_slug!(params[:id])

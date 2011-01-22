@@ -22,7 +22,7 @@ class PositionApplication < ActiveRecord::Base
   
   accepts_nested_attributes_for :email_address
   
-  attr_accessible :full_name, :email_address_attributes, :phone, :answers
+  attr_accessible :full_name, :email_address_attributes, :phone, :answers, :state_event
 
   validates_presence_of :full_name, :email_address, :phone, :if => :submitted?
   validates_associated  :answers, :email_address, :if => :submitted?
@@ -57,11 +57,21 @@ class PositionApplication < ActiveRecord::Base
 
   end
 
+  def self.from_searchable_identifier!(identifier)
+    where(:searchable_identifier => identifier).first.tap do |identifier|
+      raise ActiveRecord::RecordNotFound if identifier.blank?
+    end
+  end
+
+  def to_param
+    searchable_identifier.presence || id
+  end
+
   protected
 
   def setup_default_email_address
     # Setup the default email
-    build_email_address if email_address.blank?
+    build_email_address if email_address.blank? && !new_record?
   end
 
   def send_notification_email
