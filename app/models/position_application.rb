@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: position_applications
+#
+#  id                    :integer         not null, primary key
+#  position_id           :integer
+#  full_name             :string(255)
+#  phone                 :string(255)
+#  identifier            :string(255)
+#  created_at            :datetime
+#  updated_at            :datetime
+#  raw_answers           :text
+#  state                 :string(255)
+#  searchable_identifier :string(255)
+#
+
 class PositionApplication < ActiveRecord::Base
   
   belongs_to :position

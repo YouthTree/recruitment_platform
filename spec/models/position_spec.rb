@@ -1,3 +1,30 @@
+# == Schema Information
+#
+# Table name: positions
+#
+#  id                             :integer         not null, primary key
+#  title                          :string(255)
+#  short_description              :text
+#  team_id                        :integer
+#  paid                           :boolean         default(FALSE)
+#  duration                       :string(255)
+#  time_commitment                :integer
+#  rendered_paid_description      :text
+#  rendered_general_description   :text
+#  rendered_position_description  :text
+#  rendered_applicant_description :text
+#  general_description            :text
+#  position_description           :text
+#  applicant_description          :text
+#  paid_description               :text
+#  published_at                   :datetime
+#  expires_at                     :datetime
+#  cached_slug                    :string(255)
+#  created_at                     :datetime
+#  updated_at                     :datetime
+#  time_commitment_flexibility    :string(255)
+#
+
 require 'spec_helper'
 
 describe Position do

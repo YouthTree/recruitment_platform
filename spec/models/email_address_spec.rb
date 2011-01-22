@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: email_addresses
+#
+#  id               :integer         not null, primary key
+#  email            :string(255)
+#  addressable_id   :integer
+#  addressable_type :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
 require 'spec_helper'
 
 describe EmailAddress do
