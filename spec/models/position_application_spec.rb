@@ -160,6 +160,8 @@ describe PositionApplication do
 
   describe 'searchable tokens' do
 
+    let(:possible_tokens) { %w(first second third fourth) }
+
     it 'should generate a token on create' do
       position_application = PositionApplication.make
       position_application.searchable_identifier.should be_blank
@@ -167,7 +169,18 @@ describe PositionApplication do
       position_application.searchable_identifier.should be_present
     end
 
-    it 'should generate unique tokens'
+    it 'should generate unique tokens' do
+      # Make some items with the test token.
+      possible_tokens[0..-2].each do |token|
+        PositionApplication.make! :searchable_identifier => token
+      end
+      expected_token = possible_tokens.last
+      position_application = PositionApplication.make
+      mock(PositionApplication).generate_random_token.times(possible_tokens.length) { possible_tokens.shift }
+      position_application.save
+      position_application.should be_persisted
+      position_application.searchable_identifier.should == expected_token
+    end
 
   end
 

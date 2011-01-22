@@ -71,7 +71,7 @@ class PositionApplication < ActiveRecord::Base
   def generate_searchable_identifier
     return if searchable_identifier.present?
     while searchable_identifier.blank? || searchable_identifier_taken?
-      self.searchable_identifier = ActiveSupport::SecureRandom.hex(32)
+      self.searchable_identifier = self.class.generate_random_token
     end
   end
 
@@ -85,6 +85,10 @@ class PositionApplication < ActiveRecord::Base
     else
       where(:id.ne => child.id)
     end
+  end
+
+  def self.generate_random_token
+    ActiveSupport::SecureRandom.hex(32)
   end
 
 end
