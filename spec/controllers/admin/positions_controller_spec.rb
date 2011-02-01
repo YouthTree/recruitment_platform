@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Admin::PositionsController do
+
+  render_views
   
   describe 'finding a resource' do
     
@@ -29,6 +31,32 @@ describe Admin::PositionsController do
       resource.should equal object
     end
 
+  end
+
+  describe '#reorder' do
+    before :each do
+      @user = User.make!
+      sign_in @user
+    end
+
+    context 'no ids are supplied' do
+      it 'wont call update_order' do
+        dont_allow(Position).update_order
+        put :reorder
+      end
+    end
+
+    context 'ids are supplied' do
+      it 'will call update_order' do
+        mock(Position).update_order('1, 2')
+        put :reorder, :position_ids => '1, 2'
+      end
+    end
+
+    it 'redirects to admin_positions' do
+      put :reorder
+      response.should redirect_to(:admin_positions)
+    end
   end
 
 end
