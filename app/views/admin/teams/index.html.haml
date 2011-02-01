@@ -1,7 +1,3 @@
-- extra_head_content do
-  = include_javascripts :admin_teams_page
-
-
 %h2.title Viewing all Teams
 
 = will_paginate collection
@@ -21,15 +17,3 @@
     = empty_row_for_collection 2
 
 = will_paginate collection
-
-#reorder-teams{:title => 'Reorder Teams'}
-  = form_tag reorder_admin_teams_path, :method => :put do
-    %ol
-      - collection.each do |r|
-        %li.ui-state-default{"data-team-id" => r.id}
-          = hidden_field_tag "team_ids[]", r.id, :id => nil
-          = r.name
-    = submit_tag "Save Order"
-
-- content_for :sidebar_menu_end do
-  = ml 'Reorder Teams', '#', :class => 'reorder-teams-link'

@@ -4,11 +4,7 @@ RecruitmentPlatform::Application.routes.draw do
 
   namespace :admin do
     root :to => 'dashboard#index'
-    resources :teams do
-      collection do
-        put :reorder
-      end
-    end
+    resources :teams
     resources :positions do
       resources :position_applications, :path => 'applications', :only => [:show, :index] do
         member do

@@ -2,7 +2,7 @@
 
   = form.inputs 'Filter positions by...' do
 
-    = form.input :team_ids, :label => 'On teams', :as => :check_boxes, :collection => Team.in_order.all
+    = form.input :team_ids, :label => 'On teams', :as => :check_boxes, :collection => Team.all
     = form.input :tags, :label => 'Tagged with', :as => :check_boxes, :collection => Position.tag_options.map { |i| [i.titleize, i] }
 
 

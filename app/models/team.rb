@@ -15,11 +15,9 @@
 
 class Team < ActiveRecord::Base
   include MarkdownFormattedModel
-  include Orderable
   
   is_convertable :description
   is_sluggable   :name, :use_cache => false
-  orderable_field_is :order_position
   
   attr_accessible :name, :website_url, :description
   
