@@ -1,3 +1,7 @@
+- extra_head_content do
+  = include_javascripts :admin_positions_page
+
+
 %h2.title Viewing all #{current_resource_name.pluralize}
 
 = will_paginate collection
@@ -19,3 +23,16 @@
     = empty_row_for_collection 2
 
 = will_paginate collection
+
+#reorder-positions{:title => 'Reorder Positions'}
+  = form_tag reorder_admin_positions_path, :method => :put do
+    %ol
+      - collection.each do |r|
+        %li.ui-state-default{"data-position-id" => r.id}
+          = hidden_field_tag "position_ids[]", r.id, :id => nil
+          = r.title
+    = submit_tag "Save Order"
+
+
+- content_for :sidebar_menu_end do
+  = ml 'Reorder Positions', '#', :class => 'reorder-positions-link'

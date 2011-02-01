@@ -14,6 +14,9 @@ RecruitmentPlatform::Application.routes.draw do
       member do
         get :clone_position, :path => 'clone'
       end
+      collection do
+        put :reorder
+      end
     end
     resources :questions
     resources :contents
