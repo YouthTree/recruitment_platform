@@ -48,7 +48,7 @@ class Question < ActiveRecord::Base
   end
 
   def self.for_select
-    select('question, id').map { |q| [q.question, q.id] }
+    select('short_name, id').map { |q| [q.short_name, q.id] }
   end
 
   def self.human_question_type_name(type)

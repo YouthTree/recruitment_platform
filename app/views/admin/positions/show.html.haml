@@ -70,7 +70,7 @@
     %li.empty This position currently has no associated questions.
   - resource.position_questions.ordered.each do |position_question|
     %li
-      = link_to position_question.question.question, [:admin, position_question.question]
+      = link_to position_question.question.short_name, [:admin, position_question.question]
       - if !position_question.required.nil?
         - if position_question.required
           %span.required.required-state Required.
