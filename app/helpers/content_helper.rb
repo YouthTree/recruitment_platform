@@ -8,4 +8,11 @@ module ContentHelper
 
   alias cs content_section
   
+  def meta_content(name)
+    cs = Content["meta.#{name}"]
+    if cs.present?
+      tag :meta, :name => name.to_s, :content => cs.content
+    end
+  end
+
 end

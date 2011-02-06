@@ -4,8 +4,11 @@
   %head
     %meta{:charset => 'utf-8'}
     %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
+    = meta_content :keywords
+    = meta_content :description
     %title= page_title
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+    %link{:rel => 'image_src', :href => '/images/youthtree/facebook-logo.png'}
     = javascript_include_tag 'vendor/modernizr'
     = include_stylesheets(:base, :media => 'screen, projection')
     = include_stylesheets(:base_print, :media => 'print')
