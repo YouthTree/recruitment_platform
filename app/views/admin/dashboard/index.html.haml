@@ -1,1 +1,14 @@
-%h1 Test File Goes Here
+#dashboard
+  %h1 Recently on the Recruitment Platform
+
+  %h2 Most recent applications
+  %ul.applications.listing
+    - if @most_recent.empty?
+      %li.empty There have been no applications yet.
+    = render :partial => 'admin/position_applications/entry', :collection => @most_recent
+
+  %h2 Applications since your last visit
+  %ul.applications.listing
+    - if @since_last_visit.empty?
+      %li.empty There have been no applications since your last visit.
+    = render :partial => 'admin/position_applications/entry', :collection => @since_last_visit

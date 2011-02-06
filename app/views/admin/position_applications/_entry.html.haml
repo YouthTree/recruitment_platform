@@ -1,0 +1,10 @@
+- position = entry.position
+- team     = position.team
+%li
+  
+  = link_to entry.full_name, [:admin, entry.position, entry]
+  applied for
+  = link_to entry.position.title, [:admin, entry.position]
+  on
+  = link_to team.name, [:admin, team]
+  %span.time-ago #{time_ago_in_words entry.updated_at} ago.

@@ -1,4 +1,4 @@
-- count = new_application_count
-- unless count.zero?
-  #new_applications
-    = link_to count, '#', :title => "Since your last login there #{count == 1 ? 'has' : 'have'} been #{pluralize(count, 'new position application')}"
+- unless (count = new_application_count).zero?
+  %li
+    #new-applications
+      = link_to count, '#', :title => "Since your last login there #{count == 1 ? 'has' : 'have'} been #{pluralize(count, 'new position application')}"

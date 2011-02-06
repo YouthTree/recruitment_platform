@@ -34,6 +34,7 @@ class PositionApplication < ActiveRecord::Base
 
   scope :submitted, where(:state => 'submitted')
   scope :created,   where(:state => 'created')
+  scope :ordered,   order('updated_at DESC')
 
   def answers(force = false)
     @answers = nil if force
@@ -63,6 +64,10 @@ class PositionApplication < ActiveRecord::Base
     where(:searchable_identifier => identifier).first.tap do |identifier|
       raise ActiveRecord::RecordNotFound if identifier.blank?
     end
+  end
+
+  def self.since(time)
+    where(:created_at.gt => time)
   end
 
   def to_param
