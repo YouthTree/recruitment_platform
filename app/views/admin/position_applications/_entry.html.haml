@@ -2,7 +2,7 @@
 - team     = position.team
 %li
   
-  = link_to entry.full_name, [:admin, entry.position, entry]
+  = link_to entry.full_name.presence || "Unknown User", [:admin, entry.position, entry]
   applied for
   = link_to entry.position.title, [:admin, entry.position]
   on
