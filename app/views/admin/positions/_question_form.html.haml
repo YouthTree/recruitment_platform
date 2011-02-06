@@ -4,7 +4,7 @@
   - unless question_form.object.new_record?
     = question_form.hidden_field :id, :class => 'question-id', :id => nil
     = question_form.hidden_field :_destroy, :class => 'question-remove'
-  %span.question-question= question_form.object.question.try(:question)
+  %span.question-question= question_form.object.question.try(:short_name)
   = link_to '(remove)', '#', :class => 'question-remove-button'
 
   = question_form.select :required, [["Use default required", nil], ["Always required", true], ["Never required", false]], {}, :class => 'question-required'
