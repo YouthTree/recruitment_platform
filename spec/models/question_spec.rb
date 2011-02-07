@@ -69,7 +69,7 @@ describe Question do
     end
 
     it 'should allow you to get questions for a select' do
-      Question.for_select.should =~ [[@question_a.question, @question_a.id], [@question_b.question, @question_b.id], [@question_c.question, @question_c.id], [@question_d.question, @question_d.id], [@question_e.question, @question_e.id]]
+      Question.for_select.should =~ [[@question_a.short_name, @question_a.id], [@question_b.short_name, @question_b.id], [@question_c.short_name, @question_c.id], [@question_d.short_name, @question_d.id], [@question_e.short_name, @question_e.id]]
     end
 
     it 'should let you get questions with the exception of a specific id' do
