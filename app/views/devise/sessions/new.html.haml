@@ -4,7 +4,7 @@
 
   = f.inputs "Login Details" do
 
-    = f.input :email
+    = f.input :email, :as => :string
     = f.input :password
 
     - if devise_mapping.rememberable?

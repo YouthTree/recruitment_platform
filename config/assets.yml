@@ -29,6 +29,10 @@ javascripts:
   ie6:
     - public/javascripts/vendor/dd_belatedpng.js
     - public/javascripts/youth_tree/ie6.js
+  dashboard:
+    - public/javascripts/vendor/highcharts.js
+    - public/javascripts/recruitment_platform/admin/charts.js
+    - public/javascripts/recruitment_platform/admin/analytics.js
 stylesheets:
   base:
     - public/stylesheets/recruitment_platform.css
