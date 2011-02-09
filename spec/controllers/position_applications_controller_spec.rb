@@ -213,35 +213,4 @@ describe PositionApplicationsController do
 
   describe 'viewing the applied page'
 
-  # describe 'applying for a position' do
-  #
-  #     let(:position) { positions(:published_1) }
-  #
-  #     before :each do
-  #       stub.instance_of(PositionApplication).save { save_result }
-  #       post :apply, :id => position.to_param
-  #     end
-  #
-  #     context 'when successfully applying' do
-  #
-  #       let(:save_result) { true }
-  #
-  #       it 'should redirect to root' do
-  #         response.should be_redirect
-  #         response.should redirect_to [:applied, position]
-  #       end
-  #
-  #     end
-  #
-  #     context 'when unsucessfully applying' do
-  #
-  #       let(:save_result) { false }
-  #
-  #       it_should_behave_like 'viewing the apply page'
-  #
-  #     end
-  #
-  #   end
-
-
 end

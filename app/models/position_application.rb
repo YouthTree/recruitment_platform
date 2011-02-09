@@ -24,13 +24,17 @@ class PositionApplication < ActiveRecord::Base
   
   attr_accessible :full_name, :email_address_attributes, :phone, :answers, :state_event
 
-  validates_presence_of :full_name, :email_address, :phone, :if => :submitted?
-  validates_associated  :answers, :email_address, :if => :submitted?
+  validates_presence_of :email_address, :unless => :new_record?
+  validates_associated  :email_address, :unless => :new_record?
+
+  validates_presence_of :full_name, :phone, :if => :submitted?
+  validates_associated  :answers, :if => :submitted?
 
   serialize :raw_answers
 
   after_initialize :setup_default_email_address
   before_save      :generate_searchable_identifier
+  after_update     :send_saved_email, :if => :should_send_saved_email?
 
   scope :submitted, where(:state => 'submitted')
   scope :created,   where(:state => 'created')
@@ -56,7 +60,7 @@ class PositionApplication < ActiveRecord::Base
       transition :created => :submitted
     end
 
-    after_transition :created => :submitted, :do => :send_notification_email
+    after_transition :created => :submitted, :do => :send_submission_emails
 
   end
 
@@ -77,12 +81,20 @@ class PositionApplication < ActiveRecord::Base
   protected
 
   def setup_default_email_address
-    # Setup the default email
     build_email_address if email_address.blank? && !new_record?
   end
 
-  def send_notification_email
+  def send_submission_emails
     PositionNotifier.application_received(self).deliver
+    PositionNotifier.application_sent(self).deliver
+  end
+
+  def should_send_saved_email?
+    !submitted? && email_address.email_changed?
+  end
+
+  def send_saved_email
+    PositionNotifier.application_saved(self).deliver
   end
 
   def generate_searchable_identifier

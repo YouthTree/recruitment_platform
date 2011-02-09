@@ -40,14 +40,24 @@ describe PositionApplication do
 
     describe 'when not submitted' do
       before(:each) { stub(subject).submitted? { false } }
-      it { should_not validate_presence_of :full_name, :email_address, :phone }
-      it { should_not validate_associated :email_address }
+      it { should_not validate_presence_of :full_name, :phone }
     end
 
     describe 'when submitted' do
       before(:each) { stub(subject).submitted? { true } }
-      it { should validate_presence_of :full_name, :email_address, :phone }
+      it { should validate_presence_of :full_name, :phone }
+    end
+
+    describe 'when not saved' do
+      subject { PositionApplication.new }
+      it { should_not validate_associated :email_address }
+      it { should_not validate_presence_of :email_address }
+    end
+
+    describe 'when saved' do
+      subject { PositionApplication.create }
       it { should validate_associated :email_address }
+      it { should validate_presence_of :email_address }
     end
     
     describe 'validating the answers' do
@@ -125,38 +135,76 @@ describe PositionApplication do
 
     let(:position_application) { PositionApplication.make! }
 
-    it 'should not send a notification email on create' do
-      position_application = PositionApplication.make
+    it 'should not send any on create' do
+      position_application = PositionApplication.create
       dont_allow(PositionNotifier).application_received(anything)
+      dont_allow(PositionNotifier).application_sent(anything)
+      dont_allow(PositionNotifier).application_saved(anything)
       position_application.save
     end
 
-    it 'should not send a notification email on update' do
+    it 'should not send the submission emails on update' do
       dont_allow(PositionNotifier).application_received(anything)
+      dont_allow(PositionNotifier).application_sent(anything)
       position_application.update_attributes :full_name => "Some new full name"
     end
 
-    it 'should send the email on the state transition' do
+    it 'should not send the saved email on update with the same email address' do
+      dont_allow(PositionNotifier).application_saved(anything)
+      position_application.save
+    end
+
+    it 'should send the saved email on update with a different email address' do
+      mock(PositionNotifier).application_saved(position_application).mock!.deliver
+      position_application.email_address.email = 'test@example.com'
+      position_application.save
+    end
+
+    it 'should not send the saved email on update with a changed email address and invalid details' do
+      dont_allow(PositionNotifier).application_saved(anything)
+      position_application.email_address.email = 'test@example.com'
+      stub(position_application).valid? { false }
+      position_application.save
+    end
+
+    it 'should send the submission emails on the state transition to submitted' do
       mock(PositionNotifier).application_received(position_application).mock!.deliver
+      mock(PositionNotifier).application_sent(position_application).mock!.deliver
       position_application.should_not be_submitted
       position_application.submit
       position_application.should be_submitted
     end
 
-    it 'should not trigger it when invalid and submitting' do
+    it 'should not trigger the submission emails when invalid and submitting' do
       dont_allow(PositionNotifier).application_received(anything)
+      dont_allow(PositionNotifier).application_sent(anything)
       position_application.full_name = ''
       position_application.submit
     end
 
-    it 'should call it when invoked via the state event attribute' do
+    it 'should send the submission emails when invoked via the state event attribute' do
       mock(PositionNotifier).application_received(position_application).mock!.deliver
+      mock(PositionNotifier).application_sent(position_application).mock!.deliver
       position_application.state_event = 'submit'
       position_application.save
     end
 
-    it 'should not trigger it when invoked via the state event attribute with invalid details' do
+    it 'should not trigger the saved email when changing email and submitting via a state event' do
+      dont_allow(PositionNotifier).application_saved(anything)
+      position_application.email_address.email = 'test@example.com'
+      position_application.state_event = 'submit'
+      position_application.save
+    end
+
+    it 'should not trigger the saved email when changing email and submitting' do
+      dont_allow(PositionNotifier).application_saved(anything)
+      position_application.email_address.email = 'test@example.com'
+      position_application.submit
+    end
+
+    it 'should send the submission emails when invoked via the state event attribute with invalid details' do
       dont_allow(PositionNotifier).application_received(anything)
+      dont_allow(PositionNotifier).application_sent(anything)
       position_application.full_name = ''
       position_application.state_event = 'submit'
       position_application.save

@@ -1,0 +1,7 @@
+%h1 Your Position Application has been saved
+
+%p Your application for #{link_to @position.title, position_url(@position)} for #{@position.team.name} has been created but not yet submitted.
+
+%p
+  You can edit and submit your application by clicking #{link_to 'here', position_position_application_url(@position, @application)} - We wont be able
+  to see it until you submit it.

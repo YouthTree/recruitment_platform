@@ -10,3 +10,7 @@ en:
   position_notifier:
     application_received:
       subject: 'New Position Application Received'
+    application_sent:
+      subject: 'Your Position Application has been sent'
+    application_saved:
+      subject: 'Your Position Application has been saved'
