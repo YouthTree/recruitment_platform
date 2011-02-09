@@ -56,7 +56,7 @@ class PositionApplication < ActiveRecord::Base
       transition :created => :submitted
     end
 
-    after_transition :created => :submitted, :do => :send_notification_email
+    after_transition :created => :submitted, :do => :send_submission_emails
 
   end
 
@@ -81,8 +81,13 @@ class PositionApplication < ActiveRecord::Base
     build_email_address if email_address.blank? && !new_record?
   end
 
-  def send_notification_email
+  def send_submission_emails
     PositionNotifier.application_received(self).deliver
+    PositionNotifier.application_sent(self).deliver
+  end
+
+  def send_saved_email
+    PositionNotifier.application_saved(self).deliver
   end
 
   def generate_searchable_identifier

@@ -33,4 +33,60 @@ describe PositionNotifier do
 
   end
 
+  describe "the application sent notice" do
+
+    let(:position)             { Position.make! }
+    let(:position_application) { PositionApplication.make!(:position => position) }
+    let(:mail)                 { PositionNotifier.application_sent(position_application) }
+    subject                    { mail }
+
+    its(:to)      { should == [position_application.email_address.to_s] }
+    its(:from)    { should == [Settings.mailer.from] }
+    its(:subject) { should == 'Your Position Application has been sent' }
+
+    context 'the message body' do
+
+      subject { mail.body.encoded }
+
+      it 'should have a link to the position' do
+        should have_link_to position.title, position_url(position)
+      end
+
+      it 'should have a link to the position application' do
+        should have_link_to /.*/, position_position_application_url(position, position_application)
+      end
+
+    end
+
+
+  end
+
+  describe "the application saved notice" do
+
+    let(:position)             { Position.make! }
+    let(:position_application) { PositionApplication.make!(:position => position) }
+    let(:mail)                 { PositionNotifier.application_saved(position_application) }
+    subject                    { mail }
+
+    its(:to)      { should == [position_application.email_address.to_s] }
+    its(:from)    { should == [Settings.mailer.from] }
+    its(:subject) { should == 'Your Position Application has been saved' }
+
+    context 'the message body' do
+
+      subject { mail.body.encoded }
+
+      it 'should have a link to the position' do
+        should have_link_to position.title, position_url(position)
+      end
+
+      it 'should have a link to the position application' do
+        should have_link_to /.*/, position_position_application_url(position, position_application)
+      end
+
+    end
+
+
+  end
+
 end

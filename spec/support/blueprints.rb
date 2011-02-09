@@ -1,21 +1,3 @@
-# Monkey Patch Machinist for attr_accessible
-
-# module MachinistBlueprintFixes
-#
-#   def self.included(parent)
-#     parent.alias_method_chain :make, :attribute_fixes
-#   end
-#
-#   def make_with_attribute_fixes(*args, &blk)
-#     BHM::Admin.disable_attr_accessible do
-#       make_without_attribute_fixes *args, &blk
-#     end
-#   end
-#
-# end
-#
-# Machinist::Blueprint.send :include, MachinistBlueprintFixes
-
 Team.blueprint do
   name        { Forgery(:name).company_name }
   website_url { "http://#{Forgery(:internet).domain_name}/" }
