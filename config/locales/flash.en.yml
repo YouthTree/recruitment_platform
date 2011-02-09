@@ -2,7 +2,7 @@
 en:
   flash:
     application_received: "Your application has been received - We'll be in contact shortly to let you know how you go."
-    application_fields_required: "In order to submit your application, you'll need to fill in the fields below."
+    application_fields_required: "In order to continue with your application, you'll need to fill in the fields below."
     application_saved: "Your application has been saved and can be finished later."
     actions:
       create:
