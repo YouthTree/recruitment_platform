@@ -20,6 +20,8 @@ class PositionApplicationsController < ApplicationController
     else
       if @position_application.errors.present?
         flash.now[:alert] = tf(:application_fields_required)
+      else
+        flash.now[:notice] = tf(:application_saved)
       end
       render :action => 'edit'
     end

@@ -24,8 +24,11 @@ class PositionApplication < ActiveRecord::Base
   
   attr_accessible :full_name, :email_address_attributes, :phone, :answers, :state_event
 
-  validates_presence_of :full_name, :email_address, :phone, :if => :submitted?
-  validates_associated  :answers, :email_address, :if => :submitted?
+  validates_presence_of :email_address, :unless => :new_record?
+  validates_associated  :email_address, :unless => :new_record?
+
+  validates_presence_of :full_name, :phone, :if => :submitted?
+  validates_associated  :answers, :if => :submitted?
 
   serialize :raw_answers
 
@@ -77,7 +80,6 @@ class PositionApplication < ActiveRecord::Base
   protected
 
   def setup_default_email_address
-    # Setup the default email
     build_email_address if email_address.blank? && !new_record?
   end
 

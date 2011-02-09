@@ -40,14 +40,24 @@ describe PositionApplication do
 
     describe 'when not submitted' do
       before(:each) { stub(subject).submitted? { false } }
-      it { should_not validate_presence_of :full_name, :email_address, :phone }
-      it { should_not validate_associated :email_address }
+      it { should_not validate_presence_of :full_name, :phone }
     end
 
     describe 'when submitted' do
       before(:each) { stub(subject).submitted? { true } }
-      it { should validate_presence_of :full_name, :email_address, :phone }
+      it { should validate_presence_of :full_name, :phone }
+    end
+
+    describe 'when not saved' do
+      subject { PositionApplication.new }
+      it { should_not validate_associated :email_address }
+      it { should_not validate_presence_of :email_address }
+    end
+
+    describe 'when saved' do
+      subject { PositionApplication.create }
       it { should validate_associated :email_address }
+      it { should validate_presence_of :email_address }
     end
     
     describe 'validating the answers' do
@@ -126,9 +136,8 @@ describe PositionApplication do
     let(:position_application) { PositionApplication.make! }
 
     it 'should not send a notification email on create' do
-      position_application = PositionApplication.make
+      position_application = PositionApplication.create
       dont_allow(PositionNotifier).application_received(anything)
-      dont_allow(PositionNotifier).application_sent(anything)
       dont_allow(PositionNotifier).application_sent(anything)
       position_application.save
     end
