@@ -34,6 +34,7 @@ class PositionApplication < ActiveRecord::Base
 
   after_initialize :setup_default_email_address
   before_save      :generate_searchable_identifier
+  after_update     :send_saved_email, :if => :should_send_saved_email?
 
   scope :submitted, where(:state => 'submitted')
   scope :created,   where(:state => 'created')
@@ -86,6 +87,10 @@ class PositionApplication < ActiveRecord::Base
   def send_submission_emails
     PositionNotifier.application_received(self).deliver
     PositionNotifier.application_sent(self).deliver
+  end
+
+  def should_send_saved_email?
+    !submitted? && email_address.email_changed?
   end
 
   def send_saved_email
