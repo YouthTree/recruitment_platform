@@ -31,8 +31,7 @@ class Position < ActiveRecord::Base
   include Orderable
 
   TIME_COMMITMENTS = [:'1_hour', :'2-5_hours', :'5-10_hours', :'10-15_hours',
-                      :'15-20_hours', :'Part_time_(20_hours)',
-                      :'Full_time_(40_hours)']
+                      :'15-20_hours', :'20-40_hours', :'40+_hours']
 
 
   orderable_field_is :order_position
