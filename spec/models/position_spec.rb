@@ -51,9 +51,11 @@ describe Position do
   
   context 'validations' do
 
-    it { should validate_presence_of :title, :short_description, :duration, :time_commitment, :team, :general_description, :position_description, :applicant_description }
+    it { should validate_presence_of :title, :short_description, :duration, :team, :general_description, :position_description, :applicant_description }
 
     it { should validate_associated :contact_emails }
+    
+    it { should validate_numericality_of :minimum_hours, :maximum_hours, :greather_than => 0, :less_than_or_equal_to => 40, :only_integer => true, :allow_blank => false }
 
     it 'should not require the paid description when unpaid' do
       mock(subject).paid? { false }
@@ -77,11 +79,23 @@ describe Position do
       stub(subject).published? { true }
       should validate_presence_of :contact_emails
     end
+    
+    it 'should require the min hours is less than the max' do
+      position = Position.make
+      position.minimum_hours = 11
+      position.maximum_hours = 10
+      position.should_not be_valid
+      p position.errors.full_messages
+      position.maximum_hours = 12
+      position.should be_valid
+      position.maximum_hours = 11
+      position.should be_valid
+    end
 
   end
   
   context 'accessible attributes' do
-    it { should allow_mass_assignment_of :title, :short_description, :duration, :time_commitment, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid, :position_questions_attributes, :contact_emails_attributes, :tag_list }
+    it { should allow_mass_assignment_of :title, :short_description, :duration, :minimum_hours, :maximum_hours, :team_id, :paid_description, :general_description, :position_description, :applicant_description, :paid, :position_questions_attributes, :contact_emails_attributes, :tag_list }
     it { should_not allow_mass_assignment_of :rendered_paid_description, :rendered_general_description, :rendered_position_description, :rendered_applicant_description }
   end
   
@@ -397,40 +411,25 @@ describe Position do
 
     let(:position) { Position.new }
 
-    context 'time commitment is nil' do
 
-      before :each do
-        position.time_commitment = nil
-      end
-
-      it 'has no description' do
-        position.human_time_commitment.should == ''
-      end
-
+    it 'has a valid description for no range' do
+      position.attributes = {:minimum_hours => nil, :maximum_hours => nil}
+      position.human_time_commitment.should == 'Currently unknown'
     end
-
-    context 'time commitment of 1 hour' do
-
-      before :each do
-        position.time_commitment = :'1_hour'
-      end
-
-      it 'has a description of "1 hour"' do
-        position.human_time_commitment.should == '1 hour'
-      end
-
+    
+    it 'has a valid description for both one hour' do
+      position.attributes = {:minimum_hours => 1, :maximum_hours => 1}
+      position.human_time_commitment.should == '1 hour'
     end
-
-    context 'time commitment of a full day' do
-
-      before :each do
-        position.time_commitment = :'Part_time_(20_hours)'
-      end
-
-      it 'has a description of "A full day"' do
-        position.human_time_commitment.should == 'Part time (20 hours)'
-      end
-
+    
+    it 'has a valid description for both the same' do
+      position.attributes = {:minimum_hours => 5, :maximum_hours => 5}
+      position.human_time_commitment.should == '5 hours'
+    end
+    
+    it 'has a valid description for two different numbers' do
+      position.attributes = {:minimum_hours => 10, :maximum_hours => 30}
+      position.human_time_commitment.should == '10 to 30 hours'
     end
 
   end

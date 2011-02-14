@@ -30,10 +30,6 @@ class Position < ActiveRecord::Base
   include MarkdownFormattedModel
   include Orderable
 
-  TIME_COMMITMENTS = [:'1_hour', :'2-5_hours', :'5-10_hours', :'10-15_hours',
-                      :'15-20_hours', :'20-40_hours', :'40+_hours']
-
-
   orderable_field_is :order_position
 
   scope :with_questions, includes(:position_questions => :question)
@@ -79,7 +75,7 @@ class Position < ActiveRecord::Base
   is_convertable :paid_description, :general_description, :position_description, :applicant_description
   is_publishable
   
-  validates_presence_of :title, :short_description, :duration, :time_commitment, :team,
+  validates_presence_of :title, :short_description, :duration, :team,
                         :general_description, :position_description, :applicant_description
 
   validates_presence_of :paid_description, :if => :paid?
@@ -89,11 +85,14 @@ class Position < ActiveRecord::Base
   validates_associated  :contact_emails
 
   validate :ensure_published_at_is_valid
-
-  validates_inclusion_of :time_commitment, :in => TIME_COMMITMENTS
+  
+  validates_numericality_of :minimum_hours, :maximum_hours, :greater_than => 0,
+    :less_than_or_equal_to => 40, :only_integer => true, :allow_blank => false
+    
+  validates_numericality_of :minimum_hours, :less_than_or_equal_to => proc { |r| r.maximum_hours }, :if => :maximum_hours?
 
   attr_accessible :title, :short_description, :paid, :duration,
-    :time_commitment, :time_commitment_flexibility, :paid_description,
+    :minimum_hours, :maximum_hours, :time_commitment_flexibility, :paid_description,
     :team_id, :general_description, :position_description,
     :applicant_description, :published_at, :expires_at,
     :position_questions_attributes, :next_question_id,
@@ -142,18 +141,15 @@ class Position < ActiveRecord::Base
     I18n.t status, :scope => 'ui.position_status', :default => status.to_s.humanize
   end
 
-  def time_commitment
-    (value = read_attribute(:time_commitment)) and TIME_COMMITMENTS[value]
-  end
-
-  def time_commitment=(value)
-    value = value.presence && TIME_COMMITMENTS.index(value.to_sym)
-    write_attribute :time_commitment, value
-  end
-
   def human_time_commitment
-    return '' if time_commitment.blank?
-    time_commitment.to_s.humanize
+    min, max = minimum_hours, maximum_hours
+    if min.blank? || max.blank?
+      I18n.t :none, :scope => 'ui.time_commitment'
+    elsif min == max
+      I18n.t :hours, :scope => 'ui.time_commitment', :count => min
+    else
+      I18n.t :hour_range, :scope => 'ui.time_commitment', :min => min, :max => max
+    end
   end
   
   def to_application_reporter(options = {})

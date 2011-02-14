@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110122095010) do
+ActiveRecord::Schema.define(:version => 20110214103106) do
 
   create_table "contents", :force => true do |t|
     t.text     "content"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(:version => 20110122095010) do
     t.integer  "team_id"
     t.boolean  "paid",                           :default => false
     t.string   "duration"
-    t.integer  "time_commitment"
     t.text     "rendered_paid_description"
     t.text     "rendered_general_description"
     t.text     "rendered_position_description"
@@ -77,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20110122095010) do
     t.datetime "updated_at"
     t.string   "time_commitment_flexibility"
     t.integer  "order_position"
+    t.integer  "minimum_hours"
+    t.integer  "maximum_hours"
   end
 
   add_index "positions", ["cached_slug"], :name => "index_positions_on_cached_slug"

@@ -23,3 +23,9 @@ en:
       check_boxes: 'Check Boxes'
       select: 'Choose from a List'
       scale: 'Scale'
+    time_commitment:
+      hours:
+        one: "%{count} hour"
+        other: "%{count} hours"
+      hour_range: "%{min} to %{max} hours"
+      none: "Currently unknown"

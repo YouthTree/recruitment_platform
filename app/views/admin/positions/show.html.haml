@@ -35,7 +35,8 @@
 
   = r.attribute :duration, :label => 'How long will this position go on for?'
 
-  = r.attribute :time_commitment, :label => 'What is the weekly time commitment for this position?'
+  = r.attribute :time_commitment, :label => 'What is the weekly time commitment for this position?' do
+    = resource.human_time_commitment
 
   = r.attribute :time_commitment_flexibility, :label => 'How flexibile is the weekly time commitment?'
 
