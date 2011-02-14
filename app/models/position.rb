@@ -201,7 +201,7 @@ class Position < ActiveRecord::Base
       end
       # Oh look, all position questions...
       position_questions.each do |pq|
-        child.position_questions.build pq.attributes.except("position_id")
+        child.position_questions.build pq.attributes.except("updated_at", "created_at", "id", "position_id")
       end
     end
   end
