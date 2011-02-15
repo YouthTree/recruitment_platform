@@ -10,12 +10,14 @@
   %thead
     %tr
       %th Title
+      %th # Apps.
       %th Current Status
       %th &nbsp;
   %tbody
     - collection.each do |r|
       %tr{:class => cycle('odd', 'even')}
         %td= link_to r.title, [:admin, r]
+        %td= r.applications.size
         %td= r.human_status
         %td.actions
           = individual_resource_links r, :at => :after do

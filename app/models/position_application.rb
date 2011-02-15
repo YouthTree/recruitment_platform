@@ -35,6 +35,7 @@ class PositionApplication < ActiveRecord::Base
   after_initialize :setup_default_email_address
   before_save      :generate_searchable_identifier
   after_update     :send_saved_email, :if => :should_send_saved_email?
+  after_save       :update_parent_count
 
   scope :submitted, where(:state => 'submitted')
   scope :created,   where(:state => 'created')
@@ -118,6 +119,10 @@ class PositionApplication < ActiveRecord::Base
 
   def self.generate_random_token
     ActiveSupport::SecureRandom.hex(32)
+  end
+  
+  def update_parent_count
+    position.generate_submitted_count! if position.present?
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110214103106) do
+ActiveRecord::Schema.define(:version => 20110215065953) do
 
   create_table "contents", :force => true do |t|
     t.text     "content"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20110214103106) do
     t.integer  "order_position"
     t.integer  "minimum_hours"
     t.integer  "maximum_hours"
+    t.integer  "submitted_applications_count",   :default => 0
   end
 
   add_index "positions", ["cached_slug"], :name => "index_positions_on_cached_slug"

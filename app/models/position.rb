@@ -201,6 +201,10 @@ class Position < ActiveRecord::Base
       end
     end
   end
+  
+  def generate_submitted_count!
+    update_attribute :submitted_applications_count, applications.submitted.count
+  end
 
   protected
   
