@@ -6,12 +6,14 @@
 
   = content_section :position_landing_page
   
-  %ul#all-positions
+  %ol#all-positions
     -  @positions.each do |position|
       %li.position
         %span.team-name #{position.team.name}:
         = link_to position.title, position
-        %p.position-description= position.short_description
+        = position_expiry_time(position)
+        %p.position-description
+          = position.short_description
         .position-tags
           - if position.paid?
             %span.tag.paid Paid

@@ -2,11 +2,9 @@
   %h1
     = link_to "#{@team.name}:", @team.website_url, :class => 'team-name', :target => '_blank'
     %span.position-name= @position.title
+    = position_expiry_time @position
   
-  %p.quick-links
-    = link_to 'Apply for this position', [@position, :position_applications], :method => :post
-    or
-    = link_to 'View as a PDF', position_path(@position, :format => 'pdf')
+  = partial 'quick_links'
   
   %p#short-description= @position.short_description
     
@@ -55,7 +53,4 @@
     Apply online at #{request.host}
 
   %h2.no-print Interested?
-  %p.quick-links
-    = link_to 'Apply for this position', [@position, :position_applications], :method => :post
-    or
-    = link_to 'View as a PDF', position_path(@position, :format => 'pdf')
+  = partial 'quick_links'

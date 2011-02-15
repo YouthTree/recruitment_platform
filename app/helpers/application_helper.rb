@@ -37,6 +37,12 @@ module ApplicationHelper
       mail_to address, nil, options
     end
   end
+  
+  def position_expiry_time(position)
+    return if position.expires_at.blank?
+    time = distance_of_time_in_words position.expires_at, Time.now
+    content_tag :span, tu(:position_expiry, :distance => time), :class => 'position-expires-in'
+  end
 
   protected
 
