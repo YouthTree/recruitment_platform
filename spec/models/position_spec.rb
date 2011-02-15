@@ -85,7 +85,6 @@ describe Position do
       position.minimum_hours = 11
       position.maximum_hours = 10
       position.should_not be_valid
-      p position.errors.full_messages
       position.maximum_hours = 12
       position.should be_valid
       position.maximum_hours = 11

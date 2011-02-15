@@ -20,7 +20,7 @@
   = form.input :duration, :label => 'Position Duration', :hint => 'e.g. 6 months, 1 year, indefinite'
   - hour_options = (1..40).map { |i| [pluralize(i, "hour"), i] }
   = form.input :minimum_hours, :label => "Minimum Hours per Week", :as => :select, :collection => hour_options
-  = form.input :maximum_hours, :label => "Minimum Hours per Week", :as => :select, :collection => hour_options
+  = form.input :maximum_hours, :label => "Maximum Hours per Week", :as => :select, :collection => hour_options
   = form.input :time_commitment_flexibility, :label => 'Flexibility', :hint => 'e.g. Business hours, after hours, whenever you can'
 
 = form.inputs 'Paid Positions' do
