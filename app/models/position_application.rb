@@ -36,6 +36,7 @@ class PositionApplication < ActiveRecord::Base
   before_save      :generate_searchable_identifier
   after_update     :send_saved_email, :if => :should_send_saved_email?
   after_save       :update_parent_count
+  after_destroy    :update_parent_count
 
   scope :submitted, where(:state => 'submitted')
   scope :created,   where(:state => 'created')

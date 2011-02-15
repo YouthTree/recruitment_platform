@@ -503,6 +503,7 @@ describe Position do
   end
 
   context 'ordering' do
+    
     before :each do
       @first = Position.make! :title => 'I am Spartacus', :order_position => 0
       @last = Position.make! :title => 'No, I am Spartacus', :order_position => 1
@@ -516,6 +517,43 @@ describe Position do
       Position.update_order([@last.id, @first.id])
       Position.in_order.all.should == [@last, @first]
     end
+    
+  end
+  
+  context 'position applications' do
+    
+    subject { Position.make }
+    
+    it 'should have a cached count of submitted applications' do
+      subject.should respond_to(:submitted_applications_count)
+      subject.submitted_applications_count.should == 0
+    end
+    
+    it 'should not update the count when a non-submitted application is created' do
+      expect do
+        app = PositionApplication.make! :position => subject
+        subject.reload
+      end.to_not change(subject, :submitted_applications_count)
+    end
+    
+    it 'should update the count when an application is submitted' do
+      expect do
+        app = PositionApplication.make! :position => subject
+        app.submit!
+        subject.reload
+      end.to change(subject, :submitted_applications_count).by(1)
+    end
+    
+    it 'should update the count when an application is removed' do
+      app = PositionApplication.make! :position => subject
+      app.submit!
+      subject.reload
+      expect do
+        app.destroy
+        subject.reload
+      end.to change(subject, :submitted_applications_count).by(-1)
+    end
+    
   end
 
 end
