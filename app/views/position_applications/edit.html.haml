@@ -14,7 +14,7 @@
       = form.fields_for :answers, @position_application.answers do |af|
         = af.inputs 'Application Questions' do
           - af.object.each_question do |question, name|
-            = af.input name, af.object.to_formtastic_options(question)
+            = af.input name, auto_link_options(af.object.to_formtastic_options(question), :hint, :label)
 
     = form.buttons do
       %li.commit

@@ -43,6 +43,15 @@ module ApplicationHelper
     time = distance_of_time_in_words position.expires_at, Time.now
     content_tag :span, tu(:position_expiry, :distance => time), :class => 'position-expires-in'
   end
+  
+  def auto_link_options(options, *autolink_fields)
+    new_options = options.dup
+    autolink_fields.each do |field|
+      next unless new_options.has_key?(field)
+      new_options[field] = auto_link(new_options[field].to_s)
+    end
+    new_options
+  end
 
   protected
 

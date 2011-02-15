@@ -29,4 +29,4 @@ en:
         other: "%{count} hours"
       hour_range: "%{min} to %{max} hours"
       none: "Currently unknown"
-    position_expiry: "(%{distance} days left to apply)"
+    position_expiry: "(%{distance} left to apply)"
