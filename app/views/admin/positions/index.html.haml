@@ -29,6 +29,7 @@
     %ol
       - collection.each do |r|
         %li.ui-state-default{"data-position-id" => r.id}
+          %span.ui-icon.ui-icon-grip-dotted-vertical
           = hidden_field_tag "position_ids[]", r.id, :id => nil
           = r.title
     = submit_tag "Save Order"
