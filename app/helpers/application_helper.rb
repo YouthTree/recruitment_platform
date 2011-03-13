@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def ie_html(attrs={}, &block)
     name = :html
     attrs.symbolize_keys!
@@ -13,11 +13,11 @@ module ApplicationHelper
       block.call
     end
   end
-  
+
   def css_class(klass, options)
     options.merge :class => [options[:class], klass].join(' ').strip
   end
-  
+
   def render_nested_form(form, association, partial_name)
     object = form.object
     child = object.class.reflect_on_association(association).klass.new
@@ -25,11 +25,11 @@ module ApplicationHelper
       render :partial => partial_name, :object => child_form
     end
   end
-  
+
   def from_radiant(name)
     RadiantContent[name]
   end
-  
+
   def email_for(position, options = {})
     email_address = position.contact_emails.first
     if email_address.present?
@@ -37,13 +37,13 @@ module ApplicationHelper
       mail_to address, nil, options
     end
   end
-  
+
   def position_expiry_time(position)
     return if position.expires_at.blank?
     time = distance_of_time_in_words position.expires_at, Time.now
-    content_tag :span, tu(:position_expiry, :distance => time), :class => 'position-expires-in'
+    content_tag :span, tu(:position_expiry, :distance => time), :class => 'expiry-time tag'
   end
-  
+
   def auto_link_options(options, *autolink_fields)
     new_options = options.dup
     autolink_fields.each do |field|
@@ -58,7 +58,7 @@ module ApplicationHelper
   def normalized_content_scope(key, scope = nil)
     (Array(scope) + key.to_s.split(".")).flatten.join(".")
   end
-  
+
   def options_with_class_merged(o, n)
     css_klass = [o[:class], n[:class]].join(" ").strip.squeeze(" ")
     o.merge(n).merge(:class => css_klass)

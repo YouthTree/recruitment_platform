@@ -2,17 +2,16 @@
   %h1
     = link_to "#{@team.name}:", @team.website_url, :class => 'team-name', :target => '_blank'
     %span.position-name= @position.title
-    = position_expiry_time @position
-  
+
   = partial 'quick_links'
-  
+
   %p#short-description= @position.short_description
-    
+
 
   %section#position-general-description
-    %h2 About this Position    
+    %h2 About this Position
     .embedded-content= @position.general_description_as_html
-    
+
     %section#position-details
       %dl
         %dt Contact email:
@@ -39,7 +38,7 @@
             = @position.paid_description_as_html
           - else
             %p This is a volunteer position.
-    
+
 
   %section#position-position-description
     %h2 What would I be doing?
@@ -48,9 +47,11 @@
   %section#position-applicant-description
     %h2 Who should apply?
     .embedded-content= @position.applicant_description_as_html
-    
+
   %p#view-online.print-only
     Apply online at #{request.host}
+    - if @position.expires_at.present?
+      \- Applications close #{l @position.expires_at, :format => :long}
 
   %h2.no-print Interested?
   = partial 'quick_links'
