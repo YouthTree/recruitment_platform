@@ -261,14 +261,12 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.23)
+    tzinfo (0.3.24)
     unicorn (3.3.0)
       kgio (~> 2.1)
       rack
     uuid (2.3.1)
       macaddr (~> 1.0)
-    validates_url_format_of (0.1.0)
-      activerecord (>= 2.3.4)
     validation_reflection (1.0.0)
     warden (1.0.3)
       rack (>= 1.0.0)
@@ -353,7 +351,6 @@ DEPENDENCIES
   title_estuary!
   unicorn
   uuid
-  validates_url_format_of
   validation_reflection
   will_paginate (~> 3.0.pre2)!
   ydd

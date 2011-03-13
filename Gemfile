@@ -43,8 +43,6 @@ gem 'jammit'
 
 gem 'carrierwave'
 
-gem 'validates_url_format_of'
-
 gem 'devise'
 gem 'devise_imapable', :git => gh('YouthTree', 'devise_imapable')
 
