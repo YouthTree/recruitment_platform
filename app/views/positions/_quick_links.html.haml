@@ -1,5 +1,6 @@
 %p.quick-links
   = link_to 'Apply for this position', [@position, :position_applications], :method => :post
-  = position_expiry_time @position
   or
   = link_to 'View as a PDF', position_path(@position, :format => 'pdf')
+
+  %span.position-expiry-time #{position_expiry_time @position} until this position expires.
