@@ -90,6 +90,7 @@ group :test do
   gem 'syntax', :require => nil
   gem 'email_spec'
   gem 'fuubar'
+  gem 'ci_reporter', '~> 1.6.3', :require => nil
 end
 
 group :test_mac do
