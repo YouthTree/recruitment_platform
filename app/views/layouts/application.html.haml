@@ -8,8 +8,10 @@
     = meta_content :description
     %title= page_title
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
-    %link{:rel => 'image_src', :href => '/images/youthtree/facebook-logo.png'}
+    %link{:rel => 'image_src', :href => '/images/useful/facebook-logo.png'}
     = javascript_include_tag 'vendor/modernizr'
+    %link{:type => "text/css", :href => "http://fonts.googleapis.com/css?family=Enriqueta:400,700", :rel => 'stylesheet'}
+    %link{:type => "text/css", :href => "http://fonts.googleapis.com/css?family=Terminal+Dosis:400,700", :rel => 'stylesheet'}
     = include_stylesheets(:base, :media => 'screen, projection')
     = include_stylesheets(:base_print, :media => 'print')
     = csrf_meta_tag
@@ -20,7 +22,6 @@
     #container
       = flash_messages :alert, :notice
       %section#content= yield
-      %footer#page-footer= from_radiant :footer
       / JS at the bottom for speedy load times
       = include_javascripts :base
       /[if IE 6]
