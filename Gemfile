@@ -49,6 +49,8 @@ gem 'pdfkit', '~> 0.5.0'
 
 gem 'acts_as_indexed', '~> 0.7.1'
 
+gem 'nokogiri', '~> 1.5.0'
+
 gem 'fastercsv'
 
 gem 'state_machine'
