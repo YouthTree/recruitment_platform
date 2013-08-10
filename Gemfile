@@ -4,7 +4,7 @@ def gh(user, repo)
   "git://github.com/#{user}/#{repo}.git"
 end
 
-gem 'rails', '3.0.3'
+gem 'rails', '~> 3.0.3'
 gem 'pg'
 gem 'json'
 
@@ -33,7 +33,6 @@ gem 'bhm-admin', '~> 0.3.4'
 
 gem 'will_paginate', '~> 3.0.pre2', :git => gh('mislav', 'will_paginate'), :branch => 'rails3'
 
-gem 'therubyracer'
 gem 'barista',           '>= 0.7.0.pre2'
 gem 'shuriken',          '~> 0.2'
 gem 'youthtree-js',      '~> 0.2'
@@ -63,7 +62,6 @@ gem 'meta_where'
 group :development do
   gem 'rails3-generators'
   gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil, :ref => 'for_me'
-  gem 'slurper', :require => nil
   gem 'capistrano', :require => nil
   gem 'youthtree-capistrano', :require => nil
 end
@@ -89,17 +87,10 @@ group :test do
   gem 'rspec_tag_matchers'
   gem 'syntax', :require => nil
   gem 'email_spec'
-  gem 'fuubar'
   gem 'ci_reporter', '~> 1.6.3', :require => nil
 end
 
-group :test_mac do
-  gem 'rb-fsevent', :require => false
-  gem 'growl', :require => false
-end
-
 group :staging, :production do
-  gem 'therubyracer', :require => nil
-  gem 'hoptoad_notifier'
+  # gem 'therubyracer', :require => nil
   gem 'unicorn', :require => nil
 end

@@ -95,7 +95,6 @@ GEM
       net-ssh-gateway (>= 1.0.0)
     carrierwave (0.5.2)
       activesupport (~> 3.0)
-    chalofa_ruby-progressbar (0.0.9.1)
     ci_reporter (1.6.4)
       builder (>= 2.1.2)
     closure-compiler (1.0.0)
@@ -128,11 +127,6 @@ GEM
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
-    fuubar (0.0.4)
-      chalofa_ruby-progressbar (~> 0.0.9)
-      rspec (~> 2.0)
-      rspec-instafail (~> 0.1.4)
-    growl (1.0.3)
     guard (0.3.0)
       open_gem (~> 1.4.2)
       thor (~> 0.14.6)
@@ -148,9 +142,6 @@ GEM
       railties (~> 3.0)
     has_scope (0.5.0)
     highline (1.6.1)
-    hoptoad_notifier (2.4.7)
-      activesupport
-      builder
     i18n (0.5.0)
     inherited_resources (1.2.1)
       has_scope (~> 0.5.0)
@@ -212,7 +203,6 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
-    rb-fsevent (0.4.0)
     rcov (0.9.9)
     rdiscount (1.6.8)
     remarkable (4.0.0.alpha4)
@@ -233,7 +223,6 @@ GEM
     rspec-core (2.4.0)
     rspec-expectations (2.4.0)
       diff-lcs (~> 1.1.2)
-    rspec-instafail (0.1.7)
     rspec-mocks (2.4.0)
     rspec-rails (2.4.1)
       actionpack (~> 3.0)
@@ -255,12 +244,9 @@ GEM
       activerecord (~> 3.0.0)
       activesupport (~> 3.0.0)
       uuid
-    slurper (0.4.3)
-      activeresource (>= 2.3.5)
     state_machine (0.9.4)
     stringex (1.2.0)
     syntax (1.0.0)
-    therubyracer (0.8.1)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
@@ -317,14 +303,11 @@ DEPENDENCIES
   fastercsv
   forgery
   formtastic (~> 1.2)
-  fuubar
-  growl
   guard
   guard-passenger
   guard-rspec
   haml
   haml-rails
-  hoptoad_notifier
   inherited_resources
   jammit
   json
@@ -333,9 +316,8 @@ DEPENDENCIES
   orderable
   pdfkit
   pg
-  rails (= 3.0.3)
+  rails (~> 3.0.3)
   rails3-generators
-  rb-fsevent
   rcov
   remarkable (>= 4.0.0.alpha4)
   remarkable_activerecord (>= 4.0.0.alpha4)
@@ -347,11 +329,9 @@ DEPENDENCIES
   show_for
   shuriken (~> 0.2)
   slugged
-  slurper
   state_machine
   stringex
   syntax
-  therubyracer
   title_estuary!
   unicorn
   uuid
