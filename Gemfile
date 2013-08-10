@@ -10,16 +10,16 @@ gem 'json'
 
 # General frontend
 
-gem 'haml-rails'
+gem 'haml-rails', '~> 0.3.0'
 gem 'haml'
 gem 'compass', '0.10.5'
 gem 'compass-colors'
 
 gem 'formtastic', '~> 1.2'
-gem 'validation_reflection'
+gem 'validation_reflection', '~> 1.0.0'
 gem 'title_estuary', :git => 'git://github.com/thefrontiergroup/title_estuary.git'
-gem 'inherited_resources'
-gem 'show_for'
+gem 'inherited_resources', '~> 1.2.1'
+gem 'show_for', '~> 0.2.4'
 
 gem 'uuid'
 gem 'stringex'
@@ -38,45 +38,30 @@ gem 'shuriken',          '~> 0.2'
 gem 'youthtree-js',      '~> 0.2'
 gem 'youthtree-helpers', '~> 0.2'
 
-gem 'jammit'
+gem 'jammit', '~> 0.6.0'
 
-gem 'carrierwave'
-
-gem 'devise'
-gem 'devise_imapable', :git => gh('YouthTree', 'devise_imapable')
+gem 'devise', '~> 1.1.8'
+gem 'devise_imapable', '~> 0.5.1', :git => gh('YouthTree', 'devise_imapable')
 
 gem 'awesome_print'
 
-gem 'pdfkit'
+gem 'pdfkit', '~> 0.5.0'
 
-gem 'acts_as_indexed'
+gem 'acts_as_indexed', '~> 0.7.1'
 
 gem 'fastercsv'
 
 gem 'state_machine'
 
-gem 'ydd', :require => nil
-
-gem 'meta_where'
-
-group :development do
-  gem 'rails3-generators'
-  gem 'annotate', :git => gh('miyucy', 'annotate_models'), :require => nil, :ref => 'for_me'
-  gem 'capistrano', :require => nil
-  gem 'youthtree-capistrano', :require => nil
-end
+gem 'meta_where', '~> 1.0.4'
 
 group :test, :development do
   gem 'rspec',       '~> 2.1'
   gem 'rspec-rails', '~> 2.1'
   gem 'machinist',   '>= 2.0.0.beta2', :require => 'machinist/active_record'
   gem 'forgery',                       :require => 'forgery'
-  # Guard basics
-  gem 'guard', :require => nil
-  gem 'guard-rspec', :require => nil
-  gem 'guard-passenger', :require => nil
-  gem 'ruby-debug'
   gem 'dataset', :git => 'git://github.com/radiant/dataset.git'
+  gem 'ruby-debug'
 end
 
 group :test do
